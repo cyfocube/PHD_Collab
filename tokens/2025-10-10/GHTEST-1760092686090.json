@@ -1,0 +1,34 @@
+{
+  "userInputs": {
+    "tokenName": "GitHub Test Token",
+    "tokenSymbol": "GHTEST",
+    "initialSupply": "1000000",
+    "walletAddress": "0x1234567890abcdef",
+    "tokenImage": null,
+    "socialMedia": {
+      "twitter": "@githubtest",
+      "website": "https://githubtest.com",
+      "telegram": "@githubtest"
+    }
+  },
+  "deploymentResults": {
+    "contractAddress": "0xabcdef1234567890",
+    "transactionHash": "0x9876543210fedcba",
+    "explorerUrl": "https://testnet.bscscan.com/tx/0x9876543210fedcba",
+    "deploymentInfo": {
+      "tokenName": "GitHub Test Token",
+      "tokenSymbol": "GHTEST",
+      "initialSupply": 1000000,
+      "decimals": 18,
+      "ownerAddress": "0x1234567890abcdef",
+      "network": "BSC Testnet",
+      "chainId": 97,
+      "deployedAt": "2025-10-10T10:40:00Z"
+    }
+  },
+  "metadata": {
+    "createdAt": "2025-10-10T10:38:06.090Z",
+    "timestamp": 1760092686090,
+    "version": "1.0"
+  }
+}
