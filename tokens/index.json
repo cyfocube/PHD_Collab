@@ -12,5 +12,12 @@
     "contractAddress": "0xabcdef1234567890",
     "createdAt": "2025-10-10T10:38:06.090Z",
     "fileName": "tokens/2025-10-10/GHTEST-1760092686090.json"
+  },
+  {
+    "tokenName": "jasd",
+    "tokenSymbol": "jasd",
+    "contractAddress": "0x99f67B7D92e278f6FE11e0D987c220355B2F015e",
+    "createdAt": "2025-10-10T10:42:05.340Z",
+    "fileName": "tokens/2025-10-10/jasd-1760092925340.json"
   }
 ]
