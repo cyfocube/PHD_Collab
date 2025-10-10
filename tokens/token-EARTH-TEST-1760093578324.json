@@ -1,0 +1,25 @@
+{
+  "name": "Earth Token Test",
+  "symbol": "EARTH",
+  "totalSupply": "1000000",
+  "decimals": "18",
+  "description": "Test deployment with real GitHub upload using earth.png",
+  "contractAddress": "0x1234567890123456789012345678901234567890",
+  "transactionHash": "0xabcdef1234567890abcdef1234567890abcdef1234567890abcdef1234567890",
+  "explorerUrl": "https://etherscan.io/tx/0xabcdef1234567890abcdef1234567890abcdef1234567890abcdef1234567890",
+  "image": {
+    "fileName": "EARTH-TEST-1760093578324.png",
+    "url": "https://raw.githubusercontent.com/cyfocube/C_DataBase/main/images/EARTH-TEST-1760093578324.png",
+    "githubPath": "images/EARTH-TEST-1760093578324.png",
+    "uploadedAt": "2025-10-10T10:52:59.063Z",
+    "size": 142024,
+    "mimeType": "image/png"
+  },
+  "deploymentInfo": {
+    "network": "ethereum",
+    "gasUsed": "2100000",
+    "gasPrice": "20 gwei",
+    "timestamp": "2025-10-10T10:52:59.070Z",
+    "testUpload": true
+  }
+}
