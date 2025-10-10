@@ -1,0 +1,39 @@
+{
+  "tokenName": "Test Token",
+  "tokenSymbol": "TEST",
+  "initialSupply": "1000000",
+  "decimals": "18",
+  "walletAddress": "0x1234567890abcdef",
+  "twitter": "@test",
+  "website": "https://test.com",
+  "telegram": "@test",
+  "contractAddress": "0xabcdef1234567890",
+  "transactionHash": "0x9876543210fedcba",
+  "explorerUrl": "https://testnet.bscscan.com/tx/0x9876543210fedcba",
+  "deploymentInfo": {
+    "tokenName": "Test Token",
+    "tokenSymbol": "TEST",
+    "initialSupply": 1000000,
+    "decimals": 18,
+    "ownerAddress": "0x1234567890abcdef",
+    "network": "BSC Testnet",
+    "chainId": 97,
+    "deployedAt": "2025-01-10T15:30:00Z"
+  },
+  "image": {
+    "fileName": "abcdef1234567890.png",
+    "url": "https://raw.githubusercontent.com/cyfocube/C_DataBase/main/images/abcdef1234567890.png",
+    "githubPath": "images/abcdef1234567890.png",
+    "contractAddress": "0xabcdef1234567890",
+    "uploadedAt": "2025-10-10T11:01:07.607Z",
+    "size": 142024,
+    "mimeType": "image/png"
+  },
+  "metadata": {
+    "contractAddress": "0xabcdef1234567890",
+    "hasImage": true,
+    "createdAt": "2025-10-10T11:01:07.614Z",
+    "dataFile": "abcdef1234567890.json",
+    "systemVersion": "contract-based-v1"
+  }
+}
