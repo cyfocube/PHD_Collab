@@ -1,0 +1,43 @@
+{
+  "tokenName": "Digital Peacock Token",
+  "tokenSymbol": "DP107",
+  "description": "Beauty and pride in the digital realm. This digital peacock displays its magnificent plumage of profits, attracting investors with its stunning portfolio performance.",
+  "initialSupply": "500000",
+  "decimals": "18",
+  "walletAddress": "0xFbC6543D540AAE98d2169FC81ce1A8811C7d620d",
+  "twitter": "@digitalpeacocktoken",
+  "website": "https://digitalpeacocktoken.com",
+  "telegram": "@digitalpeacockcommunity",
+  "contractAddress": "0xFbC6543D540AAE98d2169FC81ce1A8811C7d620d",
+  "transactionHash": "0x4f184f91c70d45a56bca5bd86a5a925b7032c8a4f730379f607452ef87d477cd",
+  "explorerUrl": "https://testnet.bscscan.com/tx/0x4f184f91c70d45a56bca5bd86a5a925b7032c8a4f730379f607452ef87d477cd",
+  "deploymentInfo": {
+    "tokenName": "Digital Peacock Token",
+    "tokenSymbol": "DP107",
+    "initialSupply": 500000,
+    "decimals": 18,
+    "ownerAddress": "0xFbC6543D540AAE98d2169FC81ce1A8811C7d620d",
+    "network": "BSC Testnet",
+    "chainId": 97,
+    "deployedAt": "2025-10-11T05:15:56.732Z",
+    "gasUsed": "1500000"
+  },
+  "image": {
+    "fileName": "fbc6543d540aae98d2169fc81ce1a8811c7d620d.png",
+    "url": "https://raw.githubusercontent.com/cyfocube/C_DataBase/main/images/fbc6543d540aae98d2169fc81ce1a8811c7d620d.png",
+    "githubPath": "images/fbc6543d540aae98d2169fc81ce1a8811c7d620d.png",
+    "contractAddress": "0xFbC6543D540AAE98d2169FC81ce1A8811C7d620d",
+    "uploadedAt": "2025-10-11T05:15:56.732Z",
+    "size": 14896,
+    "mimeType": "image/png",
+    "originalName": "digital_peacock.png"
+  },
+  "metadata": {
+    "contractAddress": "0xFbC6543D540AAE98d2169FC81ce1A8811C7d620d",
+    "hasImage": true,
+    "createdAt": "2025-10-11T05:15:56.732Z",
+    "dataFile": "fbc6543d540aae98d2169fc81ce1a8811c7d620d.json",
+    "systemVersion": "batch-deployment-v1",
+    "deploymentType": "real-blockchain"
+  }
+}
