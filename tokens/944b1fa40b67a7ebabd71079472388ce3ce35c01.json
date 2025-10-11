@@ -1,0 +1,43 @@
+{
+  "tokenName": "Cyber Wolf Token",
+  "tokenSymbol": "CW105",
+  "description": "Pack hunting in the crypto wilderness. This cyber wolf represents community strength and collective intelligence, leading the pack to new financial territories.",
+  "initialSupply": "10000000",
+  "decimals": "18",
+  "walletAddress": "0x944b1FA40b67A7eBAbD71079472388CE3CE35c01",
+  "twitter": "@cyberwolftoken",
+  "website": "https://cyberwolftoken.com",
+  "telegram": "@cyberwolfcommunity",
+  "contractAddress": "0x944b1FA40b67A7eBAbD71079472388CE3CE35c01",
+  "transactionHash": "0x9927e347d85e118b9559d42d8c92d24a173fbcc71472a7696711b50b8a58ee1a",
+  "explorerUrl": "https://testnet.bscscan.com/tx/0x9927e347d85e118b9559d42d8c92d24a173fbcc71472a7696711b50b8a58ee1a",
+  "deploymentInfo": {
+    "tokenName": "Cyber Wolf Token",
+    "tokenSymbol": "CW105",
+    "initialSupply": 10000000,
+    "decimals": 18,
+    "ownerAddress": "0x944b1FA40b67A7eBAbD71079472388CE3CE35c01",
+    "network": "BSC Testnet",
+    "chainId": 97,
+    "deployedAt": "2025-10-11T05:15:35.134Z",
+    "gasUsed": "1500000"
+  },
+  "image": {
+    "fileName": "944b1fa40b67a7ebabd71079472388ce3ce35c01.png",
+    "url": "https://raw.githubusercontent.com/cyfocube/C_DataBase/main/images/944b1fa40b67a7ebabd71079472388ce3ce35c01.png",
+    "githubPath": "images/944b1fa40b67a7ebabd71079472388ce3ce35c01.png",
+    "contractAddress": "0x944b1FA40b67A7eBAbD71079472388CE3CE35c01",
+    "uploadedAt": "2025-10-11T05:15:35.134Z",
+    "size": 12645,
+    "mimeType": "image/png",
+    "originalName": "cyber_wolf.png"
+  },
+  "metadata": {
+    "contractAddress": "0x944b1FA40b67A7eBAbD71079472388CE3CE35c01",
+    "hasImage": true,
+    "createdAt": "2025-10-11T05:15:35.134Z",
+    "dataFile": "944b1fa40b67a7ebabd71079472388ce3ce35c01.json",
+    "systemVersion": "batch-deployment-v1",
+    "deploymentType": "real-blockchain"
+  }
+}
