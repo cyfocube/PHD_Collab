@@ -1,0 +1,24 @@
+{
+  "tokenName": "Database Test Token",
+  "tokenSymbol": "DBT",
+  "contractAddress": "0xabcdef1234567890abcdef1234567890abcdef12",
+  "description": "This token tests the database save functionality for launched tokens",
+  "initialSupply": "1000000",
+  "twitter": "https://twitter.com/databasetest",
+  "website": "https://databasetest.com",
+  "telegram": "https://t.me/databasetest",
+  "transactionHash": "0xtest456789",
+  "explorerUrl": "https://bscscan.com/tx/0xtest456789",
+  "deploymentInfo": {
+    "deployedAt": "2025-10-11T06:08:09.763Z",
+    "network": "BSC Testnet",
+    "gasUsed": "2500000"
+  },
+  "metadata": {
+    "contractAddress": "0xabcdef1234567890abcdef1234567890abcdef12",
+    "hasImage": false,
+    "imageUrl": null,
+    "createdAt": "2025-10-11T06:08:09.766Z",
+    "dataFile": "abcdef1234567890abcdef1234567890abcdef12.json"
+  }
+}
