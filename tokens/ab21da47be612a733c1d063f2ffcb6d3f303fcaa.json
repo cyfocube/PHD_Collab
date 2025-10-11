@@ -1,0 +1,42 @@
+{
+  "tokenName": "Cyber Wolf Token",
+  "tokenSymbol": "CW105",
+  "initialSupply": "10000000",
+  "decimals": "18",
+  "walletAddress": "0xAb21Da47BE612A733C1d063F2fFCb6d3F303fCaA",
+  "twitter": "@cyberwolftoken",
+  "website": "https://cyberwolftoken.com",
+  "telegram": "@cyberwolfcommunity",
+  "contractAddress": "0xAb21Da47BE612A733C1d063F2fFCb6d3F303fCaA",
+  "transactionHash": "0x441817a3acab499583889cda0af5692821773ce1ec6771118602a9b7dfa13226",
+  "explorerUrl": "https://testnet.bscscan.com/tx/0x441817a3acab499583889cda0af5692821773ce1ec6771118602a9b7dfa13226",
+  "deploymentInfo": {
+    "tokenName": "Cyber Wolf Token",
+    "tokenSymbol": "CW105",
+    "initialSupply": 10000000,
+    "decimals": 18,
+    "ownerAddress": "0xAb21Da47BE612A733C1d063F2fFCb6d3F303fCaA",
+    "network": "BSC Testnet",
+    "chainId": 97,
+    "deployedAt": "2025-10-11T04:32:08.999Z",
+    "gasUsed": "1500000"
+  },
+  "image": {
+    "fileName": "ab21da47be612a733c1d063f2ffcb6d3f303fcaa.png",
+    "url": "https://raw.githubusercontent.com/cyfocube/C_DataBase/main/images/ab21da47be612a733c1d063f2ffcb6d3f303fcaa.png",
+    "githubPath": "images/ab21da47be612a733c1d063f2ffcb6d3f303fcaa.png",
+    "contractAddress": "0xAb21Da47BE612A733C1d063F2fFCb6d3F303fCaA",
+    "uploadedAt": "2025-10-11T04:32:08.999Z",
+    "size": 12645,
+    "mimeType": "image/png",
+    "originalName": "cyber_wolf.png"
+  },
+  "metadata": {
+    "contractAddress": "0xAb21Da47BE612A733C1d063F2fFCb6d3F303fCaA",
+    "hasImage": true,
+    "createdAt": "2025-10-11T04:32:08.999Z",
+    "dataFile": "ab21da47be612a733c1d063f2ffcb6d3f303fcaa.json",
+    "systemVersion": "batch-deployment-v1",
+    "deploymentType": "real-blockchain"
+  }
+}
