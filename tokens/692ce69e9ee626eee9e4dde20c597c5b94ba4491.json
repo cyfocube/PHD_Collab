@@ -1,0 +1,40 @@
+{
+  "tokenName": "LJKUBE",
+  "tokenSymbol": "LJKUBE",
+  "description": "Never forget your keys with this digital elephant. Known for their incredible memory and wisdom, this token helps investors remember the fundamentals of long-term holding.",
+  "initialSupply": "99997",
+  "walletAddress": "0x519Aed31035cF4cdfd06AeFc586A3bE081E999CC",
+  "twitter": "www.twitter.com/ljcube",
+  "website": "www.twitter.com/ljcube",
+  "telegram": "www.twitter.com/ljcube",
+  "contractAddress": "0x692cE69E9EE626eee9e4dDE20C597C5b94BA4491",
+  "transactionHash": "0x03c2d944be4da798ac8eb42a61724b1a2f2701b3a8e81107680981e61244b6f4",
+  "explorerUrl": "https://testnet.bscscan.com/address/0x692cE69E9EE626eee9e4dDE20C597C5b94BA4491",
+  "deploymentInfo": {
+    "contractAddress": "0x692cE69E9EE626eee9e4dDE20C597C5b94BA4491",
+    "transactionHash": "0x03c2d944be4da798ac8eb42a61724b1a2f2701b3a8e81107680981e61244b6f4",
+    "tokenName": "LJKUBE",
+    "tokenSymbol": "LJKUBE",
+    "decimals": 18,
+    "initialSupply": "99997",
+    "ownerAddress": "0x519Aed31035cF4cdfd06AeFc586A3bE081E999CC",
+    "network": "BSC Testnet",
+    "chainId": 97,
+    "deployedAt": "2025-10-11T06:12:00.246Z",
+    "explorerUrl": "https://testnet.bscscan.com/address/0x692cE69E9EE626eee9e4dDE20C597C5b94BA4491"
+  },
+  "image": {
+    "fileName": "692ce69e9ee626eee9e4dde20c597c5b94ba4491.png",
+    "url": "https://raw.githubusercontent.com/cyfocube/C_DataBase/main/images/692ce69e9ee626eee9e4dde20c597c5b94ba4491.png",
+    "githubPath": "images/692ce69e9ee626eee9e4dde20c597c5b94ba4491.png",
+    "contractAddress": "0x692cE69E9EE626eee9e4dDE20C597C5b94BA4491",
+    "uploadedAt": "2025-10-11T06:12:01.658Z"
+  },
+  "metadata": {
+    "contractAddress": "0x692cE69E9EE626eee9e4dDE20C597C5b94BA4491",
+    "hasImage": true,
+    "imageUrl": "https://raw.githubusercontent.com/cyfocube/C_DataBase/main/images/692ce69e9ee626eee9e4dde20c597c5b94ba4491.png",
+    "createdAt": "2025-10-11T06:12:01.658Z",
+    "dataFile": "692ce69e9ee626eee9e4dde20c597c5b94ba4491.json"
+  }
+}
