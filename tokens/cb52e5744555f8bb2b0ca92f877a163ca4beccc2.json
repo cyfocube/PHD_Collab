@@ -1,0 +1,42 @@
+{
+  "tokenName": "Disco Monkey Token",
+  "tokenSymbol": "DM108",
+  "initialSupply": "1000000",
+  "decimals": "18",
+  "walletAddress": "0xCB52e5744555F8BB2b0CA92f877a163ca4BEccC2",
+  "twitter": "@discomonkeytoken",
+  "website": "https://discomonkeytoken.com",
+  "telegram": "@discomonkeycommunity",
+  "contractAddress": "0xCB52e5744555F8BB2b0CA92f877a163ca4BEccC2",
+  "transactionHash": "0xc0c830d2f879d43d4233b9b07bb7d6ec9e0efeb1f33ad2050707c775be5bee9e",
+  "explorerUrl": "https://testnet.bscscan.com/tx/0xc0c830d2f879d43d4233b9b07bb7d6ec9e0efeb1f33ad2050707c775be5bee9e",
+  "deploymentInfo": {
+    "tokenName": "Disco Monkey Token",
+    "tokenSymbol": "DM108",
+    "initialSupply": 1000000,
+    "decimals": 18,
+    "ownerAddress": "0xCB52e5744555F8BB2b0CA92f877a163ca4BEccC2",
+    "network": "BSC Testnet",
+    "chainId": 97,
+    "deployedAt": "2025-10-11T04:32:41.534Z",
+    "gasUsed": "1500000"
+  },
+  "image": {
+    "fileName": "cb52e5744555f8bb2b0ca92f877a163ca4beccc2.png",
+    "url": "https://raw.githubusercontent.com/cyfocube/C_DataBase/main/images/cb52e5744555f8bb2b0ca92f877a163ca4beccc2.png",
+    "githubPath": "images/cb52e5744555f8bb2b0ca92f877a163ca4beccc2.png",
+    "contractAddress": "0xCB52e5744555F8BB2b0CA92f877a163ca4BEccC2",
+    "uploadedAt": "2025-10-11T04:32:41.534Z",
+    "size": 68770,
+    "mimeType": "image/png",
+    "originalName": "disco_monkey.png"
+  },
+  "metadata": {
+    "contractAddress": "0xCB52e5744555F8BB2b0CA92f877a163ca4BEccC2",
+    "hasImage": true,
+    "createdAt": "2025-10-11T04:32:41.534Z",
+    "dataFile": "cb52e5744555f8bb2b0ca92f877a163ca4beccc2.json",
+    "systemVersion": "batch-deployment-v1",
+    "deploymentType": "real-blockchain"
+  }
+}
