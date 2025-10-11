@@ -1,0 +1,42 @@
+{
+  "tokenName": "Laser Shark Token",
+  "tokenSymbol": "LS113",
+  "initialSupply": "500000",
+  "decimals": "18",
+  "walletAddress": "0xddC93934309f6088C73CA6561cD618663F4bA6D0",
+  "twitter": "@lasersharktoken",
+  "website": "https://lasersharktoken.com",
+  "telegram": "@lasersharkcommunity",
+  "contractAddress": "0xddC93934309f6088C73CA6561cD618663F4bA6D0",
+  "transactionHash": "0x6e9f001e0d9e69d9a38ed8030fd445f2d6252c793d8e90b0a4345739d99c8834",
+  "explorerUrl": "https://testnet.bscscan.com/tx/0x6e9f001e0d9e69d9a38ed8030fd445f2d6252c793d8e90b0a4345739d99c8834",
+  "deploymentInfo": {
+    "tokenName": "Laser Shark Token",
+    "tokenSymbol": "LS113",
+    "initialSupply": 500000,
+    "decimals": 18,
+    "ownerAddress": "0xddC93934309f6088C73CA6561cD618663F4bA6D0",
+    "network": "BSC Testnet",
+    "chainId": 97,
+    "deployedAt": "2025-10-11T04:33:35.618Z",
+    "gasUsed": "1500000"
+  },
+  "image": {
+    "fileName": "ddc93934309f6088c73ca6561cd618663f4ba6d0.png",
+    "url": "https://raw.githubusercontent.com/cyfocube/C_DataBase/main/images/ddc93934309f6088c73ca6561cd618663f4ba6d0.png",
+    "githubPath": "images/ddc93934309f6088c73ca6561cd618663f4ba6d0.png",
+    "contractAddress": "0xddC93934309f6088C73CA6561cD618663F4bA6D0",
+    "uploadedAt": "2025-10-11T04:33:35.618Z",
+    "size": 16414,
+    "mimeType": "image/png",
+    "originalName": "laser_shark.png"
+  },
+  "metadata": {
+    "contractAddress": "0xddC93934309f6088C73CA6561cD618663F4bA6D0",
+    "hasImage": true,
+    "createdAt": "2025-10-11T04:33:35.618Z",
+    "dataFile": "ddc93934309f6088c73ca6561cd618663f4ba6d0.json",
+    "systemVersion": "batch-deployment-v1",
+    "deploymentType": "real-blockchain"
+  }
+}
