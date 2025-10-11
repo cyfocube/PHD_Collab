@@ -1,0 +1,42 @@
+{
+  "tokenName": "Glitch Rabbit Token",
+  "tokenSymbol": "GR109",
+  "initialSupply": "2000000",
+  "decimals": "18",
+  "walletAddress": "0xe3eFb2f96306C5fEfa530aD0A2303c8c8d4802Aa",
+  "twitter": "@glitchrabbittoken",
+  "website": "https://glitchrabbittoken.com",
+  "telegram": "@glitchrabbitcommunity",
+  "contractAddress": "0xe3eFb2f96306C5fEfa530aD0A2303c8c8d4802Aa",
+  "transactionHash": "0x6d5ad68ba29b204bf3985b7faf6b7a74f44f2f010b7a1b726470935e6c0d9d25",
+  "explorerUrl": "https://testnet.bscscan.com/tx/0x6d5ad68ba29b204bf3985b7faf6b7a74f44f2f010b7a1b726470935e6c0d9d25",
+  "deploymentInfo": {
+    "tokenName": "Glitch Rabbit Token",
+    "tokenSymbol": "GR109",
+    "initialSupply": 2000000,
+    "decimals": 18,
+    "ownerAddress": "0xe3eFb2f96306C5fEfa530aD0A2303c8c8d4802Aa",
+    "network": "BSC Testnet",
+    "chainId": 97,
+    "deployedAt": "2025-10-11T04:32:52.182Z",
+    "gasUsed": "1500000"
+  },
+  "image": {
+    "fileName": "e3efb2f96306c5fefa530ad0a2303c8c8d4802aa.png",
+    "url": "https://raw.githubusercontent.com/cyfocube/C_DataBase/main/images/e3efb2f96306c5fefa530ad0a2303c8c8d4802aa.png",
+    "githubPath": "images/e3efb2f96306c5fefa530ad0a2303c8c8d4802aa.png",
+    "contractAddress": "0xe3eFb2f96306C5fEfa530aD0A2303c8c8d4802Aa",
+    "uploadedAt": "2025-10-11T04:32:52.182Z",
+    "size": 12061,
+    "mimeType": "image/png",
+    "originalName": "glitch_rabbit.png"
+  },
+  "metadata": {
+    "contractAddress": "0xe3eFb2f96306C5fEfa530aD0A2303c8c8d4802Aa",
+    "hasImage": true,
+    "createdAt": "2025-10-11T04:32:52.182Z",
+    "dataFile": "e3efb2f96306c5fefa530ad0a2303c8c8d4802aa.json",
+    "systemVersion": "batch-deployment-v1",
+    "deploymentType": "real-blockchain"
+  }
+}
