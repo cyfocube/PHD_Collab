@@ -1,0 +1,42 @@
+{
+  "tokenName": "Neon Fox Token",
+  "tokenSymbol": "NF116",
+  "initialSupply": "5000000",
+  "decimals": "18",
+  "walletAddress": "0xCe00b75573259eFbef38514856a6765DeCCcD429",
+  "twitter": "@neonfoxtoken",
+  "website": "https://neonfoxtoken.com",
+  "telegram": "@neonfoxcommunity",
+  "contractAddress": "0xCe00b75573259eFbef38514856a6765DeCCcD429",
+  "transactionHash": "0x4d34a3703a0934de0d727a15df77b2c65833d86df4131fe72d9cc01953235453",
+  "explorerUrl": "https://testnet.bscscan.com/tx/0x4d34a3703a0934de0d727a15df77b2c65833d86df4131fe72d9cc01953235453",
+  "deploymentInfo": {
+    "tokenName": "Neon Fox Token",
+    "tokenSymbol": "NF116",
+    "initialSupply": 5000000,
+    "decimals": 18,
+    "ownerAddress": "0xCe00b75573259eFbef38514856a6765DeCCcD429",
+    "network": "BSC Testnet",
+    "chainId": 97,
+    "deployedAt": "2025-10-11T04:34:08.639Z",
+    "gasUsed": "1500000"
+  },
+  "image": {
+    "fileName": "ce00b75573259efbef38514856a6765decccd429.png",
+    "url": "https://raw.githubusercontent.com/cyfocube/C_DataBase/main/images/ce00b75573259efbef38514856a6765decccd429.png",
+    "githubPath": "images/ce00b75573259efbef38514856a6765decccd429.png",
+    "contractAddress": "0xCe00b75573259eFbef38514856a6765DeCCcD429",
+    "uploadedAt": "2025-10-11T04:34:08.639Z",
+    "size": 32808,
+    "mimeType": "image/png",
+    "originalName": "neon_fox.png"
+  },
+  "metadata": {
+    "contractAddress": "0xCe00b75573259eFbef38514856a6765DeCCcD429",
+    "hasImage": true,
+    "createdAt": "2025-10-11T04:34:08.639Z",
+    "dataFile": "ce00b75573259efbef38514856a6765decccd429.json",
+    "systemVersion": "batch-deployment-v1",
+    "deploymentType": "real-blockchain"
+  }
+}
