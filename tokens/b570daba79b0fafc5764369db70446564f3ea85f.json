@@ -1,0 +1,43 @@
+{
+  "tokenName": "Glitch Rabbit Token",
+  "tokenSymbol": "GR109",
+  "description": "Fast as lightning, unpredictable as a glitch. This rabbit token hops between opportunities faster than the speed of light, multiplying your investments like... well, rabbits!",
+  "initialSupply": "2000000",
+  "decimals": "18",
+  "walletAddress": "0xB570dabA79b0FAfC5764369dB70446564F3ea85F",
+  "twitter": "@glitchrabbittoken",
+  "website": "https://glitchrabbittoken.com",
+  "telegram": "@glitchrabbitcommunity",
+  "contractAddress": "0xB570dabA79b0FAfC5764369dB70446564F3ea85F",
+  "transactionHash": "0xf4a7e1930ceca673e7e9e94bb786d07166a01bbe570ef87b317815a0183ddeb7",
+  "explorerUrl": "https://testnet.bscscan.com/tx/0xf4a7e1930ceca673e7e9e94bb786d07166a01bbe570ef87b317815a0183ddeb7",
+  "deploymentInfo": {
+    "tokenName": "Glitch Rabbit Token",
+    "tokenSymbol": "GR109",
+    "initialSupply": 2000000,
+    "decimals": 18,
+    "ownerAddress": "0xB570dabA79b0FAfC5764369dB70446564F3ea85F",
+    "network": "BSC Testnet",
+    "chainId": 97,
+    "deployedAt": "2025-10-11T05:16:18.501Z",
+    "gasUsed": "1500000"
+  },
+  "image": {
+    "fileName": "b570daba79b0fafc5764369db70446564f3ea85f.png",
+    "url": "https://raw.githubusercontent.com/cyfocube/C_DataBase/main/images/b570daba79b0fafc5764369db70446564f3ea85f.png",
+    "githubPath": "images/b570daba79b0fafc5764369db70446564f3ea85f.png",
+    "contractAddress": "0xB570dabA79b0FAfC5764369dB70446564F3ea85F",
+    "uploadedAt": "2025-10-11T05:16:18.501Z",
+    "size": 12061,
+    "mimeType": "image/png",
+    "originalName": "glitch_rabbit.png"
+  },
+  "metadata": {
+    "contractAddress": "0xB570dabA79b0FAfC5764369dB70446564F3ea85F",
+    "hasImage": true,
+    "createdAt": "2025-10-11T05:16:18.501Z",
+    "dataFile": "b570daba79b0fafc5764369db70446564f3ea85f.json",
+    "systemVersion": "batch-deployment-v1",
+    "deploymentType": "real-blockchain"
+  }
+}
