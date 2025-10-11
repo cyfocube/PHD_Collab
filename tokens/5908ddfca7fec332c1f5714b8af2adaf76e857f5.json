@@ -1,0 +1,43 @@
+{
+  "tokenName": "Matrix Dragon Token",
+  "tokenSymbol": "MD114",
+  "description": "Breathing fire into the matrix of traditional finance. This digital dragon hoards not gold, but tokens, building the largest treasure trove in cyberspace.",
+  "initialSupply": "1000000",
+  "decimals": "18",
+  "walletAddress": "0x5908dDFca7fec332C1f5714b8aF2aDaF76E857F5",
+  "twitter": "@matrixdragontoken",
+  "website": "https://matrixdragontoken.com",
+  "telegram": "@matrixdragoncommunity",
+  "contractAddress": "0x5908dDFca7fec332C1f5714b8aF2aDaF76E857F5",
+  "transactionHash": "0x5a4b3349dc541ed519c5d7015be30ac9877ade39aefdc698bbaeead77fb076c1",
+  "explorerUrl": "https://testnet.bscscan.com/tx/0x5a4b3349dc541ed519c5d7015be30ac9877ade39aefdc698bbaeead77fb076c1",
+  "deploymentInfo": {
+    "tokenName": "Matrix Dragon Token",
+    "tokenSymbol": "MD114",
+    "initialSupply": 1000000,
+    "decimals": 18,
+    "ownerAddress": "0x5908dDFca7fec332C1f5714b8aF2aDaF76E857F5",
+    "network": "BSC Testnet",
+    "chainId": 97,
+    "deployedAt": "2025-10-11T05:17:12.381Z",
+    "gasUsed": "1500000"
+  },
+  "image": {
+    "fileName": "5908ddfca7fec332c1f5714b8af2adaf76e857f5.png",
+    "url": "https://raw.githubusercontent.com/cyfocube/C_DataBase/main/images/5908ddfca7fec332c1f5714b8af2adaf76e857f5.png",
+    "githubPath": "images/5908ddfca7fec332c1f5714b8af2adaf76e857f5.png",
+    "contractAddress": "0x5908dDFca7fec332C1f5714b8aF2aDaF76E857F5",
+    "uploadedAt": "2025-10-11T05:17:12.381Z",
+    "size": 23362,
+    "mimeType": "image/png",
+    "originalName": "matrix_dragon.png"
+  },
+  "metadata": {
+    "contractAddress": "0x5908dDFca7fec332C1f5714b8aF2aDaF76E857F5",
+    "hasImage": true,
+    "createdAt": "2025-10-11T05:17:12.381Z",
+    "dataFile": "5908ddfca7fec332c1f5714b8af2adaf76e857f5.json",
+    "systemVersion": "batch-deployment-v1",
+    "deploymentType": "real-blockchain"
+  }
+}
