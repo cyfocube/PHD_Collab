@@ -1,0 +1,43 @@
+{
+  "tokenName": "Laser Shark Token",
+  "tokenSymbol": "LS113",
+  "description": "Cutting through market volatility with precision. This laser shark has a keen sense for profitable opportunities and strikes with surgical accuracy.",
+  "initialSupply": "500000",
+  "decimals": "18",
+  "walletAddress": "0x4AeA873dC6210B83165083a58b956a3C70dfd177",
+  "twitter": "@lasersharktoken",
+  "website": "https://lasersharktoken.com",
+  "telegram": "@lasersharkcommunity",
+  "contractAddress": "0x4AeA873dC6210B83165083a58b956a3C70dfd177",
+  "transactionHash": "0xb2fdc77d85c32dc63c1aa26557b9ca4caa045ed6c02fecc8ee4816fdd5e1c5db",
+  "explorerUrl": "https://testnet.bscscan.com/tx/0xb2fdc77d85c32dc63c1aa26557b9ca4caa045ed6c02fecc8ee4816fdd5e1c5db",
+  "deploymentInfo": {
+    "tokenName": "Laser Shark Token",
+    "tokenSymbol": "LS113",
+    "initialSupply": 500000,
+    "decimals": 18,
+    "ownerAddress": "0x4AeA873dC6210B83165083a58b956a3C70dfd177",
+    "network": "BSC Testnet",
+    "chainId": 97,
+    "deployedAt": "2025-10-11T05:17:01.610Z",
+    "gasUsed": "1500000"
+  },
+  "image": {
+    "fileName": "4aea873dc6210b83165083a58b956a3c70dfd177.png",
+    "url": "https://raw.githubusercontent.com/cyfocube/C_DataBase/main/images/4aea873dc6210b83165083a58b956a3c70dfd177.png",
+    "githubPath": "images/4aea873dc6210b83165083a58b956a3c70dfd177.png",
+    "contractAddress": "0x4AeA873dC6210B83165083a58b956a3C70dfd177",
+    "uploadedAt": "2025-10-11T05:17:01.610Z",
+    "size": 16414,
+    "mimeType": "image/png",
+    "originalName": "laser_shark.png"
+  },
+  "metadata": {
+    "contractAddress": "0x4AeA873dC6210B83165083a58b956a3C70dfd177",
+    "hasImage": true,
+    "createdAt": "2025-10-11T05:17:01.610Z",
+    "dataFile": "4aea873dc6210b83165083a58b956a3c70dfd177.json",
+    "systemVersion": "batch-deployment-v1",
+    "deploymentType": "real-blockchain"
+  }
+}
