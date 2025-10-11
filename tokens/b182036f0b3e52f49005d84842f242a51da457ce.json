@@ -1,0 +1,42 @@
+{
+  "tokenName": "Plasma Penguin Token",
+  "tokenSymbol": "PP119",
+  "initialSupply": "500000",
+  "decimals": "18",
+  "walletAddress": "0xb182036f0B3E52f49005D84842f242A51DA457cE",
+  "twitter": "@plasmapenguintoken",
+  "website": "https://plasmapenguintoken.com",
+  "telegram": "@plasmapenguincommunity",
+  "contractAddress": "0xb182036f0B3E52f49005D84842f242A51DA457cE",
+  "transactionHash": "0x25324e7dcc22afef7d2eb765b8360c0a9137e5932b25997bd464c2db9b7b2af7",
+  "explorerUrl": "https://testnet.bscscan.com/tx/0x25324e7dcc22afef7d2eb765b8360c0a9137e5932b25997bd464c2db9b7b2af7",
+  "deploymentInfo": {
+    "tokenName": "Plasma Penguin Token",
+    "tokenSymbol": "PP119",
+    "initialSupply": 500000,
+    "decimals": 18,
+    "ownerAddress": "0xb182036f0B3E52f49005D84842f242A51DA457cE",
+    "network": "BSC Testnet",
+    "chainId": 97,
+    "deployedAt": "2025-10-11T04:34:41.203Z",
+    "gasUsed": "1500000"
+  },
+  "image": {
+    "fileName": "b182036f0b3e52f49005d84842f242a51da457ce.png",
+    "url": "https://raw.githubusercontent.com/cyfocube/C_DataBase/main/images/b182036f0b3e52f49005d84842f242a51da457ce.png",
+    "githubPath": "images/b182036f0b3e52f49005d84842f242a51da457ce.png",
+    "contractAddress": "0xb182036f0B3E52f49005D84842f242A51DA457cE",
+    "uploadedAt": "2025-10-11T04:34:41.203Z",
+    "size": 58332,
+    "mimeType": "image/png",
+    "originalName": "plasma_penguin.png"
+  },
+  "metadata": {
+    "contractAddress": "0xb182036f0B3E52f49005D84842f242A51DA457cE",
+    "hasImage": true,
+    "createdAt": "2025-10-11T04:34:41.203Z",
+    "dataFile": "b182036f0b3e52f49005d84842f242a51da457ce.json",
+    "systemVersion": "batch-deployment-v1",
+    "deploymentType": "real-blockchain"
+  }
+}
