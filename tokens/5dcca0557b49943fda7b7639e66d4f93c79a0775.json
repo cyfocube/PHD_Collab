@@ -1,0 +1,42 @@
+{
+  "tokenName": "Pixel Panda Token",
+  "tokenSymbol": "PP118",
+  "initialSupply": "100000",
+  "decimals": "18",
+  "walletAddress": "0x5DcCa0557B49943fdA7b7639E66d4F93c79A0775",
+  "twitter": "@pixelpandatoken",
+  "website": "https://pixelpandatoken.com",
+  "telegram": "@pixelpandacommunity",
+  "contractAddress": "0x5DcCa0557B49943fdA7b7639E66d4F93c79A0775",
+  "transactionHash": "0x4ccc78586050ccc87cdc388f83ccbe6858128733e5aadc35321c3f5f1f80db50",
+  "explorerUrl": "https://testnet.bscscan.com/tx/0x4ccc78586050ccc87cdc388f83ccbe6858128733e5aadc35321c3f5f1f80db50",
+  "deploymentInfo": {
+    "tokenName": "Pixel Panda Token",
+    "tokenSymbol": "PP118",
+    "initialSupply": 100000,
+    "decimals": 18,
+    "ownerAddress": "0x5DcCa0557B49943fdA7b7639E66d4F93c79A0775",
+    "network": "BSC Testnet",
+    "chainId": 97,
+    "deployedAt": "2025-10-11T04:34:29.993Z",
+    "gasUsed": "1500000"
+  },
+  "image": {
+    "fileName": "5dcca0557b49943fda7b7639e66d4f93c79a0775.png",
+    "url": "https://raw.githubusercontent.com/cyfocube/C_DataBase/main/images/5dcca0557b49943fda7b7639e66d4f93c79a0775.png",
+    "githubPath": "images/5dcca0557b49943fda7b7639e66d4f93c79a0775.png",
+    "contractAddress": "0x5DcCa0557B49943fdA7b7639E66d4F93c79A0775",
+    "uploadedAt": "2025-10-11T04:34:29.994Z",
+    "size": 8378,
+    "mimeType": "image/png",
+    "originalName": "pixel_panda.png"
+  },
+  "metadata": {
+    "contractAddress": "0x5DcCa0557B49943fdA7b7639E66d4F93c79A0775",
+    "hasImage": true,
+    "createdAt": "2025-10-11T04:34:29.994Z",
+    "dataFile": "5dcca0557b49943fda7b7639e66d4f93c79a0775.json",
+    "systemVersion": "batch-deployment-v1",
+    "deploymentType": "real-blockchain"
+  }
+}
