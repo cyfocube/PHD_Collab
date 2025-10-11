@@ -1,0 +1,43 @@
+{
+  "tokenName": "Space Cat Token",
+  "tokenSymbol": "SC121",
+  "description": "Curiosity that reaches beyond the stars. This space cat explores new galaxies of opportunity, landing on moons and discovering alien profits.",
+  "initialSupply": "2000000",
+  "decimals": "18",
+  "walletAddress": "0x1bac218E0E49BABe44Aa87A5ab8c40A3A1234Bb2",
+  "twitter": "@spacecattoken",
+  "website": "https://spacecattoken.com",
+  "telegram": "@spacecatcommunity",
+  "contractAddress": "0x1bac218E0E49BABe44Aa87A5ab8c40A3A1234Bb2",
+  "transactionHash": "0x6a63c62aecdf7ffa48f7e5e0b0c6354f1cfc14481f79046139df5e4ebd491f88",
+  "explorerUrl": "https://testnet.bscscan.com/tx/0x6a63c62aecdf7ffa48f7e5e0b0c6354f1cfc14481f79046139df5e4ebd491f88",
+  "deploymentInfo": {
+    "tokenName": "Space Cat Token",
+    "tokenSymbol": "SC121",
+    "initialSupply": 2000000,
+    "decimals": 18,
+    "ownerAddress": "0x1bac218E0E49BABe44Aa87A5ab8c40A3A1234Bb2",
+    "network": "BSC Testnet",
+    "chainId": 97,
+    "deployedAt": "2025-10-11T05:18:28.074Z",
+    "gasUsed": "1500000"
+  },
+  "image": {
+    "fileName": "1bac218e0e49babe44aa87a5ab8c40a3a1234bb2.png",
+    "url": "https://raw.githubusercontent.com/cyfocube/C_DataBase/main/images/1bac218e0e49babe44aa87a5ab8c40a3a1234bb2.png",
+    "githubPath": "images/1bac218e0e49babe44aa87a5ab8c40a3a1234bb2.png",
+    "contractAddress": "0x1bac218E0E49BABe44Aa87A5ab8c40A3A1234Bb2",
+    "uploadedAt": "2025-10-11T05:18:28.074Z",
+    "size": 76899,
+    "mimeType": "image/png",
+    "originalName": "space_cat.png"
+  },
+  "metadata": {
+    "contractAddress": "0x1bac218E0E49BABe44Aa87A5ab8c40A3A1234Bb2",
+    "hasImage": true,
+    "createdAt": "2025-10-11T05:18:28.074Z",
+    "dataFile": "1bac218e0e49babe44aa87a5ab8c40a3a1234bb2.json",
+    "systemVersion": "batch-deployment-v1",
+    "deploymentType": "real-blockchain"
+  }
+}
