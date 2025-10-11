@@ -1,0 +1,42 @@
+{
+  "tokenName": "Cosmic Tiger Token",
+  "tokenSymbol": "CT100",
+  "initialSupply": "100000",
+  "decimals": "18",
+  "walletAddress": "0x720193d5c6544f3065b16ebebBDd3fb9c81A562c",
+  "twitter": "@cosmictigertoken",
+  "website": "https://cosmictigertoken.com",
+  "telegram": "@cosmictigercommunity",
+  "contractAddress": "0x720193d5c6544f3065b16ebebBDd3fb9c81A562c",
+  "transactionHash": "0x97f6804bc9523450437df691ae233af5790f5e3449fd8cd7221733178b103bdf",
+  "explorerUrl": "https://testnet.bscscan.com/tx/0x97f6804bc9523450437df691ae233af5790f5e3449fd8cd7221733178b103bdf",
+  "deploymentInfo": {
+    "tokenName": "Cosmic Tiger Token",
+    "tokenSymbol": "CT100",
+    "initialSupply": 100000,
+    "decimals": 18,
+    "ownerAddress": "0x720193d5c6544f3065b16ebebBDd3fb9c81A562c",
+    "network": "BSC Testnet",
+    "chainId": 97,
+    "deployedAt": "2025-10-11T04:31:14.906Z",
+    "gasUsed": "1500000"
+  },
+  "image": {
+    "fileName": "720193d5c6544f3065b16ebebbdd3fb9c81a562c.png",
+    "url": "https://raw.githubusercontent.com/cyfocube/C_DataBase/main/images/720193d5c6544f3065b16ebebbdd3fb9c81a562c.png",
+    "githubPath": "images/720193d5c6544f3065b16ebebbdd3fb9c81a562c.png",
+    "contractAddress": "0x720193d5c6544f3065b16ebebBDd3fb9c81A562c",
+    "uploadedAt": "2025-10-11T04:31:14.912Z",
+    "size": 17509,
+    "mimeType": "image/png",
+    "originalName": "cosmic_tiger.png"
+  },
+  "metadata": {
+    "contractAddress": "0x720193d5c6544f3065b16ebebBDd3fb9c81A562c",
+    "hasImage": true,
+    "createdAt": "2025-10-11T04:31:14.912Z",
+    "dataFile": "720193d5c6544f3065b16ebebbdd3fb9c81a562c.json",
+    "systemVersion": "batch-deployment-v1",
+    "deploymentType": "real-blockchain"
+  }
+}
