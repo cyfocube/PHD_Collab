@@ -1,0 +1,42 @@
+{
+  "tokenName": "Rainbow Unicorn Token",
+  "tokenSymbol": "RU120",
+  "initialSupply": "1000000",
+  "decimals": "18",
+  "walletAddress": "0x9A663901e86Da27CcaEa52A41C398074B27D8aB0",
+  "twitter": "@rainbowunicorntoken",
+  "website": "https://rainbowunicorntoken.com",
+  "telegram": "@rainbowunicorncommunity",
+  "contractAddress": "0x9A663901e86Da27CcaEa52A41C398074B27D8aB0",
+  "transactionHash": "0x41123764a5c962fbc8a579511383090caef577e2f33690fdea0c473c8f7da3ff",
+  "explorerUrl": "https://testnet.bscscan.com/tx/0x41123764a5c962fbc8a579511383090caef577e2f33690fdea0c473c8f7da3ff",
+  "deploymentInfo": {
+    "tokenName": "Rainbow Unicorn Token",
+    "tokenSymbol": "RU120",
+    "initialSupply": 1000000,
+    "decimals": 18,
+    "ownerAddress": "0x9A663901e86Da27CcaEa52A41C398074B27D8aB0",
+    "network": "BSC Testnet",
+    "chainId": 97,
+    "deployedAt": "2025-10-11T04:34:52.144Z",
+    "gasUsed": "1500000"
+  },
+  "image": {
+    "fileName": "9a663901e86da27ccaea52a41c398074b27d8ab0.png",
+    "url": "https://raw.githubusercontent.com/cyfocube/C_DataBase/main/images/9a663901e86da27ccaea52a41c398074b27d8ab0.png",
+    "githubPath": "images/9a663901e86da27ccaea52a41c398074b27d8ab0.png",
+    "contractAddress": "0x9A663901e86Da27CcaEa52A41C398074B27D8aB0",
+    "uploadedAt": "2025-10-11T04:34:52.144Z",
+    "size": 30423,
+    "mimeType": "image/png",
+    "originalName": "rainbow_unicorn.png"
+  },
+  "metadata": {
+    "contractAddress": "0x9A663901e86Da27CcaEa52A41C398074B27D8aB0",
+    "hasImage": true,
+    "createdAt": "2025-10-11T04:34:52.144Z",
+    "dataFile": "9a663901e86da27ccaea52a41c398074b27d8ab0.json",
+    "systemVersion": "batch-deployment-v1",
+    "deploymentType": "real-blockchain"
+  }
+}
