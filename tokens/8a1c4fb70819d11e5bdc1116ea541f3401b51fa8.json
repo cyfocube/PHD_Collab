@@ -1,0 +1,43 @@
+{
+  "tokenName": "Holographic Whale Token",
+  "tokenSymbol": "HW112",
+  "description": "The biggest player in the crypto ocean. This holographic whale creates massive waves in the market, making moves that shift entire ecosystems.",
+  "initialSupply": "100000",
+  "decimals": "18",
+  "walletAddress": "0x8A1C4Fb70819D11e5BDC1116Ea541f3401B51FA8",
+  "twitter": "@holographicwhaletoken",
+  "website": "https://holographicwhaletoken.com",
+  "telegram": "@holographicwhalecommunity",
+  "contractAddress": "0x8A1C4Fb70819D11e5BDC1116Ea541f3401B51FA8",
+  "transactionHash": "0x8178d5b3a4f4115c3b328d182b11d7633f6cfb7fc0a807c420a9eff47156ecbf",
+  "explorerUrl": "https://testnet.bscscan.com/tx/0x8178d5b3a4f4115c3b328d182b11d7633f6cfb7fc0a807c420a9eff47156ecbf",
+  "deploymentInfo": {
+    "tokenName": "Holographic Whale Token",
+    "tokenSymbol": "HW112",
+    "initialSupply": 100000,
+    "decimals": 18,
+    "ownerAddress": "0x8A1C4Fb70819D11e5BDC1116Ea541f3401B51FA8",
+    "network": "BSC Testnet",
+    "chainId": 97,
+    "deployedAt": "2025-10-11T05:16:50.792Z",
+    "gasUsed": "1500000"
+  },
+  "image": {
+    "fileName": "8a1c4fb70819d11e5bdc1116ea541f3401b51fa8.png",
+    "url": "https://raw.githubusercontent.com/cyfocube/C_DataBase/main/images/8a1c4fb70819d11e5bdc1116ea541f3401b51fa8.png",
+    "githubPath": "images/8a1c4fb70819d11e5bdc1116ea541f3401b51fa8.png",
+    "contractAddress": "0x8A1C4Fb70819D11e5BDC1116Ea541f3401B51FA8",
+    "uploadedAt": "2025-10-11T05:16:50.792Z",
+    "size": 15786,
+    "mimeType": "image/png",
+    "originalName": "holographic_whale.png"
+  },
+  "metadata": {
+    "contractAddress": "0x8A1C4Fb70819D11e5BDC1116Ea541f3401B51FA8",
+    "hasImage": true,
+    "createdAt": "2025-10-11T05:16:50.792Z",
+    "dataFile": "8a1c4fb70819d11e5bdc1116ea541f3401b51fa8.json",
+    "systemVersion": "batch-deployment-v1",
+    "deploymentType": "real-blockchain"
+  }
+}
