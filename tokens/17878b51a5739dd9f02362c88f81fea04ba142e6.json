@@ -1,0 +1,43 @@
+{
+  "tokenName": "Pixel Panda Token",
+  "tokenSymbol": "PP118",
+  "description": "Rare and adorable, just like profitable opportunities. This pixel panda is endangered in the best way - there are limited tokens available, making each one precious.",
+  "initialSupply": "100000",
+  "decimals": "18",
+  "walletAddress": "0x17878B51A5739Dd9F02362C88f81FeA04BA142E6",
+  "twitter": "@pixelpandatoken",
+  "website": "https://pixelpandatoken.com",
+  "telegram": "@pixelpandacommunity",
+  "contractAddress": "0x17878B51A5739Dd9F02362C88f81FeA04BA142E6",
+  "transactionHash": "0x0b0878785c74ecff87d640adb05c72a5e1266bf0fd30a30f6b6fef0bd886fe9b",
+  "explorerUrl": "https://testnet.bscscan.com/tx/0x0b0878785c74ecff87d640adb05c72a5e1266bf0fd30a30f6b6fef0bd886fe9b",
+  "deploymentInfo": {
+    "tokenName": "Pixel Panda Token",
+    "tokenSymbol": "PP118",
+    "initialSupply": 100000,
+    "decimals": 18,
+    "ownerAddress": "0x17878B51A5739Dd9F02362C88f81FeA04BA142E6",
+    "network": "BSC Testnet",
+    "chainId": 97,
+    "deployedAt": "2025-10-11T05:17:55.613Z",
+    "gasUsed": "1500000"
+  },
+  "image": {
+    "fileName": "17878b51a5739dd9f02362c88f81fea04ba142e6.png",
+    "url": "https://raw.githubusercontent.com/cyfocube/C_DataBase/main/images/17878b51a5739dd9f02362c88f81fea04ba142e6.png",
+    "githubPath": "images/17878b51a5739dd9f02362c88f81fea04ba142e6.png",
+    "contractAddress": "0x17878B51A5739Dd9F02362C88f81FeA04BA142E6",
+    "uploadedAt": "2025-10-11T05:17:55.613Z",
+    "size": 8378,
+    "mimeType": "image/png",
+    "originalName": "pixel_panda.png"
+  },
+  "metadata": {
+    "contractAddress": "0x17878B51A5739Dd9F02362C88f81FeA04BA142E6",
+    "hasImage": true,
+    "createdAt": "2025-10-11T05:17:55.613Z",
+    "dataFile": "17878b51a5739dd9f02362c88f81fea04ba142e6.json",
+    "systemVersion": "batch-deployment-v1",
+    "deploymentType": "real-blockchain"
+  }
+}
