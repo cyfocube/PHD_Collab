@@ -1,0 +1,43 @@
+{
+  "tokenName": "Plasma Penguin Token",
+  "tokenSymbol": "PP119",
+  "description": "Sliding into profits in the coldest markets. This plasma penguin thrives in harsh conditions, turning frozen assets into liquid gains.",
+  "initialSupply": "500000",
+  "decimals": "18",
+  "walletAddress": "0xc90e97C85cFa0ae8a776Ff7a6849a3Fe6B2CD568",
+  "twitter": "@plasmapenguintoken",
+  "website": "https://plasmapenguintoken.com",
+  "telegram": "@plasmapenguincommunity",
+  "contractAddress": "0xc90e97C85cFa0ae8a776Ff7a6849a3Fe6B2CD568",
+  "transactionHash": "0x6562686227bfd087448e9aeec4003252c3b817c54e7407ea965e4114a12df667",
+  "explorerUrl": "https://testnet.bscscan.com/tx/0x6562686227bfd087448e9aeec4003252c3b817c54e7407ea965e4114a12df667",
+  "deploymentInfo": {
+    "tokenName": "Plasma Penguin Token",
+    "tokenSymbol": "PP119",
+    "initialSupply": 500000,
+    "decimals": 18,
+    "ownerAddress": "0xc90e97C85cFa0ae8a776Ff7a6849a3Fe6B2CD568",
+    "network": "BSC Testnet",
+    "chainId": 97,
+    "deployedAt": "2025-10-11T05:18:06.404Z",
+    "gasUsed": "1500000"
+  },
+  "image": {
+    "fileName": "c90e97c85cfa0ae8a776ff7a6849a3fe6b2cd568.png",
+    "url": "https://raw.githubusercontent.com/cyfocube/C_DataBase/main/images/c90e97c85cfa0ae8a776ff7a6849a3fe6b2cd568.png",
+    "githubPath": "images/c90e97c85cfa0ae8a776ff7a6849a3fe6b2cd568.png",
+    "contractAddress": "0xc90e97C85cFa0ae8a776Ff7a6849a3Fe6B2CD568",
+    "uploadedAt": "2025-10-11T05:18:06.404Z",
+    "size": 58332,
+    "mimeType": "image/png",
+    "originalName": "plasma_penguin.png"
+  },
+  "metadata": {
+    "contractAddress": "0xc90e97C85cFa0ae8a776Ff7a6849a3Fe6B2CD568",
+    "hasImage": true,
+    "createdAt": "2025-10-11T05:18:06.405Z",
+    "dataFile": "c90e97c85cfa0ae8a776ff7a6849a3fe6b2cd568.json",
+    "systemVersion": "batch-deployment-v1",
+    "deploymentType": "real-blockchain"
+  }
+}
