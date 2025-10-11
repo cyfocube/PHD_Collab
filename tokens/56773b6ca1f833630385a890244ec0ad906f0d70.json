@@ -1,0 +1,43 @@
+{
+  "tokenName": "Cyber Dog Token",
+  "tokenSymbol": "CD103",
+  "description": "Mans best friend in the metaverse. This loyal cyber dog brings the same devotion and energy to crypto that traditional dogs bring to their families. Woof your way to the moon!",
+  "initialSupply": "2000000",
+  "decimals": "18",
+  "walletAddress": "0x56773b6cA1f833630385a890244Ec0Ad906F0d70",
+  "twitter": "@cyberdogtoken",
+  "website": "https://cyberdogtoken.com",
+  "telegram": "@cyberdogcommunity",
+  "contractAddress": "0x56773b6cA1f833630385a890244Ec0Ad906F0d70",
+  "transactionHash": "0xc62099c929027e0cf94acbd06e93325376b1d75e0792be6e5bf22bca7b30ab7d",
+  "explorerUrl": "https://testnet.bscscan.com/tx/0xc62099c929027e0cf94acbd06e93325376b1d75e0792be6e5bf22bca7b30ab7d",
+  "deploymentInfo": {
+    "tokenName": "Cyber Dog Token",
+    "tokenSymbol": "CD103",
+    "initialSupply": 2000000,
+    "decimals": 18,
+    "ownerAddress": "0x56773b6cA1f833630385a890244Ec0Ad906F0d70",
+    "network": "BSC Testnet",
+    "chainId": 97,
+    "deployedAt": "2025-10-11T05:15:13.714Z",
+    "gasUsed": "1500000"
+  },
+  "image": {
+    "fileName": "56773b6ca1f833630385a890244ec0ad906f0d70.png",
+    "url": "https://raw.githubusercontent.com/cyfocube/C_DataBase/main/images/56773b6ca1f833630385a890244ec0ad906f0d70.png",
+    "githubPath": "images/56773b6ca1f833630385a890244ec0ad906f0d70.png",
+    "contractAddress": "0x56773b6cA1f833630385a890244Ec0Ad906F0d70",
+    "uploadedAt": "2025-10-11T05:15:13.714Z",
+    "size": 28259,
+    "mimeType": "image/png",
+    "originalName": "cyber_dog.png"
+  },
+  "metadata": {
+    "contractAddress": "0x56773b6cA1f833630385a890244Ec0Ad906F0d70",
+    "hasImage": true,
+    "createdAt": "2025-10-11T05:15:13.714Z",
+    "dataFile": "56773b6ca1f833630385a890244ec0ad906f0d70.json",
+    "systemVersion": "batch-deployment-v1",
+    "deploymentType": "real-blockchain"
+  }
+}
