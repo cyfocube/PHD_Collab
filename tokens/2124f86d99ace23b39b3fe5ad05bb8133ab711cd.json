@@ -1,0 +1,43 @@
+{
+  "tokenName": "Cosmic Tiger Token",
+  "tokenSymbol": "CT100",
+  "description": "A majestic cosmic tiger roaming through the digital universe. This powerful predator combines raw strength with celestial energy, making it the perfect guardian for your crypto portfolio.",
+  "initialSupply": "100000",
+  "decimals": "18",
+  "walletAddress": "0x2124f86D99aCE23B39b3FE5AD05Bb8133ab711cD",
+  "twitter": "@cosmictigertoken",
+  "website": "https://cosmictigertoken.com",
+  "telegram": "@cosmictigercommunity",
+  "contractAddress": "0x2124f86D99aCE23B39b3FE5AD05Bb8133ab711cD",
+  "transactionHash": "0x21df5891bb42a03d3bf23d700865bf9c70ca6f7e5c05c46da38ed75d69bb5939",
+  "explorerUrl": "https://testnet.bscscan.com/tx/0x21df5891bb42a03d3bf23d700865bf9c70ca6f7e5c05c46da38ed75d69bb5939",
+  "deploymentInfo": {
+    "tokenName": "Cosmic Tiger Token",
+    "tokenSymbol": "CT100",
+    "initialSupply": 100000,
+    "decimals": 18,
+    "ownerAddress": "0x2124f86D99aCE23B39b3FE5AD05Bb8133ab711cD",
+    "network": "BSC Testnet",
+    "chainId": 97,
+    "deployedAt": "2025-10-11T05:14:41.257Z",
+    "gasUsed": "1500000"
+  },
+  "image": {
+    "fileName": "2124f86d99ace23b39b3fe5ad05bb8133ab711cd.png",
+    "url": "https://raw.githubusercontent.com/cyfocube/C_DataBase/main/images/2124f86d99ace23b39b3fe5ad05bb8133ab711cd.png",
+    "githubPath": "images/2124f86d99ace23b39b3fe5ad05bb8133ab711cd.png",
+    "contractAddress": "0x2124f86D99aCE23B39b3FE5AD05Bb8133ab711cD",
+    "uploadedAt": "2025-10-11T05:14:41.264Z",
+    "size": 17509,
+    "mimeType": "image/png",
+    "originalName": "cosmic_tiger.png"
+  },
+  "metadata": {
+    "contractAddress": "0x2124f86D99aCE23B39b3FE5AD05Bb8133ab711cD",
+    "hasImage": true,
+    "createdAt": "2025-10-11T05:14:41.264Z",
+    "dataFile": "2124f86d99ace23b39b3fe5ad05bb8133ab711cd.json",
+    "systemVersion": "batch-deployment-v1",
+    "deploymentType": "real-blockchain"
+  }
+}
