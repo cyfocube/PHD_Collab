@@ -1,0 +1,43 @@
+{
+  "tokenName": "Synth Dolphin Token",
+  "tokenSymbol": "SD122",
+  "description": "Intelligent and playful in the digital waves. This synthesized dolphin navigates the currents of decentralized finance with grace and intelligence.",
+  "initialSupply": "5000000",
+  "decimals": "18",
+  "walletAddress": "0x300A113eac45A75d750caEbd4aE2053F8298349b",
+  "twitter": "@synthdolphintoken",
+  "website": "https://synthdolphintoken.com",
+  "telegram": "@synthdolphincommunity",
+  "contractAddress": "0x300A113eac45A75d750caEbd4aE2053F8298349b",
+  "transactionHash": "0x840d5652cebcd11fafb1f37a72c9606cf512a991891bf32527822666ee8377ed",
+  "explorerUrl": "https://testnet.bscscan.com/tx/0x840d5652cebcd11fafb1f37a72c9606cf512a991891bf32527822666ee8377ed",
+  "deploymentInfo": {
+    "tokenName": "Synth Dolphin Token",
+    "tokenSymbol": "SD122",
+    "initialSupply": 5000000,
+    "decimals": 18,
+    "ownerAddress": "0x300A113eac45A75d750caEbd4aE2053F8298349b",
+    "network": "BSC Testnet",
+    "chainId": 97,
+    "deployedAt": "2025-10-11T05:18:39.030Z",
+    "gasUsed": "1500000"
+  },
+  "image": {
+    "fileName": "300a113eac45a75d750caebd4ae2053f8298349b.png",
+    "url": "https://raw.githubusercontent.com/cyfocube/C_DataBase/main/images/300a113eac45a75d750caebd4ae2053f8298349b.png",
+    "githubPath": "images/300a113eac45a75d750caebd4ae2053f8298349b.png",
+    "contractAddress": "0x300A113eac45A75d750caEbd4aE2053F8298349b",
+    "uploadedAt": "2025-10-11T05:18:39.030Z",
+    "size": 13385,
+    "mimeType": "image/png",
+    "originalName": "synth_dolphin.png"
+  },
+  "metadata": {
+    "contractAddress": "0x300A113eac45A75d750caEbd4aE2053F8298349b",
+    "hasImage": true,
+    "createdAt": "2025-10-11T05:18:39.030Z",
+    "dataFile": "300a113eac45a75d750caebd4ae2053f8298349b.json",
+    "systemVersion": "batch-deployment-v1",
+    "deploymentType": "real-blockchain"
+  }
+}
