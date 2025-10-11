@@ -1,0 +1,41 @@
+{
+  "userInputs": {
+    "tokenName": "qweqw",
+    "tokenSymbol": "qwewe",
+    "initialSupply": "9999",
+    "walletAddress": "0x519Aed31035cF4cdfd06AeFc586A3bE081E999CC",
+    "tokenImage": {
+      "fileName": "qwewe-1760158764773.png",
+      "url": "https://raw.githubusercontent.com/cyfocube/C_DataBase/main/images/qwewe-1760158764773.png",
+      "githubPath": "images/qwewe-1760158764773.png"
+    },
+    "socialMedia": {
+      "twitter": "asdsd",
+      "website": "asdsa",
+      "telegram": "asdsds"
+    }
+  },
+  "deploymentResults": {
+    "contractAddress": "0xF82b8d5A84D882095C76be2e24e364a287b9E483",
+    "transactionHash": "0x76a058a4a6669600164a00341636b6778e5f640df49fcc1964cf1672ee978fd9",
+    "explorerUrl": "https://testnet.bscscan.com/address/0xF82b8d5A84D882095C76be2e24e364a287b9E483",
+    "deploymentInfo": {
+      "contractAddress": "0xF82b8d5A84D882095C76be2e24e364a287b9E483",
+      "transactionHash": "0x76a058a4a6669600164a00341636b6778e5f640df49fcc1964cf1672ee978fd9",
+      "tokenName": "qweqw",
+      "tokenSymbol": "qwewe",
+      "decimals": 18,
+      "initialSupply": "9999",
+      "ownerAddress": "0x519Aed31035cF4cdfd06AeFc586A3bE081E999CC",
+      "network": "BSC Testnet",
+      "chainId": 97,
+      "deployedAt": "2025-10-11T04:59:23.781Z",
+      "explorerUrl": "https://testnet.bscscan.com/address/0xF82b8d5A84D882095C76be2e24e364a287b9E483"
+    }
+  },
+  "metadata": {
+    "createdAt": "2025-10-11T04:59:26.019Z",
+    "timestamp": 1760158766019,
+    "version": "1.0"
+  }
+}
