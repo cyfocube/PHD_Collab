@@ -1,0 +1,43 @@
+{
+  "tokenName": "Crypto Lion Token",
+  "tokenSymbol": "CL101",
+  "description": "The king of the blockchain jungle. This regal crypto lion embodies leadership, courage, and dominance in the DeFi ecosystem. Join the pride and rule the crypto savanna.",
+  "initialSupply": "500000",
+  "decimals": "18",
+  "walletAddress": "0x0891a020a845f70D9d30a7c1d24f5123052Ae9f3",
+  "twitter": "@cryptoliontoken",
+  "website": "https://cryptoliontoken.com",
+  "telegram": "@cryptolioncommunity",
+  "contractAddress": "0x0891a020a845f70D9d30a7c1d24f5123052Ae9f3",
+  "transactionHash": "0x3cf70daa201006647dc60f24e4ee5be60604c9b0088154cc4e327f83ab9c6387",
+  "explorerUrl": "https://testnet.bscscan.com/tx/0x3cf70daa201006647dc60f24e4ee5be60604c9b0088154cc4e327f83ab9c6387",
+  "deploymentInfo": {
+    "tokenName": "Crypto Lion Token",
+    "tokenSymbol": "CL101",
+    "initialSupply": 500000,
+    "decimals": 18,
+    "ownerAddress": "0x0891a020a845f70D9d30a7c1d24f5123052Ae9f3",
+    "network": "BSC Testnet",
+    "chainId": 97,
+    "deployedAt": "2025-10-11T05:14:52.164Z",
+    "gasUsed": "1500000"
+  },
+  "image": {
+    "fileName": "0891a020a845f70d9d30a7c1d24f5123052ae9f3.png",
+    "url": "https://raw.githubusercontent.com/cyfocube/C_DataBase/main/images/0891a020a845f70d9d30a7c1d24f5123052ae9f3.png",
+    "githubPath": "images/0891a020a845f70d9d30a7c1d24f5123052ae9f3.png",
+    "contractAddress": "0x0891a020a845f70D9d30a7c1d24f5123052Ae9f3",
+    "uploadedAt": "2025-10-11T05:14:52.164Z",
+    "size": 41707,
+    "mimeType": "image/png",
+    "originalName": "crypto_lion.png"
+  },
+  "metadata": {
+    "contractAddress": "0x0891a020a845f70D9d30a7c1d24f5123052Ae9f3",
+    "hasImage": true,
+    "createdAt": "2025-10-11T05:14:52.165Z",
+    "dataFile": "0891a020a845f70d9d30a7c1d24f5123052ae9f3.json",
+    "systemVersion": "batch-deployment-v1",
+    "deploymentType": "real-blockchain"
+  }
+}
