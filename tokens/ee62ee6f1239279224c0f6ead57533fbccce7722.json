@@ -1,0 +1,42 @@
+{
+  "tokenName": "Crystal Owl Token",
+  "tokenSymbol": "CO102",
+  "initialSupply": "1000000",
+  "decimals": "18",
+  "walletAddress": "0xEE62EE6F1239279224c0F6Ead57533FBCCcE7722",
+  "twitter": "@crystalowltoken",
+  "website": "https://crystalowltoken.com",
+  "telegram": "@crystalowlcommunity",
+  "contractAddress": "0xEE62EE6F1239279224c0F6Ead57533FBCCcE7722",
+  "transactionHash": "0x2f9eee46fbd37b7574e67dc3dc3a88cd822b54c83a94c7cc04fde71daddda344",
+  "explorerUrl": "https://testnet.bscscan.com/tx/0x2f9eee46fbd37b7574e67dc3dc3a88cd822b54c83a94c7cc04fde71daddda344",
+  "deploymentInfo": {
+    "tokenName": "Crystal Owl Token",
+    "tokenSymbol": "CO102",
+    "initialSupply": 1000000,
+    "decimals": 18,
+    "ownerAddress": "0xEE62EE6F1239279224c0F6Ead57533FBCCcE7722",
+    "network": "BSC Testnet",
+    "chainId": 97,
+    "deployedAt": "2025-10-11T04:31:36.615Z",
+    "gasUsed": "1500000"
+  },
+  "image": {
+    "fileName": "ee62ee6f1239279224c0f6ead57533fbccce7722.png",
+    "url": "https://raw.githubusercontent.com/cyfocube/C_DataBase/main/images/ee62ee6f1239279224c0f6ead57533fbccce7722.png",
+    "githubPath": "images/ee62ee6f1239279224c0f6ead57533fbccce7722.png",
+    "contractAddress": "0xEE62EE6F1239279224c0F6Ead57533FBCCcE7722",
+    "uploadedAt": "2025-10-11T04:31:36.615Z",
+    "size": 29163,
+    "mimeType": "image/png",
+    "originalName": "crystal_owl.png"
+  },
+  "metadata": {
+    "contractAddress": "0xEE62EE6F1239279224c0F6Ead57533FBCCcE7722",
+    "hasImage": true,
+    "createdAt": "2025-10-11T04:31:36.615Z",
+    "dataFile": "ee62ee6f1239279224c0f6ead57533fbccce7722.json",
+    "systemVersion": "batch-deployment-v1",
+    "deploymentType": "real-blockchain"
+  }
+}
