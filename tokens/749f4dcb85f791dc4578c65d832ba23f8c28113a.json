@@ -1,0 +1,43 @@
+{
+  "tokenName": "Holo Turtle Token",
+  "tokenSymbol": "HT111",
+  "description": "Slow and steady wins the race in this holographic shell. This wise turtle teaches patience and long-term thinking in a world of quick trades and instant gratification.",
+  "initialSupply": "10000000",
+  "decimals": "18",
+  "walletAddress": "0x749f4DCB85f791Dc4578C65D832BA23F8c28113a",
+  "twitter": "@holoturtletoken",
+  "website": "https://holoturtletoken.com",
+  "telegram": "@holoturtlecommunity",
+  "contractAddress": "0x749f4DCB85f791Dc4578C65D832BA23F8c28113a",
+  "transactionHash": "0x1654431b97dfbee24bc51e3bbbdbe19664f11385daef2147bac38f1f6901db89",
+  "explorerUrl": "https://testnet.bscscan.com/tx/0x1654431b97dfbee24bc51e3bbbdbe19664f11385daef2147bac38f1f6901db89",
+  "deploymentInfo": {
+    "tokenName": "Holo Turtle Token",
+    "tokenSymbol": "HT111",
+    "initialSupply": 10000000,
+    "decimals": 18,
+    "ownerAddress": "0x749f4DCB85f791Dc4578C65D832BA23F8c28113a",
+    "network": "BSC Testnet",
+    "chainId": 97,
+    "deployedAt": "2025-10-11T05:16:40.037Z",
+    "gasUsed": "1500000"
+  },
+  "image": {
+    "fileName": "749f4dcb85f791dc4578c65d832ba23f8c28113a.png",
+    "url": "https://raw.githubusercontent.com/cyfocube/C_DataBase/main/images/749f4dcb85f791dc4578c65d832ba23f8c28113a.png",
+    "githubPath": "images/749f4dcb85f791dc4578c65d832ba23f8c28113a.png",
+    "contractAddress": "0x749f4DCB85f791Dc4578C65D832BA23F8c28113a",
+    "uploadedAt": "2025-10-11T05:16:40.037Z",
+    "size": 11612,
+    "mimeType": "image/png",
+    "originalName": "holo_turtle.png"
+  },
+  "metadata": {
+    "contractAddress": "0x749f4DCB85f791Dc4578C65D832BA23F8c28113a",
+    "hasImage": true,
+    "createdAt": "2025-10-11T05:16:40.037Z",
+    "dataFile": "749f4dcb85f791dc4578c65d832ba23f8c28113a.json",
+    "systemVersion": "batch-deployment-v1",
+    "deploymentType": "real-blockchain"
+  }
+}
