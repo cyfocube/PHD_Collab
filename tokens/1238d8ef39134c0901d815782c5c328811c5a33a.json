@@ -1,0 +1,42 @@
+{
+  "tokenName": "Pixel Eagle Token",
+  "tokenSymbol": "PE117",
+  "initialSupply": "10000000",
+  "decimals": "18",
+  "walletAddress": "0x1238D8EF39134c0901d815782C5c328811C5a33a",
+  "twitter": "@pixeleagletoken",
+  "website": "https://pixeleagletoken.com",
+  "telegram": "@pixeleaglecommunity",
+  "contractAddress": "0x1238D8EF39134c0901d815782C5c328811C5a33a",
+  "transactionHash": "0x513025ebdef6eb776a2d89abe82e4bf308ebfd186920f08b0b1f4871742b681b",
+  "explorerUrl": "https://testnet.bscscan.com/tx/0x513025ebdef6eb776a2d89abe82e4bf308ebfd186920f08b0b1f4871742b681b",
+  "deploymentInfo": {
+    "tokenName": "Pixel Eagle Token",
+    "tokenSymbol": "PE117",
+    "initialSupply": 10000000,
+    "decimals": 18,
+    "ownerAddress": "0x1238D8EF39134c0901d815782C5c328811C5a33a",
+    "network": "BSC Testnet",
+    "chainId": 97,
+    "deployedAt": "2025-10-11T04:34:19.356Z",
+    "gasUsed": "1500000"
+  },
+  "image": {
+    "fileName": "1238d8ef39134c0901d815782c5c328811c5a33a.png",
+    "url": "https://raw.githubusercontent.com/cyfocube/C_DataBase/main/images/1238d8ef39134c0901d815782c5c328811c5a33a.png",
+    "githubPath": "images/1238d8ef39134c0901d815782c5c328811c5a33a.png",
+    "contractAddress": "0x1238D8EF39134c0901d815782C5c328811C5a33a",
+    "uploadedAt": "2025-10-11T04:34:19.356Z",
+    "size": 9214,
+    "mimeType": "image/png",
+    "originalName": "pixel_eagle.png"
+  },
+  "metadata": {
+    "contractAddress": "0x1238D8EF39134c0901d815782C5c328811C5a33a",
+    "hasImage": true,
+    "createdAt": "2025-10-11T04:34:19.356Z",
+    "dataFile": "1238d8ef39134c0901d815782c5c328811c5a33a.json",
+    "systemVersion": "batch-deployment-v1",
+    "deploymentType": "real-blockchain"
+  }
+}
