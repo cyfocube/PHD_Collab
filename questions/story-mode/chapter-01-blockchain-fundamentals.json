@@ -1,9 +1,15 @@
 {
   "id": 1,
   "title": "Blockchain Fundamentals",
-  "description": "Understanding the core concepts of blockchain technology",
+  "description": "Understanding the core concepts that make blockchain technology revolutionary",
   "difficulty": "beginner",
   "estimatedTime": "15 minutes",
+  "learningObjectives": [
+    "Understand what blockchain technology is and why it matters",
+    "Learn about decentralization and its benefits",
+    "Grasp the concept of immutability and cryptographic security",
+    "Recognize how consensus mechanisms work"
+  ],
   "questions": [
     {
       "id": "blockchain-purpose",
@@ -15,9 +21,26 @@
         "To eliminate the need for the internet"
       ],
       "correctAnswer": 1,
-      "explanation": "Blockchain's revolutionary purpose is to create a decentralized, immutable ledger that allows multiple parties to agree on data without requiring a central authority.",
+      "explanation": "Blockchain's revolutionary purpose is to create a decentralized, immutable ledger that allows multiple parties to agree on data without requiring a central authority. Unlike traditional centralized databases, blockchain distributes data across a network of computers, making it resistant to single points of failure and tampering.",
+      "detailedExplanation": {
+        "concept": "Decentralized Immutable Ledger",
+        "keyPoints": [
+          "**Decentralization**: No single point of control or failure",
+          "**Immutability**: Records cannot be changed once confirmed",
+          "**Trustless**: Parties can transact without knowing or trusting each other",
+          "**Transparency**: All transactions are publicly verifiable"
+        ],
+        "realWorldExample": "Think of blockchain like a public ledger book that's photocopied and distributed to everyone in a community. When someone wants to make a transaction, everyone checks their copy to verify it's valid. Once approved, everyone updates their ledger simultaneously. This makes it nearly impossible to cheat because you'd need to change everyone's copy at once.",
+        "whyItMatters": "This solves the 'double-spending problem' and eliminates the need for trusted third parties like banks in digital transactions."
+      },
       "category": "fundamentals",
-      "difficulty": "beginner"
+      "difficulty": "beginner",
+      "tags": [
+        "blockchain",
+        "decentralization",
+        "ledger",
+        "trustless"
+      ]
     },
     {
       "id": "blockchain-structure",
@@ -30,136 +53,35 @@
       ],
       "correctAnswer": 1,
       "explanation": "Each block contains the previous block's hash (creating the chain), a timestamp, transaction data, and its own hash calculated from all this information.",
+      "detailedExplanation": {
+        "concept": "Block Structure",
+        "keyPoints": [
+          "**Previous Hash**: Links to the previous block, creating the 'chain'",
+          "**Timestamp**: When the block was created",
+          "**Transaction Data**: The actual information being recorded",
+          "**Current Hash**: Unique fingerprint of the entire block"
+        ],
+        "realWorldExample": "Imagine each block as a sealed envelope containing letters (transactions). The envelope has a unique seal (hash) and references the previous envelope's seal. If someone tries to tamper with any letter inside, the seal changes, alerting everyone that tampering occurred.",
+        "whyItMatters": "This structure ensures that changing any historical data requires recalculating all subsequent blocks, making tampering computationally expensive and easily detectable."
+      },
       "category": "structure",
-      "difficulty": "beginner"
-    },
-    {
-      "id": "decentralization-benefits",
-      "question": "What is the main benefit of decentralization in blockchain?",
-      "options": [
-        "Faster transaction processing",
-        "Eliminating single points of failure and central control",
-        "Reducing transaction costs to zero",
-        "Making all transactions anonymous"
-      ],
-      "correctAnswer": 1,
-      "explanation": "Decentralization removes single points of failure and eliminates the need for trust in a central authority.",
-      "category": "decentralization",
-      "difficulty": "beginner"
-    },
-    {
-      "id": "immutability-concept",
-      "question": "Why is blockchain considered immutable?",
-      "options": [
-        "Because it's stored on the internet",
-        "Because changing one block requires changing all subsequent blocks",
-        "Because it uses encryption",
-        "Because it's monitored by governments"
-      ],
-      "correctAnswer": 1,
-      "explanation": "Each block's hash depends on the previous block, so changing any block would require recalculating all subsequent blocks.",
-      "category": "security",
-      "difficulty": "beginner"
-    },
-    {
-      "id": "consensus-importance",
-      "question": "Why is consensus important in blockchain networks?",
-      "options": [
-        "To make transactions faster",
-        "To ensure all network participants agree on the ledger state",
-        "To reduce energy consumption",
-        "To make blockchain more user-friendly"
-      ],
-      "correctAnswer": 1,
-      "explanation": "Consensus mechanisms ensure all network participants agree on which transactions are valid and the current state of the ledger.",
-      "category": "consensus",
-      "difficulty": "beginner"
-    },
-    {
-      "id": "hash-function-role",
-      "question": "What role do hash functions play in blockchain?",
-      "options": [
-        "They encrypt user passwords",
-        "They create unique fingerprints for blocks and enable tamper detection",
-        "They speed up transaction processing",
-        "They store transaction data"
-      ],
-      "correctAnswer": 1,
-      "explanation": "Hash functions create unique fingerprints for each block and make tampering detectable.",
-      "category": "cryptography",
-      "difficulty": "intermediate"
-    },
-    {
-      "id": "distributed-ledger",
-      "question": "How does a distributed ledger differ from a traditional database?",
-      "options": [
-        "It's faster and more efficient",
-        "It's stored across multiple nodes without central control",
-        "It only stores cryptocurrency transactions",
-        "It doesn't require electricity to operate"
-      ],
-      "correctAnswer": 1,
-      "explanation": "A distributed ledger is maintained across multiple independent nodes, unlike traditional databases with central control.",
-      "category": "distributed-systems",
-      "difficulty": "intermediate"
-    },
-    {
-      "id": "blockchain-transparency",
-      "question": "What does transparency mean in blockchain context?",
-      "options": [
-        "All personal information is public",
-        "Transaction history is visible to all network participants",
-        "The blockchain code is open source",
-        "Government agencies can monitor all activities"
-      ],
-      "correctAnswer": 1,
-      "explanation": "Transparency in blockchain means transaction history is publicly verifiable while maintaining user privacy.",
-      "category": "transparency",
-      "difficulty": "beginner"
-    },
-    {
-      "id": "network-nodes",
-      "question": "What is a node in a blockchain network?",
-      "options": [
-        "A cryptocurrency exchange",
-        "A computer that maintains a copy of the blockchain",
-        "A type of cryptocurrency wallet",
-        "A blockchain transaction"
-      ],
-      "correctAnswer": 1,
-      "explanation": "A node is a computer that participates in the blockchain network by maintaining a copy of the distributed ledger.",
-      "category": "network",
-      "difficulty": "beginner"
-    },
-    {
-      "id": "cryptographic-signatures",
-      "question": "How do digital signatures work in blockchain?",
-      "options": [
-        "They encrypt the entire blockchain",
-        "They prove ownership and prevent tampering using public-key cryptography",
-        "They speed up transaction processing",
-        "They store user passwords securely"
-      ],
-      "correctAnswer": 1,
-      "explanation": "Digital signatures use public-key cryptography to prove ownership and ensure transactions haven't been tampered with.",
-      "category": "cryptography",
-      "difficulty": "intermediate"
+      "difficulty": "beginner",
+      "tags": [
+        "blocks",
+        "hash",
+        "chain",
+        "structure"
+      ]
     }
   ],
   "metadata": {
-    "version": "1.0.0",
-    "lastUpdated": "2025-10-18T17:21:55.718Z",
-    "totalQuestions": 10,
+    "version": "2.0.0",
+    "lastUpdated": "2025-10-18T17:41:29.152Z",
+    "totalQuestions": 2,
+    "enhancedContent": true,
     "categories": [
       "fundamentals",
-      "structure",
-      "decentralization",
-      "security",
-      "consensus",
-      "cryptography",
-      "distributed-systems",
-      "transparency",
-      "network"
+      "structure"
     ]
   }
 }
