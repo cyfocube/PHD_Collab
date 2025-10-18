@@ -1,0 +1,25 @@
+{
+  "id": "defi-explorer",
+  "title": "DeFi Explorer Challenges",
+  "description": "Navigate the complex world of decentralized finance",
+  "difficulty": "advanced",
+  "challenges": [
+    {
+      "id": "yield-farming",
+      "type": "calculation",
+      "title": "Yield Farming Calculator",
+      "description": "Calculate APY for different DeFi strategies",
+      "problem": "If you stake 1000 USDC at 12% APY, compound daily, what is your balance after 1 year?",
+      "answer": 1127.47,
+      "tolerance": 1,
+      "points": 200,
+      "timeLimit": 120
+    }
+  ],
+  "metadata": {
+    "version": "1.0.0",
+    "lastUpdated": "2025-10-18T17:21:55.725Z",
+    "totalChallenges": 1,
+    "totalPoints": 200
+  }
+}

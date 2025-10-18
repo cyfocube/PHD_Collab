@@ -1,0 +1,89 @@
+{
+  "categoryId": "quick-actions",
+  "title": "Quick Learning Questions",
+  "description": "Fast access fundamental blockchain questions for AI Tutor interface",
+  "version": "1.0",
+  "lastUpdated": "2025-10-18",
+  "questions": [
+    {
+      "id": "qa-001",
+      "question": "What is blockchain?",
+      "type": "conceptual",
+      "difficulty": "beginner",
+      "category": "fundamentals",
+      "expectedResponseType": "explanation",
+      "tags": ["blockchain", "basics", "definition"],
+      "keywords": ["blockchain", "distributed", "ledger", "decentralized"]
+    },
+    {
+      "id": "qa-002", 
+      "question": "What is the primary purpose of blockchain technology?",
+      "type": "conceptual",
+      "difficulty": "beginner",
+      "category": "fundamentals",
+      "expectedResponseType": "explanation",
+      "tags": ["blockchain", "purpose", "technology"],
+      "keywords": ["purpose", "decentralized", "immutable", "ledger"]
+    },
+    {
+      "id": "qa-003",
+      "question": "What is a Private Key?",
+      "type": "technical",
+      "difficulty": "beginner", 
+      "category": "security",
+      "expectedResponseType": "explanation",
+      "tags": ["private-key", "security", "cryptography"],
+      "keywords": ["private", "key", "cryptography", "ownership"]
+    },
+    {
+      "id": "qa-004",
+      "question": "What is Solidity?",
+      "type": "technical",
+      "difficulty": "intermediate",
+      "category": "development",
+      "expectedResponseType": "explanation", 
+      "tags": ["solidity", "smart-contracts", "ethereum"],
+      "keywords": ["solidity", "programming", "smart", "contracts"]
+    },
+    {
+      "id": "qa-005",
+      "question": "What connects blocks together in a blockchain?",
+      "type": "technical",
+      "difficulty": "beginner",
+      "category": "fundamentals",
+      "expectedResponseType": "explanation",
+      "tags": ["blocks", "connection", "hashes"],
+      "keywords": ["blocks", "connected", "cryptographic", "hashes"]
+    },
+    {
+      "id": "qa-006",
+      "question": "What is Uniswap?",
+      "type": "application",
+      "difficulty": "intermediate",
+      "category": "defi",
+      "expectedResponseType": "explanation",
+      "tags": ["uniswap", "defi", "dex"],
+      "keywords": ["uniswap", "decentralized", "exchange", "defi"]
+    },
+    {
+      "id": "qa-007",
+      "question": "How to create a crypto wallet?",
+      "type": "tutorial",
+      "difficulty": "beginner",
+      "category": "practical",
+      "expectedResponseType": "step-by-step",
+      "tags": ["wallet", "creation", "tutorial"],
+      "keywords": ["create", "wallet", "crypto", "setup"]
+    },
+    {
+      "id": "qa-008",
+      "question": "What is the main benefit of multi-signature wallets?",
+      "type": "technical",
+      "difficulty": "intermediate", 
+      "category": "security",
+      "expectedResponseType": "explanation",
+      "tags": ["multisig", "security", "wallets"],
+      "keywords": ["multisig", "security", "multiple", "signatures"]
+    }
+  ]
+}

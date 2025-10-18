@@ -1,0 +1,22 @@
+{
+  "levels": [
+    {
+      "id": "beginner",
+      "name": "Beginner",
+      "description": "New to blockchain",
+      "color": "#22c55e"
+    },
+    {
+      "id": "intermediate",
+      "name": "Intermediate",
+      "description": "Some blockchain experience",
+      "color": "#f59e0b"
+    },
+    {
+      "id": "advanced",
+      "name": "Advanced",
+      "description": "Deep blockchain knowledge",
+      "color": "#ef4444"
+    }
+  ]
+}

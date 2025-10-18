@@ -1,0 +1,79 @@
+{
+  "id": "blockchain-basics",
+  "title": "Blockchain Basics Challenges",
+  "description": "Interactive drag-and-drop challenges for blockchain fundamentals",
+  "difficulty": "beginner",
+  "challenges": [
+    {
+      "id": "blockchain-flow",
+      "type": "drag-drop",
+      "title": "Blockchain Transaction Flow",
+      "description": "Arrange the steps of a blockchain transaction in the correct order",
+      "items": [
+        {
+          "id": "initiate",
+          "text": "User initiates transaction",
+          "correctPosition": 1
+        },
+        {
+          "id": "broadcast",
+          "text": "Transaction broadcast to network",
+          "correctPosition": 2
+        },
+        {
+          "id": "validate",
+          "text": "Network validates transaction",
+          "correctPosition": 3
+        },
+        {
+          "id": "include",
+          "text": "Transaction included in block",
+          "correctPosition": 4
+        },
+        {
+          "id": "mine",
+          "text": "Block mined/validated",
+          "correctPosition": 5
+        },
+        {
+          "id": "confirm",
+          "text": "Transaction confirmed",
+          "correctPosition": 6
+        }
+      ],
+      "points": 100,
+      "timeLimit": 60
+    },
+    {
+      "id": "consensus-matching",
+      "type": "matching",
+      "title": "Consensus Mechanism Matching",
+      "description": "Match consensus mechanisms with their characteristics",
+      "pairs": [
+        {
+          "id": "pow",
+          "left": "Proof of Work",
+          "right": "Mining with computational power"
+        },
+        {
+          "id": "pos",
+          "left": "Proof of Stake",
+          "right": "Validating based on stake ownership"
+        },
+        {
+          "id": "dpos",
+          "left": "Delegated Proof of Stake",
+          "right": "Elected validators represent stakeholders"
+        }
+      ],
+      "points": 75,
+      "timeLimit": 45
+    }
+  ],
+  "metadata": {
+    "version": "1.0.0",
+    "lastUpdated": "2025-10-18T17:21:55.725Z",
+    "totalChallenges": 2,
+    "totalPoints": 175
+  }
+}

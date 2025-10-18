@@ -1,0 +1,44 @@
+{
+  "categories": [
+    {
+      "id": "fundamentals",
+      "name": "Blockchain Fundamentals",
+      "description": "Core blockchain concepts"
+    },
+    {
+      "id": "cryptography",
+      "name": "Cryptography",
+      "description": "Cryptographic foundations"
+    },
+    {
+      "id": "consensus",
+      "name": "Consensus Mechanisms",
+      "description": "How networks agree"
+    },
+    {
+      "id": "defi",
+      "name": "Decentralized Finance",
+      "description": "DeFi protocols and applications"
+    },
+    {
+      "id": "nft",
+      "name": "NFTs",
+      "description": "Non-fungible tokens and digital ownership"
+    },
+    {
+      "id": "web3",
+      "name": "Web3",
+      "description": "Decentralized internet concepts"
+    },
+    {
+      "id": "governance",
+      "name": "Governance",
+      "description": "DAOs and decentralized governance"
+    },
+    {
+      "id": "scaling",
+      "name": "Scaling Solutions",
+      "description": "Layer 2 and scaling technologies"
+    }
+  ]
+}

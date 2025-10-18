@@ -1,0 +1,45 @@
+{
+  "id": "crypto-security",
+  "title": "Cryptography & Security Challenges",
+  "description": "Advanced challenges for understanding blockchain security",
+  "difficulty": "intermediate",
+  "challenges": [
+    {
+      "id": "key-management",
+      "type": "scenario",
+      "title": "Wallet Security Scenario",
+      "description": "Choose the best security practices for different scenarios",
+      "scenarios": [
+        {
+          "id": "large-amount",
+          "situation": "Storing large amounts of cryptocurrency",
+          "options": [
+            {
+              "id": "hot",
+              "text": "Keep on exchange for quick trading",
+              "correct": false
+            },
+            {
+              "id": "cold",
+              "text": "Use hardware wallet with multi-sig",
+              "correct": true
+            },
+            {
+              "id": "paper",
+              "text": "Write private key on paper only",
+              "correct": false
+            }
+          ]
+        }
+      ],
+      "points": 150,
+      "timeLimit": 90
+    }
+  ],
+  "metadata": {
+    "version": "1.0.0",
+    "lastUpdated": "2025-10-18T17:21:55.725Z",
+    "totalChallenges": 1,
+    "totalPoints": 150
+  }
+}
