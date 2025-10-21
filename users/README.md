@@ -11,6 +11,10 @@ users/
 │   ├── {wallet-address-1}.json  # User data for wallet address 1
 │   ├── {wallet-address-2}.json  # User data for wallet address 2
 │   └── ...                      # Additional wallet files
+├── wallet-addresses/            # Wallet address registry (NEW)
+│   ├── README.md                # Wallet registry documentation
+│   ├── registry.json            # Master registry of all wallets
+│   └── {wallet-address}.json    # Individual wallet address files
 └── schema.json                  # Database schema reference
 ```
 
@@ -60,10 +64,16 @@ Each wallet file (`{wallet-address}.json`) contains:
 ## Auto-Registration Flow
 
 1. **Wallet Event Detection**: System detects wallet connection/import/creation
-2. **Existence Check**: Checks if `{wallet-address}.json` exists
-3. **New User**: Creates file with initial schema if not exists
-4. **Existing User**: Loads existing data, no duplicate creation
+2. **Duplicate Check**: 
+   - Check `wallet-addresses/registry.json` for existing address
+   - Verify `wallet-addresses/{wallet-address}.json` exists
+3. **Existing User**: If wallet exists, load existing data from `wallets/{wallet-address}.json`
+4. **New User**: If wallet doesn't exist:
+   - Create `wallet-addresses/{wallet-address}.json` (address registry)
+   - Add wallet to `wallet-addresses/registry.json` (master registry)
+   - Create `wallets/{wallet-address}.json` (user data with initial schema)
 5. **Sync Points**: Synchronizes with sessionStorage points system
+6. **Update Activity**: Track last active timestamp in both files
 
 ## Security Features
 
