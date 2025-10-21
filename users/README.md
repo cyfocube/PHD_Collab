@@ -7,10 +7,10 @@ This directory contains the wallet-based user database system for C³ Cube persi
 ```
 users/
 ├── README.md                    # This file - documentation
-├── wallets/                     # Individual wallet data files
-│   ├── {wallet-address-1}.json  # User data for wallet address 1
-│   ├── {wallet-address-2}.json  # User data for wallet address 2
-│   └── ...                      # Additional wallet files
+├── Users_Scores/                # Individual user points and scores data
+│   ├── {wallet-address-1}.json  # User points data for wallet address 1
+│   ├── {wallet-address-2}.json  # User points data for wallet address 2
+│   └── ...                      # Additional user score files
 ├── wallet-addresses/            # Wallet address registry (NEW)
 │   ├── README.md                # Wallet registry documentation
 │   ├── registry.json            # Master registry of all wallets
@@ -20,7 +20,7 @@ users/
 
 ## User Data Schema
 
-Each wallet file (`{wallet-address}.json`) contains:
+Each user scores file (`{wallet-address}.json`) contains:
 
 ```json
 {
@@ -71,7 +71,7 @@ Each wallet file (`{wallet-address}.json`) contains:
 4. **New User**: If wallet doesn't exist:
    - Create `wallet-addresses/{wallet-address}.json` (address registry)
    - Add wallet to `wallet-addresses/registry.json` (master registry)
-   - Create `wallets/{wallet-address}.json` (user data with initial schema)
+   - Create `Users_Scores/{wallet-address}.json` (user points data with initial schema)
 5. **Sync Points**: Synchronizes with sessionStorage points system
 6. **Update Activity**: Track last active timestamp in both files
 
