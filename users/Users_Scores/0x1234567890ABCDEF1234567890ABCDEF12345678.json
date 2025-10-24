@@ -1,35 +1,37 @@
 {
   "walletAddress": "0x1234567890ABCDEF1234567890ABCDEF12345678",
-  "createdAt": "2025-10-23T23:55:38.220Z",
-  "lastActive": "2025-10-23T23:55:38.227Z",
+  "createdAt": "2025-10-24T00:06:56.964Z",
+  "lastActive": "2025-10-24T00:06:56.965Z",
   "points": {
     "gamingHub": {
-      "blockchainBasics": 10,
-      "smartContracts": 5,
-      "defiProtocols": 3,
-      "nftsWeb3": 2
+      "blockchainBasics": 15,
+      "smartContracts": 8,
+      "defiProtocols": 5,
+      "nftsWeb3": 3
     },
     "storyMode": {
-      "chaptersCompleted": 2,
-      "totalScore": 30
+      "chaptersCompleted": 3,
+      "totalScore": 65
     },
     "achievements": {
       "firstQuest": true,
       "cryptoNovice": true,
-      "blockchainExplorer": false,
+      "blockchainExplorer": true,
       "defiMaster": false,
       "speedLearner": false,
       "perfectionist": false
     },
-    "total": 50
+    "total": 96
   },
   "progress": {
     "completedNodes": [
-      "intro"
+      "intro",
+      "basics",
+      "intermediate"
     ],
-    "currentQuest": "blockchain-basics",
-    "level": 5,
-    "xp": 500
+    "currentQuest": "advanced-defi",
+    "level": 10,
+    "xp": 960
   },
   "settings": {
     "autoSync": true,
