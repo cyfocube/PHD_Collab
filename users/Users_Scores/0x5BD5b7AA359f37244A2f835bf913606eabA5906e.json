@@ -1,10 +1,10 @@
 {
   "walletAddress": "0x5BD5b7AA359f37244A2f835bf913606eabA5906e",
-  "createdAt": "2025-10-24T20:05:19.791Z",
-  "lastActive": "2025-10-24T20:05:20.230Z",
+  "createdAt": "2025-10-24T20:10:56.473Z",
+  "lastActive": "2025-10-24T20:10:56.920Z",
   "points": {
     "gamingHub": {
-      "blockchainBasics": 12,
+      "blockchainBasics": 12.5,
       "smartContracts": 0,
       "defiProtocols": 0,
       "nftsWeb3": 0
@@ -21,13 +21,16 @@
       "speedLearner": false,
       "perfectionist": false
     },
-    "total": 18
+    "total": 18.5
   },
   "progress": {
-    "completedNodes": [],
+    "completedNodes": [
+      "quest-started-blockchain-basics",
+      "blockchain-basics-challenge-0"
+    ],
     "currentQuest": null,
     "level": 2,
-    "xp": 180
+    "xp": 185
   },
   "settings": {
     "autoSync": true,
