@@ -1,7 +1,7 @@
 {
   "walletAddress": "0x5BD5b7AA359f37244A2f835bf913606eabA5906e",
-  "createdAt": "2025-10-24T19:59:34.323Z",
-  "lastActive": "2025-10-24T19:59:34.681Z",
+  "createdAt": "2025-10-24T20:00:37.788Z",
+  "lastActive": "2025-10-24T20:00:38.118Z",
   "points": {
     "gamingHub": {
       "blockchainBasics": 11.5,
@@ -10,8 +10,8 @@
       "nftsWeb3": 0
     },
     "storyMode": {
-      "chaptersCompleted": 5,
-      "totalScore": 5
+      "chaptersCompleted": 6,
+      "totalScore": 6
     },
     "achievements": {
       "firstQuest": true,
@@ -24,10 +24,7 @@
     "total": 16.5
   },
   "progress": {
-    "completedNodes": [
-      "quest-started-blockchain-basics",
-      "blockchain-basics-challenge-0"
-    ],
+    "completedNodes": [],
     "currentQuest": null,
     "level": 2,
     "xp": 165
