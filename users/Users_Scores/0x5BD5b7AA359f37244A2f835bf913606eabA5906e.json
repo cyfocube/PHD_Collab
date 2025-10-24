@@ -1,7 +1,7 @@
 {
   "walletAddress": "0x5BD5b7AA359f37244A2f835bf913606eabA5906e",
-  "createdAt": "2025-10-24T18:55:00.848Z",
-  "lastActive": "2025-10-24T18:55:01.190Z",
+  "createdAt": "2025-10-24T18:56:22.269Z",
+  "lastActive": "2025-10-24T18:56:22.570Z",
   "points": {
     "gamingHub": {
       "blockchainBasics": 6.5,
@@ -10,8 +10,8 @@
       "nftsWeb3": 0
     },
     "storyMode": {
-      "chaptersCompleted": 3,
-      "totalScore": 3
+      "chaptersCompleted": 4,
+      "totalScore": 4
     },
     "achievements": {
       "firstQuest": true,
@@ -21,7 +21,7 @@
       "speedLearner": false,
       "perfectionist": false
     },
-    "total": 9.5
+    "total": 10.5
   },
   "progress": {
     "completedNodes": [
@@ -41,8 +41,8 @@
       "quest-started-crypto-security"
     ],
     "currentQuest": null,
-    "level": 1,
-    "xp": 95
+    "level": 2,
+    "xp": 105
   },
   "settings": {
     "autoSync": true,
