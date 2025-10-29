@@ -1,0 +1,295 @@
+{
+  "users": [
+    {
+      "id": "user_001",
+      "email": "demo@university.edu",
+      "password": "password123",
+      "personalInfo": {
+        "firstName": "Sarah",
+        "lastName": "Johnson",
+        "phone": "+1-555-0123",
+        "dateOfBirth": "1995-03-15"
+      },
+      "academicInfo": {
+        "university": "Stanford University",
+        "department": "Computer Science",
+        "degreeLevel": "PhD",
+        "yearOfStudy": 3,
+        "expectedGraduation": "2026-06",
+        "advisor": "Dr. Michael Chen",
+        "researchAreas": ["Machine Learning", "Natural Language Processing", "Computer Vision"],
+        "currentGPA": 3.85,
+        "publications": 5,
+        "conferences": 3
+      },
+      "profileInfo": {
+        "bio": "PhD student researching AI applications in healthcare. Passionate about developing ML models for medical diagnosis and treatment optimization.",
+        "skills": ["Python", "TensorFlow", "PyTorch", "React", "Node.js"],
+        "languages": ["English", "Spanish", "Mandarin"],
+        "interests": ["Healthcare AI", "Deep Learning", "Medical Imaging"],
+        "availability": "Available for collaboration",
+        "collaborationPreferences": ["Co-authoring papers", "Joint research projects", "Conference presentations"]
+      },
+      "contactInfo": {
+        "linkedIn": "https://linkedin.com/in/sarah-johnson-phd",
+        "github": "https://github.com/sarahjohnson",
+        "orcid": "0000-0000-0000-0001",
+        "googleScholar": "https://scholar.google.com/citations?user=abc123",
+        "researchGate": "https://researchgate.net/profile/Sarah-Johnson"
+      },
+      "accountSettings": {
+        "isVerified": true,
+        "profileVisibility": "public",
+        "collaborationStatus": "open",
+        "notificationPreferences": {
+          "email": true,
+          "push": true,
+          "matchNotifications": true,
+          "messageNotifications": true,
+          "eventNotifications": true
+        }
+      },
+      "metadata": {
+        "createdAt": "2024-01-15T10:30:00Z",
+        "lastActive": "2024-12-20T15:45:00Z",
+        "profileImageId": "user_001_profile.jpg",
+        "location": "Palo Alto, CA",
+        "timezone": "America/Los_Angeles"
+      }
+    },
+    {
+      "id": "user_002",
+      "email": "alex.chen@mit.edu",
+      "password": "secure789",
+      "personalInfo": {
+        "firstName": "Alex",
+        "lastName": "Chen",
+        "phone": "+1-555-0456",
+        "dateOfBirth": "1993-08-22"
+      },
+      "academicInfo": {
+        "university": "MIT",
+        "department": "Electrical Engineering and Computer Science",
+        "degreeLevel": "PhD",
+        "yearOfStudy": 4,
+        "expectedGraduation": "2025-12",
+        "advisor": "Dr. Emily Rodriguez",
+        "researchAreas": ["Quantum Computing", "Cryptography", "Distributed Systems"],
+        "currentGPA": 3.92,
+        "publications": 8,
+        "conferences": 6
+      },
+      "profileInfo": {
+        "bio": "Final year PhD student specializing in quantum-resistant cryptography and distributed quantum systems. Looking for collaborators in quantum security research.",
+        "skills": ["Quantum Computing", "Cryptography", "C++", "Python", "MATLAB", "Qiskit"],
+        "languages": ["English", "Mandarin", "Japanese"],
+        "interests": ["Quantum Security", "Post-quantum Cryptography", "Blockchain"],
+        "availability": "Available for collaboration",
+        "collaborationPreferences": ["Research partnerships", "Grant applications", "Industry collaboration"]
+      },
+      "contactInfo": {
+        "linkedIn": "https://linkedin.com/in/alex-chen-quantum",
+        "github": "https://github.com/alexchen-quantum",
+        "orcid": "0000-0000-0000-0002",
+        "googleScholar": "https://scholar.google.com/citations?user=def456",
+        "researchGate": "https://researchgate.net/profile/Alex-Chen"
+      },
+      "accountSettings": {
+        "isVerified": true,
+        "profileVisibility": "public",
+        "collaborationStatus": "selective",
+        "notificationPreferences": {
+          "email": true,
+          "push": false,
+          "matchNotifications": true,
+          "messageNotifications": true,
+          "eventNotifications": false
+        }
+      },
+      "metadata": {
+        "createdAt": "2023-09-10T14:20:00Z",
+        "lastActive": "2024-12-19T09:15:00Z",
+        "profileImageId": "user_002_profile.jpg",
+        "location": "Cambridge, MA",
+        "timezone": "America/New_York"
+      }
+    },
+    {
+      "id": "user_003",
+      "email": "maria.gonzalez@berkeley.edu",
+      "password": "research2024",
+      "personalInfo": {
+        "firstName": "Maria",
+        "lastName": "Gonzalez",
+        "phone": "+1-555-0789",
+        "dateOfBirth": "1996-12-03"
+      },
+      "academicInfo": {
+        "university": "UC Berkeley",
+        "department": "Bioengineering",
+        "degreeLevel": "PhD",
+        "yearOfStudy": 2,
+        "expectedGraduation": "2027-05",
+        "advisor": "Dr. James Wilson",
+        "researchAreas": ["Biomedical Engineering", "Tissue Engineering", "Regenerative Medicine"],
+        "currentGPA": 3.78,
+        "publications": 3,
+        "conferences": 2
+      },
+      "profileInfo": {
+        "bio": "Second-year PhD student developing novel biomaterials for tissue regeneration. Interested in interdisciplinary collaborations combining engineering and biology.",
+        "skills": ["MATLAB", "Python", "CAD Design", "3D Printing", "Cell Culture", "Microscopy"],
+        "languages": ["English", "Spanish", "Portuguese"],
+        "interests": ["Biomaterials", "3D Bioprinting", "Stem Cell Research"],
+        "availability": "Available for collaboration",
+        "collaborationPreferences": ["Interdisciplinary projects", "Lab exchanges", "Co-supervision opportunities"]
+      },
+      "contactInfo": {
+        "linkedIn": "https://linkedin.com/in/maria-gonzalez-bioeng",
+        "github": "https://github.com/mariagonzalez-bio",
+        "orcid": "0000-0000-0000-0003",
+        "googleScholar": "https://scholar.google.com/citations?user=ghi789",
+        "researchGate": "https://researchgate.net/profile/Maria-Gonzalez"
+      },
+      "accountSettings": {
+        "isVerified": true,
+        "profileVisibility": "public",
+        "collaborationStatus": "open",
+        "notificationPreferences": {
+          "email": true,
+          "push": true,
+          "matchNotifications": true,
+          "messageNotifications": true,
+          "eventNotifications": true
+        }
+      },
+      "metadata": {
+        "createdAt": "2024-03-20T11:45:00Z",
+        "lastActive": "2024-12-20T12:30:00Z",
+        "profileImageId": "user_003_profile.jpg",
+        "location": "Berkeley, CA",
+        "timezone": "America/Los_Angeles"
+      }
+    },
+    {
+      "id": "user_004",
+      "email": "david.kim@harvard.edu",
+      "password": "harvard123",
+      "personalInfo": {
+        "firstName": "David",
+        "lastName": "Kim",
+        "phone": "+1-555-0321",
+        "dateOfBirth": "1994-05-18"
+      },
+      "academicInfo": {
+        "university": "Harvard University",
+        "department": "Psychology",
+        "degreeLevel": "PhD",
+        "yearOfStudy": 5,
+        "expectedGraduation": "2025-05",
+        "advisor": "Dr. Lisa Thompson",
+        "researchAreas": ["Cognitive Psychology", "Neuroscience", "Human-Computer Interaction"],
+        "currentGPA": 3.88,
+        "publications": 12,
+        "conferences": 8
+      },
+      "profileInfo": {
+        "bio": "Final year PhD student investigating cognitive processes in human-AI interaction. Seeking collaborators for cross-disciplinary research in psychology and technology.",
+        "skills": ["R", "Python", "SPSS", "fMRI Analysis", "JavaScript", "Experiment Design"],
+        "languages": ["English", "Korean", "German"],
+        "interests": ["Cognitive Science", "AI Ethics", "User Experience Research"],
+        "availability": "Limited availability",
+        "collaborationPreferences": ["Data analysis collaboration", "Cross-cultural studies", "Meta-analyses"]
+      },
+      "contactInfo": {
+        "linkedIn": "https://linkedin.com/in/david-kim-psychology",
+        "github": "https://github.com/davidkim-cog",
+        "orcid": "0000-0000-0000-0004",
+        "googleScholar": "https://scholar.google.com/citations?user=jkl012",
+        "researchGate": "https://researchgate.net/profile/David-Kim"
+      },
+      "accountSettings": {
+        "isVerified": true,
+        "profileVisibility": "public",
+        "collaborationStatus": "limited",
+        "notificationPreferences": {
+          "email": false,
+          "push": true,
+          "matchNotifications": false,
+          "messageNotifications": true,
+          "eventNotifications": false
+        }
+      },
+      "metadata": {
+        "createdAt": "2022-08-15T16:00:00Z",
+        "lastActive": "2024-12-18T20:45:00Z",
+        "profileImageId": "user_004_profile.jpg",
+        "location": "Cambridge, MA",
+        "timezone": "America/New_York"
+      }
+    },
+    {
+      "id": "user_005",
+      "email": "priya.patel@cmu.edu",
+      "password": "cmu2024!",
+      "personalInfo": {
+        "firstName": "Priya",
+        "lastName": "Patel",
+        "phone": "+1-555-0654",
+        "dateOfBirth": "1997-01-25"
+      },
+      "academicInfo": {
+        "university": "Carnegie Mellon University",
+        "department": "Robotics Institute",
+        "degreeLevel": "PhD",
+        "yearOfStudy": 1,
+        "expectedGraduation": "2028-12",
+        "advisor": "Dr. Robert Anderson",
+        "researchAreas": ["Robotics", "Computer Vision", "Autonomous Systems"],
+        "currentGPA": 3.95,
+        "publications": 2,
+        "conferences": 1
+      },
+      "profileInfo": {
+        "bio": "First-year PhD student passionate about autonomous robotics and computer vision. Eager to collaborate on projects involving robot perception and navigation.",
+        "skills": ["ROS", "OpenCV", "C++", "Python", "Deep Learning", "SLAM"],
+        "languages": ["English", "Hindi", "Gujarati"],
+        "interests": ["Autonomous Vehicles", "Robot Learning", "3D Vision"],
+        "availability": "Highly available",
+        "collaborationPreferences": ["Technical projects", "Open source contributions", "Hackathons"]
+      },
+      "contactInfo": {
+        "linkedIn": "https://linkedin.com/in/priya-patel-robotics",
+        "github": "https://github.com/priyapatel-robotics",
+        "orcid": "0000-0000-0000-0005",
+        "googleScholar": "https://scholar.google.com/citations?user=mno345",
+        "researchGate": "https://researchgate.net/profile/Priya-Patel"
+      },
+      "accountSettings": {
+        "isVerified": false,
+        "profileVisibility": "public",
+        "collaborationStatus": "open",
+        "notificationPreferences": {
+          "email": true,
+          "push": true,
+          "matchNotifications": true,
+          "messageNotifications": true,
+          "eventNotifications": true
+        }
+      },
+      "metadata": {
+        "createdAt": "2024-08-30T13:15:00Z",
+        "lastActive": "2024-12-20T16:20:00Z",
+        "profileImageId": "user_005_profile.jpg",
+        "location": "Pittsburgh, PA",
+        "timezone": "America/New_York"
+      }
+    }
+  ],
+  "metadata": {
+    "version": "1.0",
+    "lastUpdated": "2024-12-20T16:30:00Z",
+    "totalUsers": 5,
+    "schemaVersion": "2024.1"
+  }
+}
