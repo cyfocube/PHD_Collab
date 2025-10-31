@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { View, StyleSheet, Alert, ScrollView, TouchableOpacity } from 'react-native';
-import { TextInput, Button, Text, ActivityIndicator, Chip } from 'react-native-paper';
+import { View, StyleSheet, Alert, ScrollView, TouchableOpacity, Image, Modal, FlatList } from 'react-native';
+import { TextInput, Button, Text, ActivityIndicator, Chip, IconButton } from 'react-native-paper';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import * as ImagePicker from 'expo-image-picker';
 import { useAuth } from '../../contexts/AuthContext';
@@ -57,12 +57,174 @@ const getStepColor = (step: number): string => {
   return colors[step as keyof typeof colors] || '#6366F1';
 };
 
+const countryCodes = [
+  // North America
+  { code: '+1', country: 'United States', flag: '🇺🇸' },
+  { code: '+1', country: 'Canada', flag: '🇨🇦' },
+  { code: '+52', country: 'Mexico', flag: '🇲🇽' },
+  
+  // Europe
+  { code: '+44', country: 'United Kingdom', flag: '🇬🇧' },
+  { code: '+33', country: 'France', flag: '🇫🇷' },
+  { code: '+49', country: 'Germany', flag: '🇩🇪' },
+  { code: '+39', country: 'Italy', flag: '🇮🇹' },
+  { code: '+34', country: 'Spain', flag: '🇪🇸' },
+  { code: '+31', country: 'Netherlands', flag: '🇳🇱' },
+  { code: '+41', country: 'Switzerland', flag: '🇨🇭' },
+  { code: '+43', country: 'Austria', flag: '🇦🇹' },
+  { code: '+32', country: 'Belgium', flag: '🇧🇪' },
+  { code: '+45', country: 'Denmark', flag: '🇩🇰' },
+  { code: '+46', country: 'Sweden', flag: '🇸🇪' },
+  { code: '+47', country: 'Norway', flag: '🇳🇴' },
+  { code: '+358', country: 'Finland', flag: '🇫🇮' },
+  { code: '+48', country: 'Poland', flag: '🇵🇱' },
+  { code: '+420', country: 'Czech Republic', flag: '🇨🇿' },
+  { code: '+36', country: 'Hungary', flag: '🇭🇺' },
+  { code: '+351', country: 'Portugal', flag: '🇵🇹' },
+  { code: '+30', country: 'Greece', flag: '🇬🇷' },
+  { code: '+7', country: 'Russia', flag: '🇷🇺' },
+  { code: '+380', country: 'Ukraine', flag: '🇺🇦' },
+  { code: '+353', country: 'Ireland', flag: '🇮🇪' },
+  
+  // Asia
+  { code: '+86', country: 'China', flag: '🇨🇳' },
+  { code: '+81', country: 'Japan', flag: '🇯🇵' },
+  { code: '+82', country: 'South Korea', flag: '🇰🇷' },
+  { code: '+91', country: 'India', flag: '🇮🇳' },
+  { code: '+92', country: 'Pakistan', flag: '🇵🇰' },
+  { code: '+880', country: 'Bangladesh', flag: '🇧🇩' },
+  { code: '+94', country: 'Sri Lanka', flag: '🇱🇰' },
+  { code: '+95', country: 'Myanmar', flag: '🇲🇲' },
+  { code: '+66', country: 'Thailand', flag: '🇹🇭' },
+  { code: '+84', country: 'Vietnam', flag: '🇻🇳' },
+  { code: '+60', country: 'Malaysia', flag: '🇲🇾' },
+  { code: '+65', country: 'Singapore', flag: '🇸🇬' },
+  { code: '+62', country: 'Indonesia', flag: '🇮🇩' },
+  { code: '+63', country: 'Philippines', flag: '🇵🇭' },
+  { code: '+852', country: 'Hong Kong', flag: '🇭🇰' },
+  { code: '+886', country: 'Taiwan', flag: '🇹🇼' },
+  { code: '+853', country: 'Macau', flag: '🇲🇴' },
+  { code: '+976', country: 'Mongolia', flag: '🇲🇳' },
+  { code: '+998', country: 'Uzbekistan', flag: '🇺🇿' },
+  { code: '+996', country: 'Kyrgyzstan', flag: '🇰🇬' },
+  { code: '+992', country: 'Tajikistan', flag: '🇹🇯' },
+  { code: '+993', country: 'Turkmenistan', flag: '🇹🇲' },
+  { code: '+994', country: 'Azerbaijan', flag: '🇦🇿' },
+  { code: '+995', country: 'Georgia', flag: '🇬🇪' },
+  { code: '+374', country: 'Armenia', flag: '🇦🇲' },
+  
+  // Middle East
+  { code: '+971', country: 'UAE', flag: '🇦🇪' },
+  { code: '+966', country: 'Saudi Arabia', flag: '🇸🇦' },
+  { code: '+972', country: 'Israel', flag: '🇮🇱' },
+  { code: '+90', country: 'Turkey', flag: '🇹🇷' },
+  { code: '+98', country: 'Iran', flag: '🇮🇷' },
+  { code: '+964', country: 'Iraq', flag: '🇮�' },
+  { code: '+962', country: 'Jordan', flag: '🇯🇴' },
+  { code: '+961', country: 'Lebanon', flag: '🇱🇧' },
+  { code: '+963', country: 'Syria', flag: '🇸🇾' },
+  { code: '+965', country: 'Kuwait', flag: '🇰🇼' },
+  { code: '+968', country: 'Oman', flag: '🇴🇲' },
+  { code: '+973', country: 'Bahrain', flag: '🇧🇭' },
+  { code: '+974', country: 'Qatar', flag: '🇶🇦' },
+  { code: '+967', country: 'Yemen', flag: '🇾🇪' },
+  
+  // Africa
+  { code: '+234', country: 'Nigeria', flag: '�🇳🇬' },
+  { code: '+27', country: 'South Africa', flag: '🇿🇦' },
+  { code: '+20', country: 'Egypt', flag: '🇪🇬' },
+  { code: '+212', country: 'Morocco', flag: '🇲🇦' },
+  { code: '+216', country: 'Tunisia', flag: '🇹🇳' },
+  { code: '+213', country: 'Algeria', flag: '🇩🇿' },
+  { code: '+218', country: 'Libya', flag: '🇱🇾' },
+  { code: '+249', country: 'Sudan', flag: '🇸🇩' },
+  { code: '+251', country: 'Ethiopia', flag: '🇪🇹' },
+  { code: '+254', country: 'Kenya', flag: '🇰🇪' },
+  { code: '+255', country: 'Tanzania', flag: '🇹🇿' },
+  { code: '+256', country: 'Uganda', flag: '🇺🇬' },
+  { code: '+250', country: 'Rwanda', flag: '🇷�' },
+  { code: '+233', country: 'Ghana', flag: '🇬🇭' },
+  { code: '+225', country: 'Ivory Coast', flag: '🇨🇮' },
+  { code: '+221', country: 'Senegal', flag: '🇸🇳' },
+  { code: '+223', country: 'Mali', flag: '🇲🇱' },
+  { code: '+226', country: 'Burkina Faso', flag: '🇧🇫' },
+  { code: '+227', country: 'Niger', flag: '🇳🇪' },
+  { code: '+229', country: 'Benin', flag: '🇧🇯' },
+  { code: '+228', country: 'Togo', flag: '🇹🇬' },
+  { code: '+220', country: 'Gambia', flag: '🇬🇲' },
+  { code: '+224', country: 'Guinea', flag: '🇬🇳' },
+  { code: '+245', country: 'Guinea-Bissau', flag: '🇬🇼' },
+  { code: '+238', country: 'Cape Verde', flag: '🇨🇻' },
+  { code: '+232', country: 'Sierra Leone', flag: '🇸🇱' },
+  { code: '+231', country: 'Liberia', flag: '🇱🇷' },
+  { code: '+260', country: 'Zambia', flag: '🇿🇲' },
+  { code: '+263', country: 'Zimbabwe', flag: '🇿🇼' },
+  { code: '+265', country: 'Malawi', flag: '🇲🇼' },
+  { code: '+258', country: 'Mozambique', flag: '🇲🇿' },
+  { code: '+264', country: 'Namibia', flag: '🇳�🇦' },
+  { code: '+267', country: 'Botswana', flag: '🇧🇼' },
+  { code: '+268', country: 'Eswatini', flag: '�🇿' },
+  { code: '+266', country: 'Lesotho', flag: '🇱🇸' },
+  
+  // South America
+  { code: '+55', country: 'Brazil', flag: '🇧🇷' },
+  { code: '+54', country: 'Argentina', flag: '��🇷' },
+  { code: '+56', country: 'Chile', flag: '🇨🇱' },
+  { code: '+57', country: 'Colombia', flag: '🇨🇴' },
+  { code: '+51', country: 'Peru', flag: '🇵🇪' },
+  { code: '+58', country: 'Venezuela', flag: '🇻🇪' },
+  { code: '+593', country: 'Ecuador', flag: '🇪🇨' },
+  { code: '+595', country: 'Paraguay', flag: '🇵🇾' },
+  { code: '+598', country: 'Uruguay', flag: '🇺🇾' },
+  { code: '+591', country: 'Bolivia', flag: '�🇴' },
+  { code: '+592', country: 'Guyana', flag: '🇬🇾' },
+  { code: '+597', country: 'Suriname', flag: '🇸�🇷' },
+  
+  // Oceania
+  { code: '+61', country: 'Australia', flag: '🇦🇺' },
+  { code: '+64', country: 'New Zealand', flag: '🇳🇿' },
+  { code: '+679', country: 'Fiji', flag: '🇫🇯' },
+  { code: '+685', country: 'Samoa', flag: '🇼🇸' },
+  { code: '+676', country: 'Tonga', flag: '🇹🇴' },
+  { code: '+678', country: 'Vanuatu', flag: '🇻🇺' },
+  { code: '+686', country: 'Kiribati', flag: '🇰🇮' },
+  { code: '+687', country: 'New Caledonia', flag: '🇳🇨' },
+  { code: '+689', country: 'French Polynesia', flag: '🇵🇫' },
+  
+  // Caribbean
+  { code: '+1242', country: 'Bahamas', flag: '🇧🇸' },
+  { code: '+1246', country: 'Barbados', flag: '🇧🇧' },
+  { code: '+1284', country: 'British Virgin Islands', flag: '🇻🇬' },
+  { code: '+1345', country: 'Cayman Islands', flag: '🇰🇾' },
+  { code: '+1809', country: 'Dominican Republic', flag: '🇩🇴' },
+  { code: '+1876', country: 'Jamaica', flag: '🇯🇲' },
+  { code: '+1868', country: 'Trinidad and Tobago', flag: '🇹🇹' },
+  { code: '+590', country: 'Guadeloupe', flag: '🇬🇵' },
+  { code: '+596', country: 'Martinique', flag: '🇲🇶' },
+  { code: '+594', country: 'French Guiana', flag: '🇬🇫' },
+  
+  // Central America
+  { code: '+502', country: 'Guatemala', flag: '🇬🇹' },
+  { code: '+503', country: 'El Salvador', flag: '🇸🇻' },
+  { code: '+504', country: 'Honduras', flag: '🇭🇳' },
+  { code: '+505', country: 'Nicaragua', flag: '🇳🇮' },
+  { code: '+506', country: 'Costa Rica', flag: '🇨�' },
+  { code: '+507', country: 'Panama', flag: '🇵🇦' },
+  { code: '+501', country: 'Belize', flag: '🇧🇿' },
+];
+
 export default function SignUpScreen({ navigation }: any) {
   const { login } = useAuth();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [currentStep, setCurrentStep] = useState(1);
   const [profileImage, setProfileImage] = useState<string | null>(null);
+  const [clickCount, setClickCount] = useState(0);
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [countryCode, setCountryCode] = useState('+1');
+  const [countryFlag, setCountryFlag] = useState('🇺🇸');
+  const [showCountryModal, setShowCountryModal] = useState(false);
   
   const [formData, setFormData] = useState<SignUpFormData>({
     email: '',
@@ -110,6 +272,68 @@ export default function SignUpScreen({ navigation }: any) {
     interest: '',
     collaboration: '',
   });
+
+  // Simple validation function - start with just checking if fields are not empty
+  const isValidEmail = (email: string) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+
+  const getValidationErrors = () => {
+    const errors: string[] = [];
+    
+    switch (currentStep) {
+      case 1:
+        // Check for missing fields
+        if (formData.email.length === 0) errors.push('Email is required');
+        if (formData.password.length === 0) errors.push('Password is required');
+        if (formData.confirmPassword.length === 0) errors.push('Confirm Password is required');
+        
+        // Check email format if provided
+        if (formData.email.length > 0 && !isValidEmail(formData.email)) {
+          errors.push('Email must be a valid email address');
+        }
+        
+        // Check password length if provided
+        if (formData.password.length > 0 && formData.password.length < 8) {
+          errors.push('Password must be at least 8 characters long');
+        }
+        
+        // Check password confirmation if both passwords are provided
+        if (formData.password.length > 0 && formData.confirmPassword.length > 0 && 
+            formData.password !== formData.confirmPassword) {
+          errors.push('Passwords must match');
+        }
+        break;
+      
+      case 2:
+        if (formData.personalInfo.firstName.length === 0) errors.push('First Name is required');
+        if (formData.personalInfo.lastName.length === 0) errors.push('Last Name is required');
+        if (formData.personalInfo.phone.length === 0) errors.push('Phone is required');
+        if (formData.personalInfo.dateOfBirth.length === 0) errors.push('Date of Birth is required');
+        break;
+      
+      case 3:
+        if (formData.academicInfo.university.length === 0) errors.push('University is required');
+        if (formData.academicInfo.department.length === 0) errors.push('Department is required');
+        if (formData.academicInfo.degreeLevel.length === 0) errors.push('Degree Level is required');
+        break;
+      
+      case 4:
+        if (formData.profileInfo.bio.length === 0) errors.push('Bio is required');
+        break;
+      
+      case 5:
+        // No required fields
+        break;
+    }
+    
+    return errors;
+  };
+
+  const isStepComplete = () => {
+    return getValidationErrors().length === 0;
+  };
 
   const pickImage = async () => {
     const permissionResult = await ImagePicker.requestMediaLibraryPermissionsAsync();
@@ -237,52 +461,6 @@ export default function SignUpScreen({ navigation }: any) {
     }
   };
 
-  const validateStep = (step: number): string | null => {
-    if (step === 1) {
-      if (!formData.email) return 'Email is required.';
-      if (!formData.password) return 'Password is required.';
-      if (!formData.confirmPassword) return 'Confirm Password is required.';
-      return null;
-    }
-    if (step === 2) {
-      if (!formData.personalInfo.firstName) return 'First Name is required.';
-      if (!formData.personalInfo.lastName) return 'Last Name is required.';
-      if (!formData.personalInfo.phone) return 'Phone is required.';
-      if (!formData.personalInfo.dateOfBirth) return 'Date of Birth is required.';
-      return null;
-    }
-    if (step === 3) {
-      if (!formData.academicInfo.university) return 'University is required.';
-      if (!formData.academicInfo.department) return 'Department is required.';
-      if (!formData.academicInfo.degreeLevel) return 'Degree Level is required.';
-      if (!formData.academicInfo.yearOfStudy) return 'Year of Study is required.';
-      if (!formData.academicInfo.expectedGraduation) return 'Expected Graduation is required.';
-      if (!formData.academicInfo.advisor) return 'Advisor is required.';
-      if (formData.academicInfo.researchAreas.length === 0) return 'At least one Research Area is required.';
-      if (!formData.academicInfo.currentGPA) return 'Current GPA is required.';
-      if (!formData.academicInfo.publications && formData.academicInfo.publications !== 0) return 'Publications is required.';
-      if (!formData.academicInfo.conferences && formData.academicInfo.conferences !== 0) return 'Conferences is required.';
-      return null;
-    }
-    if (step === 4) {
-      if (!formData.profileInfo.bio) return 'Bio is required.';
-      if (formData.profileInfo.skills.length === 0) return 'At least one Skill is required.';
-      if (formData.profileInfo.languages.length === 0) return 'At least one Language is required.';
-      if (formData.profileInfo.interests.length === 0) return 'At least one Interest is required.';
-      if (formData.profileInfo.collaborationPreferences.length === 0) return 'At least one Collaboration Preference is required.';
-      return null;
-    }
-    if (step === 5) {
-      if (!formData.contactInfo.linkedIn) return 'LinkedIn URL is required.';
-      if (!formData.contactInfo.github) return 'GitHub URL is required.';
-      if (!formData.contactInfo.orcid) return 'ORCID is required.';
-      if (!formData.contactInfo.googleScholar) return 'Google Scholar URL is required.';
-      if (!formData.contactInfo.researchGate) return 'ResearchGate URL is required.';
-      return null;
-    }
-    return null;
-  };
-
   const renderStep1 = () => (
     <View>
       <TextInput
@@ -294,6 +472,10 @@ export default function SignUpScreen({ navigation }: any) {
         keyboardType="email-address"
         autoCapitalize="none"
         theme={{ roundness: 10 }}
+        onSubmitEditing={() => {
+          console.log('🔴 Email field submitted via keyboard - BLOCKING');
+          // Don't advance step on Enter/Submit
+        }}
       />
       
       <TextInput
@@ -301,9 +483,15 @@ export default function SignUpScreen({ navigation }: any) {
         value={formData.password}
         onChangeText={(text) => setFormData(prev => ({ ...prev, password: text }))}
         mode="outlined"
-        secureTextEntry
+        secureTextEntry={!showPassword}
         style={styles.input}
         theme={{ roundness: 10 }}
+        right={
+          <TextInput.Icon
+            icon={showPassword ? "eye-off" : "eye"}
+            onPress={() => setShowPassword(!showPassword)}
+          />
+        }
       />
       
       <TextInput
@@ -311,15 +499,45 @@ export default function SignUpScreen({ navigation }: any) {
         value={formData.confirmPassword}
         onChangeText={(text) => setFormData(prev => ({ ...prev, confirmPassword: text }))}
         mode="outlined"
-        secureTextEntry
+        secureTextEntry={!showConfirmPassword}
         style={styles.input}
         theme={{ roundness: 10 }}
+        right={
+          <TextInput.Icon
+            icon={showConfirmPassword ? "eye-off" : "eye"}
+            onPress={() => setShowConfirmPassword(!showConfirmPassword)}
+          />
+        }
       />
     </View>
   );
 
   const renderStep2 = () => (
     <View>
+      {/* Profile Photo Section */}
+      <View style={styles.profilePhotoContainer}>
+        <TouchableOpacity onPress={pickImage} style={styles.profilePhotoWrapper}>
+          {profileImage ? (
+            <Image source={{ uri: profileImage }} style={styles.profilePhoto} />
+          ) : (
+            <View style={styles.placeholderPhoto}>
+              <Text style={styles.placeholderText}>Add Photo</Text>
+            </View>
+          )}
+          {profileImage && (
+            <View style={styles.editIconContainer}>
+              <IconButton
+                icon="pencil"
+                size={20}
+                iconColor="white"
+                style={styles.editIcon}
+                onPress={pickImage}
+              />
+            </View>
+          )}
+        </TouchableOpacity>
+      </View>
+
       <TextInput
         label="First Name"
         value={formData.personalInfo.firstName}
@@ -355,10 +573,22 @@ export default function SignUpScreen({ navigation }: any) {
         style={styles.input}
         keyboardType="phone-pad"
         theme={{ roundness: 10 }}
+        left={
+          <TextInput.Icon
+            icon={() => (
+              <TouchableOpacity 
+                onPress={() => setShowCountryModal(true)}
+                style={styles.countryCodeInlineButton}
+              >
+                <Text style={styles.countryCodeInlineText}>{countryFlag} {countryCode} ▼</Text>
+              </TouchableOpacity>
+            )}
+          />
+        }
       />
       
       <TextInput
-        label="Date of Birth (YYYY-MM-DD)"
+        label="Date of Birth (YYYY-MM)"
         value={formData.personalInfo.dateOfBirth}
         onChangeText={(text) => setFormData(prev => ({ 
           ...prev, 
@@ -366,19 +596,9 @@ export default function SignUpScreen({ navigation }: any) {
         }))}
         mode="outlined"
         style={styles.input}
-        placeholder="1995-03-15"
+        placeholder="1995-03"
         theme={{ roundness: 10 }}
       />
-
-      <TouchableOpacity onPress={pickImage} style={styles.imagePickerButton}>
-        <Text style={styles.imagePickerText}>
-          {profileImage ? 'Change Profile Picture' : 'Upload Profile Picture'}
-        </Text>
-      </TouchableOpacity>
-      
-      {profileImage && (
-        <Text style={styles.imageSelectedText}>✓ Profile picture selected</Text>
-      )}
     </View>
   );
 
@@ -818,23 +1038,99 @@ export default function SignUpScreen({ navigation }: any) {
             )}
             
             {currentStep < 5 ? (
-              <Button
-                mode="contained"
-                onPress={() => {
-                  const validationError = validateStep(currentStep);
-                  if (validationError) {
-                    setError(validationError);
-                  } else {
-                    setError('');
-                    setCurrentStep(currentStep + 1);
-                  }
-                }}
-                style={styles.nextButton}
-              >
-                Next
-              </Button>
+              currentStep === 1 ? (
+                // Account section - keep filled button style
+                isStepComplete() ? (
+                  <TouchableOpacity
+                    onPress={() => {
+                      console.log('✅ ENABLED Next button clicked!');
+                      setClickCount(prev => prev + 1);
+                      setError('');
+                      setCurrentStep(currentStep + 1);
+                    }}
+                    style={[
+                      styles.nextButton, 
+                      { 
+                        backgroundColor: '#6366F1',
+                        opacity: 1,
+                        padding: 16,
+                        borderRadius: 8,
+                        alignItems: 'center',
+                        justifyContent: 'center'
+                      }
+                    ]}
+                  >
+                    <Text style={{ color: 'white', fontSize: 16, fontWeight: 'bold' }}>
+                      Next
+                    </Text>
+                  </TouchableOpacity>
+                ) : (
+                  <TouchableOpacity
+                    onPress={() => {
+                      console.log('❌ DISABLED Next button clicked - this should show error!');
+                      setClickCount(prev => prev + 1);
+                      const errors = getValidationErrors();
+                      const errorMessage = errors.length === 1 
+                        ? errors[0]
+                        : errors.length === 2
+                        ? errors.join(' and ')
+                        : errors.slice(0, -1).join(', ') + ', and ' + errors[errors.length - 1];
+                      setError(errorMessage);
+                    }}
+                    style={[
+                      styles.nextButton, 
+                      { 
+                        backgroundColor: '#666666',
+                        opacity: 0.5,
+                        padding: 16,
+                        borderRadius: 8,
+                        alignItems: 'center',
+                        justifyContent: 'center'
+                      }
+                    ]}
+                  >
+                    <Text style={{ color: 'white', fontSize: 16, fontWeight: 'bold' }}>
+                      Next
+                    </Text>
+                  </TouchableOpacity>
+                )
+              ) : (
+                // Steps 2-4 - use outlined button style like Back button
+                <Button
+                  mode="outlined"
+                  onPress={() => {
+                    if (isStepComplete()) {
+                      console.log('✅ ENABLED Next button clicked!');
+                      setClickCount(prev => prev + 1);
+                      setError('');
+                      setCurrentStep(currentStep + 1);
+                    } else {
+                      console.log('❌ DISABLED Next button clicked - this should show error!');
+                      setClickCount(prev => prev + 1);
+                      const errors = getValidationErrors();
+                      const errorMessage = errors.length === 1 
+                        ? errors[0]
+                        : errors.length === 2
+                        ? errors.join(' and ')
+                        : errors.slice(0, -1).join(', ') + ', and ' + errors[errors.length - 1];
+                      setError(errorMessage);
+                    }
+                  }}
+                  style={[
+                    styles.nextButton,
+                    {
+                      borderColor: isStepComplete() ? '#6366F1' : '#666666',
+                      backgroundColor: isStepComplete() ? 'transparent' : '#666666',
+                      opacity: 1
+                    }
+                  ]}
+                  textColor="white"
+                >
+                  Next
+                </Button>
+              )
             ) : (
-                loading ? (
+              loading ? (
                 <View style={styles.loadingContainer}>
                   <ActivityIndicator size="large" color="#6366F1" />
                   <Text style={styles.loadingText}>Creating account...</Text>
@@ -865,6 +1161,43 @@ export default function SignUpScreen({ navigation }: any) {
           </View>
         </View>
       </ScrollView>
+
+      {/* Country Code Modal */}
+      <Modal
+        visible={showCountryModal}
+        transparent={true}
+        animationType="slide"
+        onRequestClose={() => setShowCountryModal(false)}
+      >
+        <View style={styles.modalOverlay}>
+          <View style={styles.modalContent}>
+            <View style={styles.modalHeader}>
+              <Text style={styles.modalTitle}>Select Country Code</Text>
+              <TouchableOpacity onPress={() => setShowCountryModal(false)}>
+                <Text style={styles.modalCloseButton}>✕</Text>
+              </TouchableOpacity>
+            </View>
+            <FlatList
+              data={countryCodes}
+              keyExtractor={(item, index) => `${item.code}-${item.country}-${index}`}
+              renderItem={({ item }) => (
+                <TouchableOpacity
+                  style={styles.countryCodeItem}
+                  onPress={() => {
+                    setCountryCode(item.code);
+                    setCountryFlag(item.flag);
+                    setShowCountryModal(false);
+                  }}
+                >
+                  <Text style={styles.countryCodeItemText}>
+                    {item.flag} {item.code} ({item.country})
+                  </Text>
+                </TouchableOpacity>
+              )}
+            />
+          </View>
+        </View>
+      </Modal>
     </SafeAreaView>
   );
 }
@@ -900,6 +1233,60 @@ const styles = StyleSheet.create({
   },
   progressContainer: {
     flexDirection: 'row',
+    height: 3,
+    marginBottom: 10,
+    gap: 3,
+  },
+  progressSegment: {
+    flex: 1,
+    height: '100%',
+    borderRadius: 1.5,
+    backgroundColor: '#333333',
+  },
+  stepLabelsContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    paddingHorizontal: 2,
+  },
+  stepLabel: {
+    fontSize: 11,
+    fontWeight: '400',
+    textAlign: 'center',
+    flex: 1,
+    opacity: 0.8,
+  },
+  stepTitle: {
+    color: '#FFFFFF',
+    marginBottom: 20,
+    textAlign: 'center',
+  },
+  errorText: {
+    color: '#EF4444',
+    textAlign: 'center',
+    marginBottom: 20,
+    backgroundColor: '#1F1F1F',
+    padding: 12,
+    borderRadius: 10,
+    fontSize: 14,
+    borderWidth: 1,
+    borderColor: '#EF4444',
+  },
+  input: {
+    marginBottom: 16,
+    backgroundColor: '#1A1A1A',
+    height: 43,
+  },
+  textArea: {
+    marginBottom: 16,
+    backgroundColor: '#1A1A1A',
+  },
+  arrayInputContainer: {
+    marginBottom: 20,
+  },
+  arrayInput: {
+    backgroundColor: '#1A1A1A',
+    height: 43,
+    marginBottom: 10,
   },
   chipContainer: {
     flexDirection: 'row',
@@ -910,22 +1297,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#6366F1',
     marginBottom: 5,
   },
-  imagePickerButton: {
-    backgroundColor: '#333333',
-    padding: 16,
-    borderRadius: 10,
-    alignItems: 'center',
-    marginBottom: 16,
-  },
-  imagePickerText: {
-    color: '#FFFFFF',
-    fontSize: 16,
-  },
-  imageSelectedText: {
-    color: '#10B981',
-    textAlign: 'center',
-    marginBottom: 16,
-  },
+
   buttonContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -964,5 +1336,132 @@ const styles = StyleSheet.create({
   loginLink: {
     color: '#6366F1',
     fontWeight: '600',
+  },
+  profilePhotoContainer: {
+    alignItems: 'center',
+    marginBottom: 24,
+  },
+  profilePhotoWrapper: {
+    position: 'relative',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  profilePhoto: {
+    width: 120,
+    height: 120,
+    borderRadius: 60,
+    borderWidth: 3,
+    borderColor: '#6366F1',
+  },
+  placeholderPhoto: {
+    width: 120,
+    height: 120,
+    borderRadius: 60,
+    backgroundColor: '#1A1A1A',
+    borderWidth: 2,
+    borderColor: '#333333',
+    borderStyle: 'dashed',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  placeholderText: {
+    color: '#A1A1AA',
+    fontSize: 14,
+    fontWeight: '500',
+  },
+  editIconContainer: {
+    position: 'absolute',
+    bottom: 0,
+    right: 0,
+  },
+  editIcon: {
+    backgroundColor: '#6366F1',
+    margin: 0,
+    borderRadius: 15,
+    width: 30,
+    height: 30,
+  },
+  phoneInputContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 16,
+  },
+  countryCodeButton: {
+    backgroundColor: '#1A1A1A',
+    borderWidth: 1,
+    borderColor: '#333333',
+    borderRadius: 10,
+    paddingHorizontal: 12,
+    marginRight: 8,
+    marginTop: 4,
+    minWidth: 80,
+    height: 45,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  countryCodeText: {
+    color: '#FFFFFF',
+    fontSize: 14,
+    fontWeight: '500',
+  },
+  phoneInput: {
+    flex: 1,
+    backgroundColor: '#1A1A1A',
+    height: 44,
+  },
+  modalOverlay: {
+    flex: 1,
+    backgroundColor: 'rgba(0, 0, 0, 0.7)',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  modalContent: {
+    backgroundColor: '#1A1A1A',
+    borderRadius: 10,
+    width: '80%',
+    maxHeight: '60%',
+    borderWidth: 1,
+    borderColor: '#333333',
+  },
+  modalHeader: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    padding: 16,
+    borderBottomWidth: 1,
+    borderBottomColor: '#333333',
+  },
+  modalTitle: {
+    color: '#FFFFFF',
+    fontSize: 16,
+    fontWeight: 'bold',
+  },
+  modalCloseButton: {
+    color: '#6366F1',
+    fontSize: 18,
+    fontWeight: 'bold',
+  },
+  countryCodeItem: {
+    padding: 16,
+    borderBottomWidth: 1,
+    borderBottomColor: '#333333',
+  },
+  countryCodeItemText: {
+    color: '#FFFFFF',
+    fontSize: 14,
+  },
+  countryCodeInlineButton: {
+    paddingHorizontal: 12,
+    paddingVertical: 12,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: 'transparent',
+    minWidth: 60,
+    marginTop: 0,
+  },
+  countryCodeInlineText: {
+    color: '#FFFFFF',
+    fontSize: 13,
+    fontWeight: '500',
   },
 });
