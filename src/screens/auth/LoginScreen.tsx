@@ -1,16 +1,17 @@
 import React, { useState } from 'react';
 import { View, StyleSheet, Alert } from 'react-native';
-import { TextInput, Button, Text, Card, ActivityIndicator } from 'react-native-paper';
+import { TextInput, Button, Text, Card, ActivityIndicator, IconButton } from 'react-native-paper';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import AuthService from '../../services/authService';
 import { useAuth } from '../../contexts/AuthContext';
 
-export default function LoginScreen() {
+export default function LoginScreen({ navigation }: any) {
   const { login } = useAuth();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleLogin = async () => {
     if (!email || !password) {
@@ -80,130 +81,112 @@ export default function LoginScreen() {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.content}>
-        <Text variant="headlineMedium" style={styles.title}>
-          Academic Collaboration Network
-        </Text>
-        <Text variant="bodyLarge" style={styles.subtitle}>
-          Connect with PhD students worldwide
-        </Text>
+        {/* Header Section */}
+        <View style={styles.header}>
+          <Text variant="headlineLarge" style={styles.title}>
+            Welcome to ProHub
+          </Text>
+        </View>
 
-        <Card style={styles.card}>
-          <Card.Content>
-            {error ? (
-              <Text style={styles.errorText}>{error}</Text>
-            ) : null}
-            
-            <TextInput
-              label="Email"
-              value={email}
-              onChangeText={setEmail}
-              mode="outlined"
-              style={styles.input}
-              keyboardType="email-address"
-              autoCapitalize="none"
-              autoComplete="email"
-              disabled={loading}
-            />
-            <TextInput
-              label="Password"
-              value={password}
-              onChangeText={setPassword}
-              mode="outlined"
-              secureTextEntry
-              style={styles.input}
-              autoComplete="password"
-              disabled={loading}
-            />
-            
-            {loading ? (
-              <View style={styles.loadingContainer}>
-                <ActivityIndicator size="large" />
-                <Text style={styles.loadingText}>Authenticating...</Text>
-              </View>
-            ) : (
-              <Button
-                mode="contained"
-                onPress={handleLogin}
-                style={styles.button}
+        {/* Login Form */}
+        <View style={styles.formContainer}>
+          {error ? (
+            <Text style={styles.errorText}>{error}</Text>
+          ) : null}
+          
+          <TextInput
+            label="Email or username"
+            value={email}
+            onChangeText={setEmail}
+            mode="outlined"
+            style={styles.input}
+            keyboardType="email-address"
+            autoCapitalize="none"
+            autoComplete="email"
+            disabled={loading}
+            contentStyle={{ paddingVertical: 8 }}
+            theme={{ 
+              colors: { 
+                outline: '#333333',
+                onSurfaceVariant: '#A1A1AA',
+                primary: '#6366F1'
+              },
+              roundness: 10
+            }}
+          />
+          
+          <TextInput
+            label="Password"
+            value={password}
+            onChangeText={setPassword}
+            mode="outlined"
+            secureTextEntry={!showPassword}
+            style={styles.input}
+            autoComplete="password"
+            disabled={loading}
+            contentStyle={{ paddingVertical: 8 }}
+            right={
+              <TextInput.Icon
+                icon={showPassword ? "eye-off" : "eye"}
+                onPress={() => setShowPassword(!showPassword)}
+              />
+            }
+            theme={{ 
+              colors: { 
+                outline: '#333333',
+                onSurfaceVariant: '#A1A1AA',
+                primary: '#6366F1'
+              },
+              roundness: 10
+            }}
+          />
+          
+          {loading ? (
+            <View style={styles.loadingContainer}>
+              <ActivityIndicator size="large" color="#6366F1" />
+              <Text style={styles.loadingText}>Signing in...</Text>
+            </View>
+          ) : (
+            <Button
+              mode="contained"
+              onPress={handleLogin}
+              style={styles.button}
+              labelStyle={styles.buttonText}
+            >
+              Sign In
+            </Button>
+          )}
+
+          {/* Forgot Password & Username Links */}
+          <View style={styles.forgotLinksContainer}>
+            <Text style={styles.forgotPassword}>Forgot password?</Text>
+            <Text style={styles.forgotSeparator}>  |  </Text>
+            <Text style={styles.forgotPassword}>Forgot username?</Text>
+          </View>
+
+          {/* Sign Up Link */}
+          <View style={styles.signUpContainer}>
+            <Text style={styles.signUpText}>
+              Don't have an account?{' '}
+              <Text 
+                style={styles.signUpLink}
+                onPress={() => navigation.navigate('SignUp')}
               >
-                Login
-              </Button>
-            )}
+                Sign up
+              </Text>
+            </Text>
+          </View>
+        </View>
 
-            <Text style={styles.orText}>Or continue with</Text>
-
-            <Button
-              mode="outlined"
-              onPress={() => handleOAuth2Login('google')}
-              style={styles.oauthButton}
-              disabled={loading}
-            >
-              University Google
-            </Button>
-            
-            <Button
-              mode="outlined"
-              onPress={() => handleOAuth2Login('microsoft')}
-              style={styles.oauthButton}
-              disabled={loading}
-            >
-              Microsoft 365
-            </Button>
-
-            <Button
-              mode="outlined"
-              onPress={() => handleOAuth2Login('orcid')}
-              style={styles.oauthButton}
-              disabled={loading}
-            >
-              ORCID
-            </Button>
-
-            <Button
-              mode="outlined"
-              onPress={() => handleOAuth2Login('github')}
-              style={styles.oauthButton}
-              disabled={loading}
-            >
-              GitHub
-            </Button>
-
-            <Text style={styles.demoText}>Available Test Accounts</Text>
-            <Button
-              mode="text"
-              onPress={() => {
-                setEmail('demo@university.edu');
-                setPassword('password123');
-              }}
-              style={styles.demoButton}
-              disabled={loading}
-            >
-              Sarah Johnson (Stanford)
-            </Button>
-            <Button
-              mode="text"
-              onPress={() => {
-                setEmail('alex.chen@mit.edu');
-                setPassword('secure789');
-              }}
-              style={styles.demoButton}
-              disabled={loading}
-            >
-              Alex Chen (MIT)
-            </Button>
-            <Button
-              mode="text"
-              onPress={() => {
-                setEmail('maria.gonzalez@berkeley.edu');
-                setPassword('research2024');
-              }}
-              style={styles.demoButton}
-              disabled={loading}
-            >
-              Maria Gonzalez (UC Berkeley)
-            </Button>
-          </Card.Content>
-        </Card>
+        {/* Footer with Support */}
+        <View style={styles.footer}>
+          <View style={styles.supportContainer}>
+            <Text style={styles.supportText}>📞 Support</Text>
+            <Text style={styles.supportSeparator}>  |  </Text>
+            <Text style={styles.supportText}>👥 Customer Service</Text>
+          </View>
+          <Text style={styles.logoText}>💼 ProHub</Text>
+        </View>
       </View>
     </SafeAreaView>
   );
@@ -216,35 +199,57 @@ const styles = StyleSheet.create({
   },
   content: {
     flex: 1,
-    justifyContent: 'center',
-    paddingHorizontal: 20,
+    justifyContent: 'space-between',
+    paddingHorizontal: 24,
+    paddingVertical: 40,
+  },
+  header: {
+    alignItems: 'center',
+    marginTop: 60,
   },
   title: {
-    textAlign: 'center',
+    color: '#FFFFFF',
+    fontWeight: '700',
     marginBottom: 8,
+    textAlign: 'center',
   },
   subtitle: {
+    color: '#A1A1AA',
     textAlign: 'center',
-    marginBottom: 32,
-    color: '#666',
+    fontSize: 16,
+    marginBottom: 0,
   },
-  card: {
-    padding: 16,
+  formContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    marginTop: -40,
   },
   errorText: {
-    color: '#d73a49',
+    color: '#EF4444',
     textAlign: 'center',
-    marginBottom: 16,
-    backgroundColor: '#ffeaea',
+    marginBottom: 20,
+    backgroundColor: '#1F1F1F',
     padding: 12,
-    borderRadius: 8,
+    borderRadius: 10,
     fontSize: 14,
+    borderWidth: 1,
+    borderColor: '#EF4444',
   },
   input: {
-    marginBottom: 16,
+    marginBottom: 12,
+    backgroundColor: '#1A1A1A',
+    height: 43,
   },
   button: {
     marginTop: 8,
+    paddingVertical: 8,
+    backgroundColor: '#6366F1',
+    borderRadius: 10,
+  },
+  buttonText: {
+    fontSize: 16,
+    fontWeight: '600',
+    color: '#FFFFFF',
   },
   loadingContainer: {
     alignItems: 'center',
@@ -252,29 +257,59 @@ const styles = StyleSheet.create({
     marginBottom: 16,
   },
   loadingText: {
-    marginTop: 8,
-    color: '#666',
+    marginTop: 12,
+    color: '#A1A1AA',
     fontSize: 14,
   },
-  orText: {
-    textAlign: 'center',
-    marginVertical: 16,
-    color: '#666',
+  forgotLinksContainer: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 20,
+  },
+  forgotPassword: {
+    color: '#6366F1',
+    fontSize: 14,
+    fontWeight: '500',
+  },
+  forgotSeparator: {
+    color: '#A1A1AA',
     fontSize: 14,
   },
-  oauthButton: {
-    marginBottom: 8,
+  signUpContainer: {
+    alignItems: 'center',
+    marginTop: 24,
   },
-  demoText: {
-    textAlign: 'center',
-    marginTop: 16,
-    marginBottom: 8,
-    color: '#888',
-    fontSize: 12,
+  signUpText: {
+    color: '#A1A1AA',
+    fontSize: 14,
+  },
+  signUpLink: {
+    color: '#6366F1',
     fontWeight: '600',
   },
-  demoButton: {
-    alignSelf: 'center',
-    marginBottom: 4,
+  footer: {
+    alignItems: 'center',
+    marginBottom: 20,
+  },
+  supportContainer: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginBottom: 12,
+  },
+  supportText: {
+    color: '#A1A1AA',
+    fontSize: 12,
+  },
+  supportSeparator: {
+    color: '#A1A1AA',
+    fontSize: 12,
+  },
+  logoText: {
+    color: '#6366F1',
+    fontSize: 12,
+    fontWeight: '500',
+    textAlign: 'center',
   },
 });
