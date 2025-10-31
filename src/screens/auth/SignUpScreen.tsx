@@ -237,6 +237,52 @@ export default function SignUpScreen({ navigation }: any) {
     }
   };
 
+  const validateStep = (step: number): string | null => {
+    if (step === 1) {
+      if (!formData.email) return 'Email is required.';
+      if (!formData.password) return 'Password is required.';
+      if (!formData.confirmPassword) return 'Confirm Password is required.';
+      return null;
+    }
+    if (step === 2) {
+      if (!formData.personalInfo.firstName) return 'First Name is required.';
+      if (!formData.personalInfo.lastName) return 'Last Name is required.';
+      if (!formData.personalInfo.phone) return 'Phone is required.';
+      if (!formData.personalInfo.dateOfBirth) return 'Date of Birth is required.';
+      return null;
+    }
+    if (step === 3) {
+      if (!formData.academicInfo.university) return 'University is required.';
+      if (!formData.academicInfo.department) return 'Department is required.';
+      if (!formData.academicInfo.degreeLevel) return 'Degree Level is required.';
+      if (!formData.academicInfo.yearOfStudy) return 'Year of Study is required.';
+      if (!formData.academicInfo.expectedGraduation) return 'Expected Graduation is required.';
+      if (!formData.academicInfo.advisor) return 'Advisor is required.';
+      if (formData.academicInfo.researchAreas.length === 0) return 'At least one Research Area is required.';
+      if (!formData.academicInfo.currentGPA) return 'Current GPA is required.';
+      if (!formData.academicInfo.publications && formData.academicInfo.publications !== 0) return 'Publications is required.';
+      if (!formData.academicInfo.conferences && formData.academicInfo.conferences !== 0) return 'Conferences is required.';
+      return null;
+    }
+    if (step === 4) {
+      if (!formData.profileInfo.bio) return 'Bio is required.';
+      if (formData.profileInfo.skills.length === 0) return 'At least one Skill is required.';
+      if (formData.profileInfo.languages.length === 0) return 'At least one Language is required.';
+      if (formData.profileInfo.interests.length === 0) return 'At least one Interest is required.';
+      if (formData.profileInfo.collaborationPreferences.length === 0) return 'At least one Collaboration Preference is required.';
+      return null;
+    }
+    if (step === 5) {
+      if (!formData.contactInfo.linkedIn) return 'LinkedIn URL is required.';
+      if (!formData.contactInfo.github) return 'GitHub URL is required.';
+      if (!formData.contactInfo.orcid) return 'ORCID is required.';
+      if (!formData.contactInfo.googleScholar) return 'Google Scholar URL is required.';
+      if (!formData.contactInfo.researchGate) return 'ResearchGate URL is required.';
+      return null;
+    }
+    return null;
+  };
+
   const renderStep1 = () => (
     <View>
       <TextInput
@@ -774,13 +820,21 @@ export default function SignUpScreen({ navigation }: any) {
             {currentStep < 5 ? (
               <Button
                 mode="contained"
-                onPress={() => setCurrentStep(currentStep + 1)}
+                onPress={() => {
+                  const validationError = validateStep(currentStep);
+                  if (validationError) {
+                    setError(validationError);
+                  } else {
+                    setError('');
+                    setCurrentStep(currentStep + 1);
+                  }
+                }}
                 style={styles.nextButton}
               >
                 Next
               </Button>
             ) : (
-              loading ? (
+                loading ? (
                 <View style={styles.loadingContainer}>
                   <ActivityIndicator size="large" color="#6366F1" />
                   <Text style={styles.loadingText}>Creating account...</Text>
@@ -846,60 +900,6 @@ const styles = StyleSheet.create({
   },
   progressContainer: {
     flexDirection: 'row',
-    height: 3,
-    marginBottom: 10,
-    gap: 3,
-  },
-  progressSegment: {
-    flex: 1,
-    height: '100%',
-    borderRadius: 1.5,
-    backgroundColor: '#333333',
-  },
-  stepLabelsContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    paddingHorizontal: 2,
-  },
-  stepLabel: {
-    fontSize: 11,
-    fontWeight: '400',
-    textAlign: 'center',
-    flex: 1,
-    opacity: 0.8,
-  },
-  stepTitle: {
-    color: '#FFFFFF',
-    marginBottom: 20,
-    textAlign: 'center',
-  },
-  errorText: {
-    color: '#EF4444',
-    textAlign: 'center',
-    marginBottom: 20,
-    backgroundColor: '#1F1F1F',
-    padding: 12,
-    borderRadius: 10,
-    fontSize: 14,
-    borderWidth: 1,
-    borderColor: '#EF4444',
-  },
-  input: {
-    marginBottom: 16,
-    backgroundColor: '#1A1A1A',
-    height: 43,
-  },
-  textArea: {
-    marginBottom: 16,
-    backgroundColor: '#1A1A1A',
-  },
-  arrayInputContainer: {
-    marginBottom: 20,
-  },
-  arrayInput: {
-    backgroundColor: '#1A1A1A',
-    height: 43,
-    marginBottom: 10,
   },
   chipContainer: {
     flexDirection: 'row',
