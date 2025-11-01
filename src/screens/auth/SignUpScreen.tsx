@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import { View, StyleSheet, Alert, ScrollView, TouchableOpacity, Image, Modal, FlatList } from 'react-native';
 import { TextInput, Button, Text, ActivityIndicator, Chip, IconButton } from 'react-native-paper';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { LinearGradient } from 'expo-linear-gradient';
+import { Ionicons } from '@expo/vector-icons';
+import MaskedView from '@react-native-masked-view/masked-view';
 import * as ImagePicker from 'expo-image-picker';
 import { useAuth } from '../../contexts/AuthContext';
 import RegistrationService from '../../services/registrationService';
@@ -57,6 +60,30 @@ const getStepColor = (step: number): string => {
   return colors[step as keyof typeof colors] || '#6366F1';
 };
 
+const months = [
+  { value: '01', label: 'January' },
+  { value: '02', label: 'February' },
+  { value: '03', label: 'March' },
+  { value: '04', label: 'April' },
+  { value: '05', label: 'May' },
+  { value: '06', label: 'June' },
+  { value: '07', label: 'July' },
+  { value: '08', label: 'August' },
+  { value: '09', label: 'September' },
+  { value: '10', label: 'October' },
+  { value: '11', label: 'November' },
+  { value: '12', label: 'December' },
+];
+
+const generateYears = () => {
+  const currentYear = new Date().getFullYear();
+  const years = [];
+  for (let year = currentYear - 80; year <= currentYear - 18; year++) {
+    years.push({ value: year.toString(), label: year.toString() });
+  }
+  return years.reverse(); // Show recent years first
+};
+
 const countryCodes = [
   // North America
   { code: '+1', country: 'United States', flag: '🇺🇸' },
@@ -105,6 +132,7 @@ const countryCodes = [
   { code: '+886', country: 'Taiwan', flag: '🇹🇼' },
   { code: '+853', country: 'Macau', flag: '🇲🇴' },
   { code: '+976', country: 'Mongolia', flag: '🇲🇳' },
+  { code: '+7', country: 'Kazakhstan', flag: '🇰🇿' },
   { code: '+998', country: 'Uzbekistan', flag: '🇺🇿' },
   { code: '+996', country: 'Kyrgyzstan', flag: '🇰🇬' },
   { code: '+992', country: 'Tajikistan', flag: '🇹🇯' },
@@ -192,13 +220,13 @@ const countryCodes = [
   { code: '+689', country: 'French Polynesia', flag: '🇵🇫' },
   
   // Caribbean
-  { code: '+1242', country: 'Bahamas', flag: '🇧🇸' },
-  { code: '+1246', country: 'Barbados', flag: '🇧🇧' },
-  { code: '+1284', country: 'British Virgin Islands', flag: '🇻🇬' },
-  { code: '+1345', country: 'Cayman Islands', flag: '🇰🇾' },
-  { code: '+1809', country: 'Dominican Republic', flag: '🇩🇴' },
-  { code: '+1876', country: 'Jamaica', flag: '🇯🇲' },
-  { code: '+1868', country: 'Trinidad and Tobago', flag: '🇹🇹' },
+  { code: '+1', country: 'Bahamas', flag: '🇧🇸' },
+  { code: '+1', country: 'Barbados', flag: '🇧🇧' },
+  { code: '+1', country: 'British Virgin Islands', flag: '🇻🇬' },
+  { code: '+1', country: 'Cayman Islands', flag: '🇰🇾' },
+  { code: '+1', country: 'Dominican Republic', flag: '🇩🇴' },
+  { code: '+1', country: 'Jamaica', flag: '🇯🇲' },
+  { code: '+1', country: 'Trinidad and Tobago', flag: '🇹🇹' },
   { code: '+590', country: 'Guadeloupe', flag: '🇬🇵' },
   { code: '+596', country: 'Martinique', flag: '🇲🇶' },
   { code: '+594', country: 'French Guiana', flag: '🇬🇫' },
@@ -225,6 +253,9 @@ export default function SignUpScreen({ navigation }: any) {
   const [countryCode, setCountryCode] = useState('+1');
   const [countryFlag, setCountryFlag] = useState('🇺🇸');
   const [showCountryModal, setShowCountryModal] = useState(false);
+  const [showDatePicker, setShowDatePicker] = useState(false);
+  const [selectedMonth, setSelectedMonth] = useState('');
+  const [selectedYear, setSelectedYear] = useState('');
   
   const [formData, setFormData] = useState<SignUpFormData>({
     email: '',
@@ -387,6 +418,28 @@ export default function SignUpScreen({ navigation }: any) {
       current[finalKey] = current[finalKey].filter((_: any, i: number) => i !== index);
       return newData;
     });
+  };
+
+  const handleDatePickerConfirm = () => {
+    if (selectedMonth && selectedYear) {
+      const dateString = `${selectedYear}-${selectedMonth}`;
+      setFormData(prev => ({ 
+        ...prev, 
+        personalInfo: { ...prev.personalInfo, dateOfBirth: dateString }
+      }));
+    }
+    setShowDatePicker(false);
+  };
+
+  const openDatePicker = () => {
+    // Pre-populate with current values if they exist
+    const currentDate = formData.personalInfo.dateOfBirth;
+    if (currentDate && currentDate.includes('-')) {
+      const [year, month] = currentDate.split('-');
+      setSelectedYear(year);
+      setSelectedMonth(month);
+    }
+    setShowDatePicker(true);
   };
 
   const handleSignUp = async () => {
@@ -562,43 +615,63 @@ export default function SignUpScreen({ navigation }: any) {
         theme={{ roundness: 10 }}
       />
       
-      <TextInput
-        label="Phone"
-        value={formData.personalInfo.phone}
-        onChangeText={(text) => setFormData(prev => ({ 
-          ...prev, 
-          personalInfo: { ...prev.personalInfo, phone: text }
-        }))}
-        mode="outlined"
-        style={styles.input}
-        keyboardType="phone-pad"
-        theme={{ roundness: 10 }}
-        left={
-          <TextInput.Icon
-            icon={() => (
-              <TouchableOpacity 
-                onPress={() => setShowCountryModal(true)}
-                style={styles.countryCodeInlineButton}
-              >
-                <Text style={styles.countryCodeInlineText}>{countryFlag} {countryCode} ▼</Text>
-              </TouchableOpacity>
-            )}
-          />
-        }
-      />
+      <View style={styles.phoneInputContainer}>
+        <TouchableOpacity 
+          onPress={() => setShowCountryModal(true)}
+          style={styles.countryCodeButton}
+        >
+          <Text style={styles.countryCodeText}>{countryFlag} {countryCode}</Text>
+        </TouchableOpacity>
+        <TextInput
+          label="Phone"
+          value={formData.personalInfo.phone}
+          onChangeText={(text) => setFormData(prev => ({ 
+            ...prev, 
+            personalInfo: { ...prev.personalInfo, phone: text }
+          }))}
+          mode="outlined"
+          style={styles.phoneInput}
+          keyboardType="phone-pad"
+          theme={{ roundness: 10 }}
+        />
+      </View>
       
-      <TextInput
-        label="Date of Birth (YYYY-MM)"
-        value={formData.personalInfo.dateOfBirth}
-        onChangeText={(text) => setFormData(prev => ({ 
-          ...prev, 
-          personalInfo: { ...prev.personalInfo, dateOfBirth: text }
-        }))}
-        mode="outlined"
-        style={styles.input}
-        placeholder="1995-03"
-        theme={{ roundness: 10 }}
-      />
+      <TouchableOpacity onPress={openDatePicker}>
+        <View style={styles.dateInputContainer}>
+          <TextInput
+            label="Date of Birth"
+            value={formData.personalInfo.dateOfBirth ? 
+              (() => {
+                const [year, month] = formData.personalInfo.dateOfBirth.split('-');
+                const monthName = months.find(m => m.value === month)?.label || month;
+                return `${monthName} ${year}`;
+              })() : ''
+            }
+            mode="outlined"
+            style={[styles.input, styles.dateInputField]}
+            placeholder="Select month and year"
+            theme={{ roundness: 10 }}
+            editable={false}
+          />
+          <TouchableOpacity onPress={openDatePicker} style={styles.gradientIconContainer}>
+            <MaskedView
+              style={styles.gradientIconWrapper}
+              maskElement={
+                <View style={styles.gradientIconMask}>
+                  <Ionicons name="calendar" size={24} color="black" />
+                </View>
+              }
+            >
+              <LinearGradient
+                colors={['#FF6B6B', '#4ECDC4', '#45B7D1', '#96CEB4']}
+                start={{ x: 0, y: 0 }}
+                end={{ x: 1, y: 1 }}
+                style={styles.gradientIconFill}
+              />
+            </MaskedView>
+          </TouchableOpacity>
+        </View>
+      </TouchableOpacity>
     </View>
   );
 
@@ -1030,7 +1103,10 @@ export default function SignUpScreen({ navigation }: any) {
             {currentStep > 1 && (
               <Button
                 mode="outlined"
-                onPress={() => setCurrentStep(currentStep - 1)}
+                onPress={() => {
+                  setError(''); // Clear any existing errors when going back
+                  setCurrentStep(currentStep - 1);
+                }}
                 style={styles.backButton}
               >
                 Back
@@ -1198,6 +1274,161 @@ export default function SignUpScreen({ navigation }: any) {
           </View>
         </View>
       </Modal>
+
+      {/* Modern Date Picker Modal */}
+      <Modal
+        visible={showDatePicker}
+        transparent={true}
+        animationType="fade"
+        onRequestClose={() => setShowDatePicker(false)}
+      >
+        <View style={styles.modernModalOverlay}>
+          <View style={styles.modernDatePickerModal}>
+            {/* Modern Header with Gradient */}
+            <LinearGradient
+              colors={['#6366F1', '#8B5CF6', '#EC4899']}
+              start={{ x: 0, y: 0 }}
+              end={{ x: 1, y: 0 }}
+              style={styles.modernModalHeader}
+            >
+              <View style={styles.modernHeaderContent}>
+                <View style={styles.modernHeaderIconContainer}>
+                  <Ionicons name="calendar" size={24} color="white" />
+                </View>
+                <View style={styles.modernHeaderTextContainer}>
+                  <Text style={styles.modernModalTitle}>Date of Birth</Text>
+                  <Text style={styles.modernModalSubtitle}>Select your birth month and year</Text>
+                </View>
+                <TouchableOpacity 
+                  onPress={() => setShowDatePicker(false)}
+                  style={styles.modernCloseButton}
+                >
+                  <Ionicons name="close" size={24} color="white" />
+                </TouchableOpacity>
+              </View>
+            </LinearGradient>
+            
+            {/* Modern Picker Content */}
+            <View style={styles.modernDatePickerContent}>
+              <View style={styles.modernPickerRow}>
+                <View style={styles.modernPickerColumn}>
+                  <View style={styles.modernPickerHeader}>
+                    <Text style={styles.modernPickerLabel}>Month</Text>
+                    <View style={styles.modernPickerIndicator} />
+                  </View>
+                  <ScrollView 
+                    style={styles.modernPickerScrollView} 
+                    showsVerticalScrollIndicator={false}
+                    contentContainerStyle={styles.modernPickerScrollContent}
+                  >
+                    {months.map((month) => (
+                      <TouchableOpacity
+                        key={month.value}
+                        style={[
+                          styles.modernPickerItem,
+                          selectedMonth === month.value && styles.modernPickerItemSelected
+                        ]}
+                        onPress={() => setSelectedMonth(month.value)}
+                      >
+                        <LinearGradient
+                          colors={selectedMonth === month.value ? 
+                            ['#6366F1', '#8B5CF6'] : 
+                            ['transparent', 'transparent']
+                          }
+                          style={styles.modernPickerItemGradient}
+                        >
+                          <Text style={[
+                            styles.modernPickerItemText,
+                            selectedMonth === month.value && styles.modernPickerItemTextSelected
+                          ]}>
+                            {month.label}
+                          </Text>
+                        </LinearGradient>
+                      </TouchableOpacity>
+                    ))}
+                  </ScrollView>
+                </View>
+                
+                <View style={styles.modernPickerDivider} />
+                
+                <View style={styles.modernPickerColumn}>
+                  <View style={styles.modernPickerHeader}>
+                    <Text style={styles.modernPickerLabel}>Year</Text>
+                    <View style={styles.modernPickerIndicator} />
+                  </View>
+                  <ScrollView 
+                    style={styles.modernPickerScrollView} 
+                    showsVerticalScrollIndicator={false}
+                    contentContainerStyle={styles.modernPickerScrollContent}
+                  >
+                    {generateYears().map((year) => (
+                      <TouchableOpacity
+                        key={year.value}
+                        style={[
+                          styles.modernPickerItem,
+                          selectedYear === year.value && styles.modernPickerItemSelected
+                        ]}
+                        onPress={() => setSelectedYear(year.value)}
+                      >
+                        <LinearGradient
+                          colors={selectedYear === year.value ? 
+                            ['#6366F1', '#8B5CF6'] : 
+                            ['transparent', 'transparent']
+                          }
+                          style={styles.modernPickerItemGradient}
+                        >
+                          <Text style={[
+                            styles.modernPickerItemText,
+                            selectedYear === year.value && styles.modernPickerItemTextSelected
+                          ]}>
+                            {year.label}
+                          </Text>
+                        </LinearGradient>
+                      </TouchableOpacity>
+                    ))}
+                  </ScrollView>
+                </View>
+              </View>
+            </View>
+            
+            {/* Modern Action Buttons */}
+            <View style={styles.modernButtonContainer}>
+              <TouchableOpacity
+                onPress={() => setShowDatePicker(false)}
+                style={styles.modernCancelButton}
+              >
+                <Text style={styles.modernCancelButtonText}>Cancel</Text>
+              </TouchableOpacity>
+              
+              <TouchableOpacity
+                onPress={handleDatePickerConfirm}
+                disabled={!selectedMonth || !selectedYear}
+                style={[
+                  styles.modernConfirmButton,
+                  (!selectedMonth || !selectedYear) && styles.modernConfirmButtonDisabled
+                ]}
+              >
+                <LinearGradient
+                  colors={(!selectedMonth || !selectedYear) ? 
+                    ['#666666', '#666666'] : 
+                    ['#6366F1', '#8B5CF6', '#EC4899']
+                  }
+                  start={{ x: 0, y: 0 }}
+                  end={{ x: 1, y: 0 }}
+                  style={styles.modernConfirmButtonGradient}
+                >
+                  <Text style={styles.modernConfirmButtonText}>
+                    {selectedMonth && selectedYear ? 
+                      `Confirm ${months.find(m => m.value === selectedMonth)?.label} ${selectedYear}` : 
+                      'Select Month & Year'
+                    }
+                  </Text>
+                </LinearGradient>
+              </TouchableOpacity>
+            </View>
+          </View>
+        </View>
+      </Modal>
     </SafeAreaView>
   );
 }
@@ -1249,7 +1480,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 2,
   },
   stepLabel: {
-    fontSize: 11,
+    fontSize: 13,
     fontWeight: '400',
     textAlign: 'center',
     flex: 1,
@@ -1394,14 +1625,14 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     marginRight: 8,
     marginTop: 4,
-    minWidth: 80,
+    minWidth: 70,
     height: 45,
     alignItems: 'center',
     justifyContent: 'center',
   },
   countryCodeText: {
     color: '#FFFFFF',
-    fontSize: 14,
+    fontSize: 16,
     fontWeight: '500',
   },
   phoneInput: {
@@ -1448,20 +1679,281 @@ const styles = StyleSheet.create({
   },
   countryCodeItemText: {
     color: '#FFFFFF',
-    fontSize: 14,
+    fontSize: 13,
   },
   countryCodeInlineButton: {
-    paddingHorizontal: 12,
-    paddingVertical: 12,
+    paddingHorizontal: 2,
+    paddingVertical: 8,
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: 'transparent',
-    minWidth: 60,
-    marginTop: 0,
+    minWidth: 160,
+    zIndex: 999,
   },
   countryCodeInlineText: {
     color: '#FFFFFF',
     fontSize: 13,
     fontWeight: '500',
+  },
+  datePickerModalContent: {
+    backgroundColor: '#1A1A1A',
+    borderRadius: 10,
+    width: '85%',
+    maxHeight: '70%',
+    borderWidth: 1,
+    borderColor: '#333333',
+  },
+  datePickerContainer: {
+    flexDirection: 'row',
+    padding: 16,
+    gap: 16,
+  },
+  datePickerColumn: {
+    flex: 1,
+  },
+  datePickerLabel: {
+    color: '#FFFFFF',
+    fontSize: 16,
+    fontWeight: 'bold',
+    marginBottom: 12,
+    textAlign: 'center',
+  },
+  datePickerScrollView: {
+    maxHeight: 200,
+    borderRadius: 8,
+    backgroundColor: '#0F0F0F',
+  },
+  datePickerItem: {
+    padding: 12,
+    borderBottomWidth: 1,
+    borderBottomColor: '#333333',
+    alignItems: 'center',
+  },
+  datePickerItemSelected: {
+    backgroundColor: '#6366F1',
+  },
+  datePickerItemText: {
+    color: '#FFFFFF',
+    fontSize: 14,
+  },
+  datePickerItemTextSelected: {
+    color: '#FFFFFF',
+    fontWeight: 'bold',
+  },
+  datePickerButtonContainer: {
+    flexDirection: 'row',
+    padding: 16,
+    paddingTop: 0,
+    gap: 12,
+  },
+  datePickerCancelButton: {
+    flex: 1,
+    borderColor: '#6366F1',
+  },
+  datePickerConfirmButton: {
+    flex: 1,
+    backgroundColor: '#6366F1',
+  },
+  datePickerConfirmButtonDisabled: {
+    backgroundColor: '#333333',
+  },
+  dateInputContainer: {
+    position: 'relative',
+    marginBottom: 16,
+  },
+  dateInputField: {
+    paddingRight: 50, // Make room for the gradient icon
+    marginBottom: 0,
+  },
+  gradientIconContainer: {
+    position: 'absolute',
+    right: 12,
+    top: '50%',
+    transform: [{ translateY: -8 }], // Move down to balance the margins
+    zIndex: 1,
+  },
+  gradientIconWrapper: {
+    width: 24,
+    height: 24,
+  },
+  gradientIconMask: {
+    backgroundColor: 'transparent',
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: 24,
+    height: 24,
+  },
+  gradientIconFill: {
+    width: 24,
+    height: 24,
+  },
+  // Modern Date Picker Styles
+  modernModalOverlay: {
+    flex: 1,
+    backgroundColor: 'rgba(0, 0, 0, 0.8)',
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 20,
+  },
+  modernDatePickerModal: {
+    backgroundColor: '#1A1A1A',
+    borderRadius: 20,
+    width: '100%',
+    maxWidth: 360,
+    maxHeight: '60%',
+    overflow: 'hidden',
+    elevation: 10,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 10 },
+    shadowOpacity: 0.3,
+    shadowRadius: 20,
+  },
+  modernModalHeader: {
+    paddingVertical: 16,
+    paddingHorizontal: 16,
+  },
+  modernHeaderContent: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
+  modernHeaderIconContainer: {
+    width: 36,
+    height: 36,
+    borderRadius: 18,
+    backgroundColor: 'rgba(255, 255, 255, 0.2)',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  modernHeaderTextContainer: {
+    flex: 1,
+    marginLeft: 12,
+  },
+  modernModalTitle: {
+    color: '#FFFFFF',
+    fontSize: 18,
+    fontWeight: '700',
+    marginBottom: 2,
+  },
+  modernModalSubtitle: {
+    color: 'rgba(255, 255, 255, 0.8)',
+    fontSize: 12,
+    fontWeight: '400',
+  },
+  modernCloseButton: {
+    width: 32,
+    height: 32,
+    borderRadius: 16,
+    backgroundColor: 'rgba(255, 255, 255, 0.2)',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  modernDatePickerContent: {
+    backgroundColor: '#1A1A1A',
+    paddingHorizontal: 16,
+    paddingVertical: 16,
+  },
+  modernPickerRow: {
+    flexDirection: 'row',
+    gap: 16,
+  },
+  modernPickerColumn: {
+    flex: 1,
+  },
+  modernPickerHeader: {
+    alignItems: 'center',
+    marginBottom: 12,
+  },
+  modernPickerLabel: {
+    color: '#FFFFFF',
+    fontSize: 14,
+    fontWeight: '600',
+    marginBottom: 6,
+  },
+  modernPickerIndicator: {
+    width: 30,
+    height: 2,
+    backgroundColor: '#6366F1',
+    borderRadius: 1,
+  },
+  modernPickerScrollView: {
+    maxHeight: 160,
+    borderRadius: 12,
+    backgroundColor: '#0F0F0F',
+  },
+  modernPickerScrollContent: {
+    paddingVertical: 4,
+  },
+  modernPickerItem: {
+    marginHorizontal: 6,
+    marginVertical: 1,
+    borderRadius: 8,
+    overflow: 'hidden',
+  },
+  modernPickerItemSelected: {
+    elevation: 3,
+    shadowColor: '#6366F1',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.3,
+    shadowRadius: 4,
+  },
+  modernPickerItemGradient: {
+    paddingVertical: 8,
+    paddingHorizontal: 12,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  modernPickerItemText: {
+    color: '#CCCCCC',
+    fontSize: 13,
+    fontWeight: '500',
+  },
+  modernPickerItemTextSelected: {
+    color: '#FFFFFF',
+    fontWeight: '700',
+  },
+  modernPickerDivider: {
+    width: 1,
+    backgroundColor: '#333333',
+    marginHorizontal: 10,
+  },
+  modernButtonContainer: {
+    flexDirection: 'row',
+    padding: 16,
+    gap: 10,
+    backgroundColor: '#1A1A1A',
+  },
+  modernCancelButton: {
+    flex: 1,
+    paddingVertical: 12,
+    paddingHorizontal: 16,
+    borderRadius: 12,
+    backgroundColor: '#2A2A2A',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  modernCancelButtonText: {
+    color: '#CCCCCC',
+    fontSize: 14,
+    fontWeight: '600',
+  },
+  modernConfirmButton: {
+    flex: 2,
+    borderRadius: 12,
+    overflow: 'hidden',
+  },
+  modernConfirmButtonDisabled: {
+    opacity: 0.5,
+  },
+  modernConfirmButtonGradient: {
+    paddingVertical: 12,
+    paddingHorizontal: 16,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  modernConfirmButtonText: {
+    color: '#FFFFFF',
+    fontSize: 12,
+    fontWeight: '700',
   },
 });
