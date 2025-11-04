@@ -1,0 +1,352 @@
+[
+  {
+    "number": 1,
+    "country": "Australia",
+    "school": "University of Melbourne"
+  },
+  {
+    "number": 2,
+    "country": "Australia",
+    "school": "University of Sydney"
+  },
+  {
+    "number": 3,
+    "country": "Australia",
+    "school": "Australian National University"
+  },
+  {
+    "number": 4,
+    "country": "Australia",
+    "school": "University of New South Wales"
+  },
+  {
+    "number": 5,
+    "country": "Australia",
+    "school": "University of Queensland"
+  },
+  {
+    "number": 6,
+    "country": "Australia",
+    "school": "Monash University"
+  },
+  {
+    "number": 7,
+    "country": "Australia",
+    "school": "University of Western Australia"
+  },
+  {
+    "number": 8,
+    "country": "Australia",
+    "school": "University of Adelaide"
+  },
+  {
+    "number": 9,
+    "country": "Australia",
+    "school": "University of Technology Sydney"
+  },
+  {
+    "number": 10,
+    "country": "Australia",
+    "school": "Macquarie University"
+  },
+  {
+    "number": 11,
+    "country": "Australia",
+    "school": "Queensland University of Technology"
+  },
+  {
+    "number": 12,
+    "country": "Australia",
+    "school": "University of Newcastle"
+  },
+  {
+    "number": 13,
+    "country": "Australia",
+    "school": "University of Wollongong"
+  },
+  {
+    "number": 14,
+    "country": "Australia",
+    "school": "Curtin University"
+  },
+  {
+    "number": 15,
+    "country": "Australia",
+    "school": "Deakin University"
+  },
+  {
+    "number": 16,
+    "country": "Australia",
+    "school": "Griffith University"
+  },
+  {
+    "number": 17,
+    "country": "Australia",
+    "school": "La Trobe University"
+  },
+  {
+    "number": 18,
+    "country": "Australia",
+    "school": "RMIT University"
+  },
+  {
+    "number": 19,
+    "country": "Australia",
+    "school": "Swinburne University of Technology"
+  },
+  {
+    "number": 20,
+    "country": "Australia",
+    "school": "University of Tasmania"
+  },
+  {
+    "number": 21,
+    "country": "Australia",
+    "school": "Western Sydney University"
+  },
+  {
+    "number": 22,
+    "country": "Australia",
+    "school": "Flinders University"
+  },
+  {
+    "number": 23,
+    "country": "Australia",
+    "school": "James Cook University"
+  },
+  {
+    "number": 24,
+    "country": "Australia",
+    "school": "Murdoch University"
+  },
+  {
+    "number": 25,
+    "country": "Australia",
+    "school": "University of Canberra"
+  },
+  {
+    "number": 26,
+    "country": "Australia",
+    "school": "University of South Australia"
+  },
+  {
+    "number": 27,
+    "country": "Australia",
+    "school": "Victoria University"
+  },
+  {
+    "number": 28,
+    "country": "Australia",
+    "school": "Australian Catholic University"
+  },
+  {
+    "number": 29,
+    "country": "Australia",
+    "school": "Bond University"
+  },
+  {
+    "number": 30,
+    "country": "Australia",
+    "school": "Central Queensland University"
+  },
+  {
+    "number": 31,
+    "country": "Australia",
+    "school": "Charles Darwin University"
+  },
+  {
+    "number": 32,
+    "country": "Australia",
+    "school": "Charles Sturt University"
+  },
+  {
+    "number": 33,
+    "country": "Australia",
+    "school": "Edith Cowan University"
+  },
+  {
+    "number": 34,
+    "country": "Australia",
+    "school": "Federation University Australia"
+  },
+  {
+    "number": 35,
+    "country": "Australia",
+    "school": "Southern Cross University"
+  },
+  {
+    "number": 36,
+    "country": "Australia",
+    "school": "University of New England"
+  },
+  {
+    "number": 37,
+    "country": "Australia",
+    "school": "University of Southern Queensland"
+  },
+  {
+    "number": 38,
+    "country": "Australia",
+    "school": "University of the Sunshine Coast"
+  },
+  {
+    "number": 39,
+    "country": "Australia",
+    "school": "Avondale University"
+  },
+  {
+    "number": 40,
+    "country": "Australia",
+    "school": "Torrens University Australia"
+  },
+  {
+    "number": 41,
+    "country": "Australia",
+    "school": "University of Divinity"
+  },
+  {
+    "number": 42,
+    "country": "Australia",
+    "school": "University of Notre Dame Australia"
+  },
+  {
+    "number": 43,
+    "country": "Australia",
+    "school": "Australian University of Theology"
+  },
+  {
+    "number": 44,
+    "country": "Australia",
+    "school": "Adelaide University"
+  },
+  {
+    "number": 45,
+    "country": "New Zealand",
+    "school": "University of Auckland"
+  },
+  {
+    "number": 46,
+    "country": "New Zealand",
+    "school": "University of Otago"
+  },
+  {
+    "number": 47,
+    "country": "New Zealand", 
+    "school": "University of Canterbury"
+  },
+  {
+    "number": 48,
+    "country": "New Zealand",
+    "school": "Victoria University of Wellington"
+  },
+  {
+    "number": 49,
+    "country": "New Zealand",
+    "school": "Massey University"
+  },
+  {
+    "number": 50,
+    "country": "New Zealand",
+    "school": "University of Waikato"
+  },
+  {
+    "number": 51,
+    "country": "New Zealand",
+    "school": "Lincoln University"
+  },
+  {
+    "number": 52,
+    "country": "New Zealand",
+    "school": "Auckland University of Technology"
+  },
+  {
+    "number": 53,
+    "country": "Papua New Guinea",
+    "school": "University of Papua New Guinea"
+  },
+  {
+    "number": 54,
+    "country": "Papua New Guinea",
+    "school": "Papua New Guinea University of Technology"
+  },
+  {
+    "number": 55,
+    "country": "Fiji",
+    "school": "University of the South Pacific"
+  },
+  {
+    "number": 56,
+    "country": "Fiji",
+    "school": "Fiji National University"
+  },
+  {
+    "number": 57,
+    "country": "Samoa",
+    "school": "National University of Samoa"
+  },
+  {
+    "number": 58,
+    "country": "Tonga",
+    "school": "University of the South Pacific - Tonga Campus"
+  },
+  {
+    "number": 59,
+    "country": "Vanuatu",
+    "school": "University of the South Pacific - Vanuatu Campus"
+  },
+  {
+    "number": 60,
+    "country": "Solomon Islands",
+    "school": "Solomon Islands National University"
+  },
+  {
+    "number": 61,
+    "country": "Palau",
+    "school": "Palau Community College"
+  },
+  {
+    "number": 62,
+    "country": "Marshall Islands",
+    "school": "College of the Marshall Islands"
+  },
+  {
+    "number": 63,
+    "country": "Micronesia",
+    "school": "College of Micronesia"
+  },
+  {
+    "number": 64,
+    "country": "Kiribati",
+    "school": "University of the South Pacific - Kiribati Campus"
+  },
+  {
+    "number": 65,
+    "country": "Nauru",
+    "school": "University of the South Pacific - Nauru Campus"
+  },
+  {
+    "number": 66,
+    "country": "Tuvalu",
+    "school": "University of the South Pacific - Tuvalu Campus"
+  },
+  {
+    "number": 67,
+    "country": "Cook Islands",
+    "school": "University of the South Pacific - Cook Islands Campus"
+  },
+  {
+    "number": 68,
+    "country": "French Polynesia",
+    "school": "University of French Polynesia"
+  },
+  {
+    "number": 69,
+    "country": "New Caledonia",
+    "school": "University of New Caledonia"
+  },
+  {
+    "number": 70,
+    "country": "Guam",
+    "school": "University of Guam"
+  }
+]

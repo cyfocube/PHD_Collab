@@ -1,0 +1,602 @@
+[
+  {
+    "number": 1,
+    "country": "Turkey",
+    "school": "Istanbul University"
+  },
+  {
+    "number": 2,
+    "country": "Turkey",
+    "school": "Boğaziçi University"
+  },
+  {
+    "number": 3,
+    "country": "Turkey",
+    "school": "Istanbul Technical University"
+  },
+  {
+    "number": 4,
+    "country": "Turkey",
+    "school": "Middle East Technical University"
+  },
+  {
+    "number": 5,
+    "country": "Turkey",
+    "school": "Hacettepe University"
+  },
+  {
+    "number": 6,
+    "country": "Turkey",
+    "school": "Ankara University"
+  },
+  {
+    "number": 7,
+    "country": "Turkey",
+    "school": "Gazi University"
+  },
+  {
+    "number": 8,
+    "country": "Turkey",
+    "school": "Marmara University"
+  },
+  {
+    "number": 9,
+    "country": "Turkey",
+    "school": "Koç University"
+  },
+  {
+    "number": 10,
+    "country": "Turkey",
+    "school": "Sabancı University"
+  },
+  {
+    "number": 11,
+    "country": "Turkey",
+    "school": "Bilkent University"
+  },
+  {
+    "number": 12,
+    "country": "Turkey",
+    "school": "Galatasaray University"
+  },
+  {
+    "number": 13,
+    "country": "Turkey",
+    "school": "Yıldız Technical University"
+  },
+  {
+    "number": 14,
+    "country": "Turkey",
+    "school": "Dokuz Eylül University"
+  },
+  {
+    "number": 15,
+    "country": "Turkey",
+    "school": "Ege University"
+  },
+  {
+    "number": 16,
+    "country": "Turkey",
+    "school": "Bahçeşehir University"
+  },
+  {
+    "number": 17,
+    "country": "Turkey",
+    "school": "Kadir Has University"
+  },
+  {
+    "number": 18,
+    "country": "Turkey",
+    "school": "Özyeğin University"
+  },
+  {
+    "number": 19,
+    "country": "Turkey",
+    "school": "Yaşar University"
+  },
+  {
+    "number": 20,
+    "country": "Turkey",
+    "school": "İzmir Institute of Technology"
+  },
+  {
+    "number": 21,
+    "country": "Turkey",
+    "school": "Erciyes University"
+  },
+  {
+    "number": 22,
+    "country": "Turkey",
+    "school": "Ondokuz Mayıs University"
+  },
+  {
+    "number": 23,
+    "country": "Turkey",
+    "school": "Çukurova University"
+  },
+  {
+    "number": 24,
+    "country": "Turkey",
+    "school": "Selçuk University"
+  },
+  {
+    "number": 25,
+    "country": "Turkey",
+    "school": "Karadeniz Technical University"
+  },
+  {
+    "number": 26,
+    "country": "Turkey",
+    "school": "Atatürk University"
+  },
+  {
+    "number": 27,
+    "country": "Turkey",  
+    "school": "Fırat University"
+  },
+  {
+    "number": 28,
+    "country": "Turkey",
+    "school": "İnönü University"
+  },
+  {
+    "number": 29,
+    "country": "Turkey",
+    "school": "Dicle University"
+  },
+  {
+    "number": 30,
+    "country": "Turkey",
+    "school": "Van Yüzüncü Yıl University"
+  },
+  {
+    "number": 31,
+    "country": "Saudi Arabia",
+    "school": "King Saud University"
+  },
+  {
+    "number": 32,
+    "country": "Saudi Arabia",
+    "school": "King Abdulaziz University"
+  },
+  {
+    "number": 33,
+    "country": "Saudi Arabia",
+    "school": "King Fahd University of Petroleum and Minerals"
+  },
+  {
+    "number": 34,
+    "country": "Saudi Arabia",
+    "school": "King Abdullah University of Science and Technology"
+  },
+  {
+    "number": 35,
+    "country": "Saudi Arabia",
+    "school": "Imam Mohammad Ibn Saud Islamic University"
+  },
+  {
+    "number": 36,
+    "country": "Saudi Arabia",
+    "school": "Umm Al-Qura University"
+  },
+  {
+    "number": 37,
+    "country": "Saudi Arabia",
+    "school": "King Faisal University"
+  },
+  {
+    "number": 38,
+    "country": "Saudi Arabia",
+    "school": "King Khalid University"
+  },
+  {
+    "number": 39,
+    "country": "Saudi Arabia",
+    "school": "Qassim University"
+  },
+  {
+    "number": 40,
+    "country": "Saudi Arabia",
+    "school": "Taif University"
+  },
+  {
+    "number": 41,
+    "country": "Saudi Arabia",
+    "school": "Princess Nourah Bint Abdul Rahman University"
+  },
+  {
+    "number": 42,
+    "country": "Saudi Arabia",
+    "school": "Taibah University"
+  },
+  {
+    "number": 43,
+    "country": "Saudi Arabia",
+    "school": "Imam Abdulrahman Bin Faisal University"
+  },
+  {
+    "number": 44,
+    "country": "Saudi Arabia",
+    "school": "Northern Borders University"
+  },
+  {
+    "number": 45,
+    "country": "Saudi Arabia",
+    "school": "Jazan University"
+  },
+  {
+    "number": 46,
+    "country": "Saudi Arabia",
+    "school": "University of Hail"
+  },
+  {
+    "number": 47,
+    "country": "Saudi Arabia",
+    "school": "Al Baha University"
+  },
+  {
+    "number": 48,
+    "country": "Saudi Arabia",
+    "school": "Najran University"
+  },
+  {
+    "number": 49,
+    "country": "Saudi Arabia",
+    "school": "Tabuk University"
+  },
+  {
+    "number": 50,
+    "country": "Saudi Arabia",
+    "school": "Alfaisal University"
+  },
+  {
+    "number": 51,
+    "country": "Iran",
+    "school": "University of Tehran"
+  },
+  {
+    "number": 52,
+    "country": "Iran",
+    "school": "Sharif University of Technology"
+  },
+  {
+    "number": 53,
+    "country": "Iran",
+    "school": "Amirkabir University of Technology"
+  },
+  {
+    "number": 54,
+    "country": "Iran",
+    "school": "Isfahan University of Technology"
+  },
+  {
+    "number": 55,
+    "country": "Iran",
+    "school": "Shiraz University"
+  },
+  {
+    "number": 56,
+    "country": "Iran",
+    "school": "Ferdowsi University of Mashhad"
+  },
+  {
+    "number": 57,
+    "country": "Iran",
+    "school": "University of Tabriz"
+  },
+  {
+    "number": 58,
+    "country": "Iran",
+    "school": "K.N. Toosi University of Technology"
+  },
+  {
+    "number": 59,
+    "country": "Iran",
+    "school": "Iran University of Science and Technology"
+  },
+  {
+    "number": 60,
+    "country": "Iran",
+    "school": "University of Isfahan"
+  },
+  {
+    "number": 61,
+    "country": "Iran",
+    "school": "Tarbiat Modares University"
+  },
+  {
+    "number": 62,
+    "country": "Iran",
+    "school": "Alzahra University"
+  },
+  {
+    "number": 63,
+    "country": "Iran",
+    "school": "Shahid Beheshti University"
+  },
+  {
+    "number": 64,
+    "country": "Iran",
+    "school": "University of Guilan"
+  },
+  {
+    "number": 65,
+    "country": "Iran",
+    "school": "Shahid Bahonar University of Kerman"
+  },
+  {
+    "number": 66,
+    "country": "Iran",
+    "school": "Razi University"
+  },
+  {
+    "number": 67,
+    "country": "Iran",
+    "school": "Bu-Ali Sina University"
+  },
+  {
+    "number": 68,
+    "country": "Iran",
+    "school": "Urmia University"
+  },
+  {
+    "number": 69,
+    "country": "Iran",
+    "school": "University of Mazandaran"
+  },
+  {
+    "number": 70,
+    "country": "Iran",
+    "school": "University of Zanjan"
+  },
+  {
+    "number": 71,
+    "country": "Israel",
+    "school": "Hebrew University of Jerusalem"
+  },
+  {
+    "number": 72,
+    "country": "Israel",
+    "school": "Technion - Israel Institute of Technology"
+  },
+  {
+    "number": 73,
+    "country": "Israel",
+    "school": "Tel Aviv University"
+  },
+  {
+    "number": 74,
+    "country": "Israel",
+    "school": "Weizmann Institute of Science"
+  },
+  {
+    "number": 75,
+    "country": "Israel",
+    "school": "Bar-Ilan University"
+  },
+  {
+    "number": 76,
+    "country": "Israel",
+    "school": "University of Haifa"
+  },
+  {
+    "number": 77,
+    "country": "Israel",
+    "school": "Ben-Gurion University of the Negev"
+  },
+  {
+    "number": 78,
+    "country": "Israel",
+    "school": "Open University of Israel"
+  },
+  {
+    "number": 79,
+    "country": "Israel",
+    "school": "Ariel University"
+  },
+  {
+    "number": 80,
+    "country": "Israel",
+    "school": "Reichman University"
+  },
+  {
+    "number": 81,
+    "country": "Jordan",
+    "school": "University of Jordan"
+  },
+  {
+    "number": 82,
+    "country": "Jordan",
+    "school": "Yarmouk University"
+  },
+  {
+    "number": 83,
+    "country": "Jordan",
+    "school": "Jordan University of Science and Technology"
+  },
+  {
+    "number": 84,
+    "country": "Jordan",
+    "school": "Hashemite University"
+  },
+  {
+    "number": 85,
+    "country": "Jordan",
+    "school": "Mutah University"
+  },
+  {
+    "number": 86,
+    "country": "Jordan",
+    "school": "Al-Hussein Bin Talal University"
+  },
+  {
+    "number": 87,
+    "country": "Jordan",
+    "school": "Al al-Bayt University"
+  },
+  {
+    "number": 88,
+    "country": "Jordan",
+    "school": "Balqa Applied University"
+  },
+  {
+    "number": 89,
+    "country": "Jordan",
+    "school": "Tafila Technical University"
+  },
+  {
+    "number": 90,
+    "country": "Jordan",
+    "school": "German-Jordanian University"
+  },
+  {
+    "number": 91,
+    "country": "Jordan",
+    "school": "Princess Sumaya University for Technology"
+  },
+  {
+    "number": 92,
+    "country": "Jordan",
+    "school": "Al-Ahliyya Amman University"
+  },
+  {
+    "number": 93,
+    "country": "Jordan",
+    "school": "Applied Science Private University"
+  },
+  {
+    "number": 94,
+    "country": "Jordan",
+    "school": "Philadelphia University"
+  },
+  {
+    "number": 95,
+    "country": "Jordan",
+    "school": "Middle East University"
+  },
+  {
+    "number": 96,
+    "country": "Jordan",
+    "school": "Petra University"
+  },
+  {
+    "number": 97,
+    "country": "Jordan",
+    "school": "Amman Arab University"
+  },
+  {
+    "number": 98,
+    "country": "Jordan",
+    "school": "Al-Zaytoonah University of Jordan"
+  },
+  {
+    "number": 99,
+    "country": "Jordan",
+    "school": "Jadara University"
+  },
+  {
+    "number": 100,
+    "country": "Jordan",
+    "school": "Irbid National University"
+  },
+  {
+    "number": 101,
+    "country": "United Arab Emirates",
+    "school": "United Arab Emirates University"
+  },
+  {
+    "number": 102,
+    "country": "United Arab Emirates",
+    "school": "Khalifa University"
+  },
+  {
+    "number": 103,
+    "country": "United Arab Emirates",
+    "school": "American University of Sharjah"
+  },
+  {
+    "number": 104,
+    "country": "United Arab Emirates",
+    "school": "Zayed University"
+  },
+  {
+    "number": 105,
+    "country": "United Arab Emirates",
+    "school": "University of Sharjah"
+  },
+  {
+    "number": 106,
+    "country": "United Arab Emirates",
+    "school": "Abu Dhabi University"
+  },
+  {
+    "number": 107,
+    "country": "United Arab Emirates",
+    "school": "American University in Dubai"
+  },
+  {
+    "number": 108,
+    "country": "United Arab Emirates",
+    "school": "Ajman University"
+  },
+  {
+    "number": 109,
+    "country": "United Arab Emirates",
+    "school": "Higher Colleges of Technology"
+  },
+  {
+    "number": 110,
+    "country": "United Arab Emirates",
+    "school": "New York University Abu Dhabi"
+  },
+  {
+    "number": 111,
+    "country": "United Arab Emirates",
+    "school": "Sorbonne University Abu Dhabi"
+  },
+  {
+    "number": 112,
+    "country": "United Arab Emirates",
+    "school": "Canadian University Dubai"
+  },
+  {
+    "number": 113,
+    "country": "United Arab Emirates",
+    "school": "British University in Dubai"
+  },
+  {
+    "number": 114,
+    "country": "United Arab Emirates",
+    "school": "Heriot-Watt University Dubai"
+  },
+  {
+    "number": 115,
+    "country": "United Arab Emirates",
+    "school": "Middlesex University Dubai"
+  },
+  {
+    "number": 116,
+    "country": "United Arab Emirates",
+    "school": "Emirates Aviation University"
+  },
+  {
+    "number": 117,
+    "country": "United Arab Emirates",
+    "school": "University of Dubai"
+  },
+  {
+    "number": 118,
+    "country": "United Arab Emirates",
+    "school": "Al Ain University"
+  },
+  {
+    "number": 119,
+    "country": "United Arab Emirates",
+    "school": "Murdoch University Dubai"
+  },
+  {
+    "number": 120,
+    "country": "United Arab Emirates",
+    "school": "Curtin University Dubai"
+  }
+]

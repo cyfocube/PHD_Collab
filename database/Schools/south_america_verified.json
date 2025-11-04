@@ -1,0 +1,432 @@
+[
+  {
+    "number": 1,
+    "country": "Brazil",
+    "school": "University of São Paulo"
+  },
+  {
+    "number": 2,
+    "country": "Brazil",
+    "school": "State University of Campinas"
+  },
+  {
+    "number": 3,
+    "country": "Brazil",
+    "school": "Federal University of Rio de Janeiro"
+  },
+  {
+    "number": 4,
+    "country": "Brazil",
+    "school": "Federal University of Minas Gerais"
+  },
+  {
+    "number": 5,
+    "country": "Brazil",
+    "school": "Federal University of Rio Grande do Sul"
+  },
+  {
+    "number": 6,
+    "country": "Brazil",
+    "school": "São Paulo State University"
+  },
+  {
+    "number": 7,
+    "country": "Brazil",
+    "school": "University of Brasília"
+  },
+  {
+    "number": 8,
+    "country": "Brazil",
+    "school": "Federal University of Santa Catarina"
+  },
+  {
+    "number": 9,
+    "country": "Brazil",
+    "school": "Federal University of Paraná"
+  },
+  {
+    "number": 10,
+    "country": "Brazil",
+    "school": "Federal University of Pernambuco"
+  },
+  {
+    "number": 11,
+    "country": "Brazil",
+    "school": "Federal University of Bahia"
+  },
+  {
+    "number": 12,
+    "country": "Brazil",
+    "school": "Federal University of Ceará"
+  },
+  {
+    "number": 13,
+    "country": "Brazil",
+    "school": "Federal University of Santa Maria"
+  },
+  {
+    "number": 14,
+    "country": "Brazil",
+    "school": "Federal University of Viçosa"
+  },
+  {
+    "number": 15,
+    "country": "Brazil",
+    "school": "Federal University of São Carlos"
+  },
+  {
+    "number": 16,
+    "country": "Brazil",
+    "school": "Pontifical Catholic University of Rio de Janeiro"
+  },
+  {
+    "number": 17,
+    "country": "Brazil",
+    "school": "Federal University of Fluminense"
+  },
+  {
+    "number": 18,
+    "country": "Brazil",
+    "school": "State University of Londrina"
+  },
+  {
+    "number": 19,
+    "country": "Brazil",
+    "school": "State University of Maringá"
+  },
+  {
+    "number": 20,
+    "country": "Brazil",
+    "school": "Federal University of Goiás"
+  },
+  {
+    "number": 21,
+    "country": "Brazil",
+    "school": "Federal University of Espírito Santo"
+  },
+  {
+    "number": 22,
+    "country": "Brazil",
+    "school": "Federal University of Pará"
+  },
+  {
+    "number": 23,
+    "country": "Brazil",
+    "school": "Federal University of Amazonas"
+  },
+  {
+    "number": 24,
+    "country": "Brazil",
+    "school": "Federal University of Mato Grosso"
+  },
+  {
+    "number": 25,
+    "country": "Brazil",
+    "school": "Federal University of Piauí"
+  },
+  {
+    "number": 26,
+    "country": "Argentina",
+    "school": "University of Buenos Aires"
+  },
+  {
+    "number": 27,
+    "country": "Argentina",
+    "school": "National University of Córdoba"
+  },
+  {
+    "number": 28,
+    "country": "Argentina",
+    "school": "National University of La Plata"
+  },
+  {
+    "number": 29,
+    "country": "Argentina",
+    "school": "National University of Rosario"
+  },
+  {
+    "number": 30,
+    "country": "Argentina",
+    "school": "National University of Tucumán"
+  },
+  {
+    "number": 31,
+    "country": "Argentina",
+    "school": "National University of Cuyo"
+  },
+  {
+    "number": 32,
+    "country": "Argentina",
+    "school": "National University of the Littoral"
+  },
+  {
+    "number": 33,
+    "country": "Argentina",
+    "school": "National University of Mar del Plata"
+  },
+  {
+    "number": 34,
+    "country": "Argentina",
+    "school": "National University of the South"
+  },
+  {
+    "number": 35,
+    "country": "Argentina",
+    "school": "National University of San Juan"
+  },
+  {
+    "number": 36,
+    "country": "Argentina",
+    "school": "National University of San Luis"
+  },
+  {
+    "number": 37,
+    "country": "Argentina",
+    "school": "National University of Salta"
+  },
+  {
+    "number": 38,
+    "country": "Argentina",
+    "school": "National University of Jujuy"
+  },
+  {
+    "number": 39,
+    "country": "Argentina",
+    "school": "National University of La Matanza"
+  },
+  {
+    "number": 40,
+    "country": "Argentina",
+    "school": "National University of Quilmes"
+  },
+  {
+    "number": 41,
+    "country": "Argentina",
+    "school": "National University of General San Martín"
+  },
+  {
+    "number": 42,
+    "country": "Argentina",
+    "school": "National University of Tres de Febrero"
+  },
+  {
+    "number": 43,
+    "country": "Argentina",
+    "school": "Universidad Austral"
+  },
+  {
+    "number": 44,
+    "country": "Argentina",
+    "school": "Pontifical Catholic University of Argentina"
+  },
+  {
+    "number": 45,
+    "country": "Argentina",
+    "school": "University of San Andrés"
+  },
+  {
+    "number": 46,
+    "country": "Chile",
+    "school": "University of Chile"
+  },
+  {
+    "number": 47,
+    "country": "Chile",
+    "school": "Pontifical Catholic University of Chile"
+  },
+  {
+    "number": 48,
+    "country": "Chile",
+    "school": "University of Santiago"
+  },
+  {
+    "number": 49,
+    "country": "Chile",
+    "school": "University of Concepción"
+  },
+  {
+    "number": 50,
+    "country": "Chile",
+    "school": "Pontifical Catholic University of Valparaíso"
+  },
+  {
+    "number": 51,
+    "country": "Chile",
+    "school": "University of Valparaíso"
+  },
+  {
+    "number": 52,
+    "country": "Chile",
+    "school": "Universidad Adolfo Ibáñez"
+  },
+  {
+    "number": 53,
+    "country": "Chile",
+    "school": "Universidad Diego Portales"
+  },
+  {
+    "number": 54,
+    "country": "Colombia",
+    "school": "National University of Colombia"
+  },
+  {
+    "number": 55,
+    "country": "Colombia",
+    "school": "University of the Andes"
+  },
+  {
+    "number": 56,
+    "country": "Colombia",
+    "school": "Pontifical Javeriana University"
+  },
+  {
+    "number": 57,
+    "country": "Colombia",
+    "school": "University of Antioquia"
+  },
+  {
+    "number": 58,
+    "country": "Colombia",
+    "school": "Universidad del Norte"
+  },
+  {
+    "number": 59,
+    "country": "Colombia",
+    "school": "Universidad del Valle"
+  },
+  {
+    "number": 60,
+    "country": "Colombia",
+    "school": "University of Rosario"
+  },
+  {
+    "number": 61,
+    "country": "Peru",
+    "school": "National University of San Marcos"
+  },
+  {
+    "number": 62,
+    "country": "Peru",
+    "school": "Pontifical Catholic University of Peru"
+  },
+  {
+    "number": 63,
+    "country": "Peru",
+    "school": "Universidad Peruana Cayetano Heredia"
+  },
+  {
+    "number": 64,
+    "country": "Peru",
+    "school": "National University of Engineering"
+  },
+  {
+    "number": 65,
+    "country": "Peru",
+    "school": "Universidad del Pacífico"
+  },
+  {
+    "number": 66,
+    "country": "Peru",
+    "school": "Universidad San Martín de Porres"
+  },
+  {
+    "number": 67,
+    "country": "Venezuela",
+    "school": "Central University of Venezuela"
+  },
+  {
+    "number": 68,
+    "country": "Venezuela",
+    "school": "University of Zulia"
+  },
+  {
+    "number": 69,
+    "country": "Venezuela",
+    "school": "Simón Bolívar University"
+  },
+  {
+    "number": 70,
+    "country": "Venezuela",
+    "school": "Universidad de Los Andes"
+  },
+  {
+    "number": 71,
+    "country": "Venezuela",
+    "school": "Universidad Católica Andrés Bello"
+  },
+  {
+    "number": 72,
+    "country": "Ecuador",
+    "school": "Central University of Ecuador"
+  },
+  {
+    "number": 73,
+    "country": "Ecuador",
+    "school": "Universidad San Francisco de Quito"
+  },
+  {
+    "number": 74,
+    "country": "Ecuador",
+    "school": "Pontifical Catholic University of Ecuador"
+  },
+  {
+    "number": 75,
+    "country": "Bolivia",
+    "school": "Universidad Mayor de San Andrés"
+  },
+  {
+    "number": 76,
+    "country": "Bolivia",
+    "school": "Universidad Mayor de San Simón"
+  },
+  {
+    "number": 77,
+    "country": "Bolivia",
+    "school": "Universidad Católica Boliviana"
+  },
+  {
+    "number": 78,
+    "country": "Paraguay",
+    "school": "National University of Asunción"
+  },
+  {
+    "number": 79,
+    "country": "Paraguay",
+    "school": "Universidad Católica Nuestra Señora de la Asunción"
+  },
+  {
+    "number": 80,
+    "country": "Paraguay",
+    "school": "Universidad Columbia del Paraguay"
+  },
+  {
+    "number": 81,
+    "country": "Uruguay",
+    "school": "University of the Republic"
+  },
+  {
+    "number": 82,
+    "country": "Uruguay",
+    "school": "Universidad Católica del Uruguay"
+  },
+  {
+    "number": 83,
+    "country": "Uruguay",
+    "school": "Universidad ORT Uruguay"
+  },
+  {
+    "number": 84,
+    "country": "Guyana",
+    "school": "University of Guyana"
+  },
+  {
+    "number": 85,
+    "country": "Suriname",
+    "school": "University of Suriname"
+  },
+  {
+    "number": 86,
+    "country": "French Guiana",
+    "school": "University of French Guiana"
+  }
+]

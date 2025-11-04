@@ -1,0 +1,677 @@
+[
+  {
+    "number": 1,
+    "country": "South Africa",
+    "school": "University of Cape Town"
+  },
+  {
+    "number": 2,
+    "country": "South Africa",
+    "school": "University of the Witwatersrand"
+  },
+  {
+    "number": 3,
+    "country": "South Africa",
+    "school": "Stellenbosch University"
+  },
+  {
+    "number": 4,
+    "country": "South Africa",
+    "school": "University of Pretoria"
+  },
+  {
+    "number": 5,
+    "country": "South Africa",
+    "school": "University of KwaZulu-Natal"
+  },
+  {
+    "number": 6,
+    "country": "South Africa",
+    "school": "Rhodes University"
+  },
+  {
+    "number": 7,
+    "country": "South Africa",
+    "school": "University of the Free State"
+  },
+  {
+    "number": 8,
+    "country": "South Africa",
+    "school": "North-West University"
+  },
+  {
+    "number": 9,
+    "country": "South Africa",
+    "school": "University of Fort Hare"
+  },
+  {
+    "number": 10,
+    "country": "South Africa",
+    "school": "University of Limpopo"
+  },
+  {
+    "number": 11,
+    "country": "South Africa",
+    "school": "University of the Western Cape"
+  },
+  {
+    "number": 12,
+    "country": "South Africa",
+    "school": "University of Johannesburg"
+  },
+  {
+    "number": 13,
+    "country": "South Africa",
+    "school": "Nelson Mandela University"
+  },
+  {
+    "number": 14,
+    "country": "South Africa",
+    "school": "University of South Africa"
+  },
+  {
+    "number": 15,
+    "country": "South Africa",
+    "school": "University of Venda"
+  },
+  {
+    "number": 16,
+    "country": "South Africa",
+    "school": "Walter Sisulu University"
+  },
+  {
+    "number": 17,
+    "country": "South Africa",
+    "school": "University of Zululand"
+  },
+  {
+    "number": 18,
+    "country": "South Africa",
+    "school": "Cape Peninsula University of Technology"
+  },
+  {
+    "number": 19,
+    "country": "South Africa",
+    "school": "Central University of Technology"
+  },
+  {
+    "number": 20,
+    "country": "South Africa",
+    "school": "Durban University of Technology"
+  },
+  {
+    "number": 21,
+    "country": "South Africa",
+    "school": "Mangosuthu University of Technology"
+  },
+  {
+    "number": 22,
+    "country": "South Africa",
+    "school": "University of Mpumalanga"
+  },
+  {
+    "number": 23,
+    "country": "South Africa",
+    "school": "Sol Plaatje University"
+  },
+  {
+    "number": 24,
+    "country": "South Africa",
+    "school": "Tshwane University of Technology"
+  },
+  {
+    "number": 25,
+    "country": "South Africa",
+    "school": "Vaal University of Technology"
+  },
+  {
+    "number": 26,
+    "country": "South Africa",
+    "school": "Sefako Makgatho Health Sciences University"
+  },
+  {
+    "number": 27,
+    "country": "Egypt",
+    "school": "Cairo University"
+  },
+  {
+    "number": 28,
+    "country": "Egypt",
+    "school": "Al-Azhar University"
+  },
+  {
+    "number": 29,
+    "country": "Egypt",
+    "school": "Alexandria University"
+  },
+  {
+    "number": 30,
+    "country": "Egypt",
+    "school": "Ain Shams University"
+  },
+  {
+    "number": 31,
+    "country": "Egypt",
+    "school": "Assiut University"
+  },
+  {
+    "number": 32,
+    "country": "Egypt",
+    "school": "Mansoura University"
+  },
+  {
+    "number": 33,
+    "country": "Egypt",
+    "school": "Tanta University"
+  },
+  {
+    "number": 34,
+    "country": "Egypt",
+    "school": "Zagazig University"
+  },
+  {
+    "number": 35,
+    "country": "Egypt",
+    "school": "Suez Canal University"
+  },
+  {
+    "number": 36,
+    "country": "Egypt",
+    "school": "Helwan University"
+  },
+  {
+    "number": 37,
+    "country": "Egypt",
+    "school": "Minia University"
+  },
+  {
+    "number": 38,
+    "country": "Egypt",
+    "school": "Menoufia University"
+  },
+  {
+    "number": 39,
+    "country": "Egypt",
+    "school": "Fayoum University"
+  },
+  {
+    "number": 40,
+    "country": "Egypt",
+    "school": "Banha University"
+  },
+  {
+    "number": 41,
+    "country": "Egypt",
+    "school": "Beni-Suef University"
+  },
+  {
+    "number": 42,
+    "country": "Egypt",
+    "school": "Sohag University"
+  },
+  {
+    "number": 43,
+    "country": "Egypt",
+    "school": "South Valley University"
+  },
+  {
+    "number": 44,
+    "country": "Egypt",
+    "school": "Kafrelsheikh University"
+  },
+  {
+    "number": 45,
+    "country": "Egypt",
+    "school": "Damanhour University"
+  },
+  {
+    "number": 46,
+    "country": "Egypt",
+    "school": "Port Said University"
+  },
+  {
+    "number": 47,
+    "country": "Egypt",
+    "school": "Damietta University"
+  },
+  {
+    "number": 48,
+    "country": "Egypt",
+    "school": "Suez University"
+  },
+  {
+    "number": 49,
+    "country": "Egypt",
+    "school": "Aswan University"
+  },
+  {
+    "number": 50,
+    "country": "Egypt",
+    "school": "The American University in Cairo"
+  },
+  {
+    "number": 51,
+    "country": "Egypt",
+    "school": "German University in Cairo"
+  },
+  {
+    "number": 52,
+    "country": "Egypt",
+    "school": "British University in Egypt"
+  },
+  {
+    "number": 53,
+    "country": "Egypt",
+    "school": "French University of Egypt"
+  },
+  {
+    "number": 54,
+    "country": "Egypt",
+    "school": "Nile University"
+  },
+  {
+    "number": 55,
+    "country": "Egypt",
+    "school": "Zewail City of Science and Technology"
+  },
+  {
+    "number": 56,
+    "country": "Nigeria",
+    "school": "University of Ibadan"
+  },
+  {
+    "number": 57,
+    "country": "Nigeria",
+    "school": "University of Lagos"
+  },
+  {
+    "number": 58,
+    "country": "Nigeria",
+    "school": "Ahmadu Bello University"
+  },
+  {
+    "number": 59,
+    "country": "Nigeria",
+    "school": "University of Nigeria"
+  },
+  {
+    "number": 60,
+    "country": "Nigeria",
+    "school": "Obafemi Awolowo University"
+  },
+  {
+    "number": 61,
+    "country": "Nigeria",
+    "school": "University of Benin"
+  },
+  {
+    "number": 62,
+    "country": "Nigeria",
+    "school": "Lagos State University"
+  },
+  {
+    "number": 63,
+    "country": "Nigeria",
+    "school": "Covenant University"
+  },
+  {
+    "number": 64,
+    "country": "Kenya",
+    "school": "University of Nairobi"
+  },
+  {
+    "number": 65,
+    "country": "Kenya",
+    "school": "Kenyatta University"
+  },
+  {
+    "number": 66,
+    "country": "Kenya",
+    "school": "Moi University"
+  },
+  {
+    "number": 67,
+    "country": "Kenya",
+    "school": "Egerton University"
+  },
+  {
+    "number": 68,
+    "country": "Kenya",
+    "school": "Jomo Kenyatta University of Agriculture and Technology"
+  },
+  {
+    "number": 69,
+    "country": "Ghana",
+    "school": "University of Ghana"
+  },
+  {
+    "number": 70,
+    "country": "Ghana",
+    "school": "Kwame Nkrumah University of Science and Technology"
+  },
+  {
+    "number": 71,
+    "country": "Ghana",
+    "school": "University of Cape Coast"
+  },
+  {
+    "number": 72,
+    "country": "Ghana",
+    "school": "University for Development Studies"
+  },
+  {
+    "number": 73,
+    "country": "Morocco",
+    "school": "Mohammed V University"
+  },
+  {
+    "number": 74,
+    "country": "Morocco",
+    "school": "Hassan II University"
+  },
+  {
+    "number": 75,
+    "country": "Morocco",
+    "school": "Cadi Ayyad University"
+  },
+  {
+    "number": 76,
+    "country": "Morocco",
+    "school": "Sidi Mohamed Ben Abdellah University"
+  },
+  {
+    "number": 77,
+    "country": "Tunisia",
+    "school": "University of Tunis"
+  },
+  {
+    "number": 78,
+    "country": "Tunisia",
+    "school": "University of Sfax"
+  },
+  {
+    "number": 79,
+    "country": "Tunisia",
+    "school": "University of Monastir"
+  },
+  {
+    "number": 80,
+    "country": "Algeria",
+    "school": "University of Algiers"
+  },
+  {
+    "number": 81,
+    "country": "Algeria",
+    "school": "University of Constantine"
+  },
+  {
+    "number": 82,
+    "country": "Algeria",
+    "school": "University of Oran"
+  },
+  {
+    "number": 83,
+    "country": "Ethiopia",
+    "school": "Addis Ababa University"
+  },
+  {
+    "number": 84,
+    "country": "Ethiopia",
+    "school": "Jimma University"
+  },
+  {
+    "number": 85,
+    "country": "Uganda",
+    "school": "Makerere University"
+  },
+  {
+    "number": 86,
+    "country": "Uganda",
+    "school": "Mbarara University of Science and Technology"
+  },
+  {
+    "number": 87,
+    "country": "Tanzania",
+    "school": "University of Dar es Salaam"
+  },
+  {
+    "number": 88,
+    "country": "Tanzania",
+    "school": "Sokoine University of Agriculture"
+  },
+  {
+    "number": 89,
+    "country": "Botswana",
+    "school": "University of Botswana"
+  },
+  {
+    "number": 90,
+    "country": "Zimbabwe",
+    "school": "University of Zimbabwe"
+  },
+  {
+    "number": 91,
+    "country": "Zambia",
+    "school": "University of Zambia"
+  },
+  {
+    "number": 92,
+    "country": "Namibia",
+    "school": "University of Namibia"
+  },
+  {
+    "number": 93,
+    "country": "Libya",
+    "school": "University of Tripoli"
+  },
+  {
+    "number": 94,
+    "country": "Libya",
+    "school": "University of Benghazi"
+  },
+  {
+    "number": 95,
+    "country": "Senegal",
+    "school": "Cheikh Anta Diop University"
+  },
+  {
+    "number": 96,
+    "country": "Cameroon",
+    "school": "University of Yaoundé I"
+  },
+  {
+    "number": 97,
+    "country": "Cameroon",
+    "school": "University of Douala"
+  },
+  {
+    "number": 98,
+    "country": "Ivory Coast",
+    "school": "Félix Houphouët-Boigny University"
+  },
+  {
+    "number": 99,
+    "country": "Mali",
+    "school": "University of Bamako"
+  },
+  {
+    "number": 100,
+    "country": "Sudan",
+    "school": "University of Khartoum"
+  },
+  {
+    "number": 101,
+    "country": "Sudan",
+    "school": "Sudan University of Science and Technology"
+  },
+  {
+    "number": 102,
+    "country": "Rwanda",
+    "school": "University of Rwanda"
+  },
+  {
+    "number": 103,
+    "country": "Burkina Faso",
+    "school": "University of Ouagadougou"
+  },
+  {
+    "number": 104,
+    "country": "Madagascar",
+    "school": "University of Antananarivo"
+  },
+  {
+    "number": 105,
+    "country": "Mozambique",
+    "school": "Eduardo Mondlane University"
+  },
+  {
+    "number": 106,
+    "country": "Angola",
+    "school": "Agostinho Neto University"
+  },
+  {
+    "number": 107,
+    "country": "Benin",
+    "school": "University of Abomey-Calavi"
+  },
+  {
+    "number": 108,
+    "country": "Togo",
+    "school": "University of Lomé"
+  },
+  {
+    "number": 109,
+    "country": "Guinea",
+    "school": "Gamal Abdel Nasser University of Conakry"
+  },
+  {
+    "number": 110,
+    "country": "Sierra Leone",
+    "school": "University of Sierra Leone"
+  },
+  {
+    "number": 111,
+    "country": "Liberia",
+    "school": "University of Liberia"
+  },
+  {
+    "number": 112,
+    "country": "Chad",
+    "school": "University of N'Djamena"
+  },
+  {
+    "number": 113,
+    "country": "Niger",
+    "school": "Abdou Moumouni University"
+  },
+  {
+    "number": 114,
+    "country": "Mauritania",
+    "school": "University of Nouakchott"
+  },
+  {
+    "number": 115,
+    "country": "Gambia",
+    "school": "University of the Gambia"
+  },
+  {
+    "number": 116,
+    "country": "Guinea-Bissau",
+    "school": "Amílcar Cabral University"
+  },
+  {
+    "number": 117,
+    "country": "Gabon",
+    "school": "Omar Bongo University"
+  },
+  {
+    "number": 118,
+    "country": "Equatorial Guinea",
+    "school": "National University of Equatorial Guinea"
+  },
+  {
+    "number": 119,
+    "country": "Central African Republic",
+    "school": "University of Bangui"
+  },
+  {
+    "number": 120,
+    "country": "Democratic Republic of Congo",
+    "school": "University of Kinshasa"
+  },
+  {
+    "number": 121,
+    "country": "Democratic Republic of Congo",
+    "school": "University of Lubumbashi"
+  },
+  {
+    "number": 122,
+    "country": "Republic of Congo",
+    "school": "Marien Ngouabi University"
+  },
+  {
+    "number": 123,
+    "country": "Burundi",
+    "school": "University of Burundi"
+  },
+  {
+    "number": 124,
+    "country": "Djibouti",
+    "school": "University of Djibouti"
+  },
+  {
+    "number": 125,
+    "country": "Eritrea",
+    "school": "University of Asmara"
+  },
+  {
+    "number": 126,
+    "country": "Somalia",
+    "school": "Somali National University"
+  },
+  {
+    "number": 127,
+    "country": "Comoros",
+    "school": "University of Comoros"
+  },
+  {
+    "number": 128,
+    "country": "Cape Verde",
+    "school": "University of Cape Verde"
+  },
+  {
+    "number": 129,
+    "country": "São Tomé and Príncipe",
+    "school": "University of São Tomé and Príncipe"
+  },
+  {
+    "number": 130,
+    "country": "Seychelles",
+    "school": "University of Seychelles"
+  },
+  {
+    "number": 131,
+    "country": "Mauritius",
+    "school": "University of Mauritius"
+  },
+  {
+    "number": 132,
+    "country": "Mauritius",
+    "school": "University of Technology, Mauritius"
+  },
+  {
+    "number": 133,
+    "country": "Lesotho",
+    "school": "National University of Lesotho"
+  },
+  {
+    "number": 134,
+    "country": "Eswatini",
+    "school": "University of Eswatini"
+  },
+  {
+    "number": 135,
+    "country": "Malawi",
+    "school": "University of Malawi"
+  }
+]
