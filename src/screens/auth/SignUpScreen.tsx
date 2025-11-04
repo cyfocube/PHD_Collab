@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, StyleSheet, Alert, ScrollView, TouchableOpacity, Image, Modal, FlatList } from 'react-native';
+import { View, StyleSheet, Alert, ScrollView, TouchableOpacity, Image, Modal, FlatList, KeyboardAvoidingView, Platform } from 'react-native';
 import { TextInput, Button, Text, ActivityIndicator, Chip, IconButton } from 'react-native-paper';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { LinearGradient } from 'expo-linear-gradient';
@@ -8,6 +8,7 @@ import MaskedView from '@react-native-masked-view/masked-view';
 import * as ImagePicker from 'expo-image-picker';
 import { useAuth } from '../../contexts/AuthContext';
 import RegistrationService from '../../services/registrationService';
+import UniversitySearchInput from '../../components/UniversitySearchInput';
 
 interface SignUpFormData {
   email: string;
@@ -252,6 +253,7 @@ export default function SignUpScreen({ navigation }: any) {
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [countryCode, setCountryCode] = useState('+1');
   const [countryFlag, setCountryFlag] = useState('🇺🇸');
+  const [selectedCountry, setSelectedCountry] = useState('United States');
   const [showCountryModal, setShowCountryModal] = useState(false);
   const [showDatePicker, setShowDatePicker] = useState(false);
   const [selectedMonth, setSelectedMonth] = useState('');
@@ -677,16 +679,16 @@ export default function SignUpScreen({ navigation }: any) {
 
   const renderStep3 = () => (
     <View>
-      <TextInput
+      <UniversitySearchInput
         label="University"
+        placeholder="Search from 30,000+ universities worldwide..."
         value={formData.academicInfo.university}
         onChangeText={(text) => setFormData(prev => ({ 
           ...prev, 
           academicInfo: { ...prev.academicInfo, university: text }
         }))}
-        mode="outlined"
         style={styles.input}
-        theme={{ roundness: 10 }}
+        countryFilter={selectedCountry}
       />
       
       <TextInput
@@ -1028,215 +1030,230 @@ export default function SignUpScreen({ navigation }: any) {
     </View>
   );
 
+  const renderScrollableContent = () => (
+    <View style={styles.content}>
+      {/* Header */}
+      <View style={styles.header}>
+        <Text variant="headlineLarge" style={styles.title}>
+          Join ProHub
+        </Text>
+        <Text variant="bodyMedium" style={styles.subtitle}>
+          Step {currentStep} of 5
+        </Text>
+      </View>
+
+      {/* Progress Bar */}
+      <View style={styles.progressWrapper}>
+        <View style={styles.progressContainer}>
+          {[1, 2, 3, 4, 5].map((step) => (
+            <View
+              key={step}
+              style={[
+                styles.progressSegment,
+                {
+                  backgroundColor: currentStep >= step 
+                    ? getStepColor(step)
+                    : '#333333'
+                }
+              ]}
+            />
+          ))}
+        </View>
+        <View style={styles.stepLabelsContainer}>
+          {[
+            'Account',
+            'Personal', 
+            'Academic',
+            'Profile',
+            'Contact'
+          ].map((label, index) => (
+            <Text
+              key={index}
+              style={[
+                styles.stepLabel,
+                {
+                  color: currentStep > index + 1 
+                    ? getStepColor(index + 1)
+                    : currentStep === index + 1
+                    ? '#FFFFFF'
+                    : '#666666'
+                }
+              ]}
+            >
+              {label}
+            </Text>
+          ))}
+        </View>
+      </View>
+
+      {/* Error Message */}
+      {error ? (
+        <Text style={styles.errorText}>{error}</Text>
+      ) : null}
+
+      {/* Form Steps */}
+      {currentStep === 1 && renderStep1()}
+      {currentStep === 2 && renderStep2()}
+      {currentStep === 3 && renderStep3()}
+      {currentStep === 4 && renderStep4()}
+      {currentStep === 5 && renderStep5()}
+
+      {/* Navigation Buttons */}
+      <View style={styles.buttonContainer}>
+        {currentStep > 1 && (
+          <Button
+            mode="outlined"
+            onPress={() => {
+              setError(''); // Clear any existing errors when going back
+              setCurrentStep(currentStep - 1);
+            }}
+            style={styles.backButton}
+          >
+            Back
+          </Button>
+        )}
+        
+        {currentStep < 5 ? (
+          currentStep === 1 ? (
+            // Account section - keep filled button style
+            isStepComplete() ? (
+              <TouchableOpacity
+                onPress={() => {
+                  console.log('✅ ENABLED Next button clicked!');
+                  setClickCount(prev => prev + 1);
+                  setError('');
+                  setCurrentStep(currentStep + 1);
+                }}
+                style={[
+                  styles.nextButton, 
+                  { 
+                    backgroundColor: '#6366F1',
+                    opacity: 1,
+                    padding: 16,
+                    borderRadius: 8,
+                    alignItems: 'center',
+                    justifyContent: 'center'
+                  }
+                ]}
+              >
+                <Text style={{ color: 'white', fontSize: 16, fontWeight: 'bold' }}>
+                  Next
+                </Text>
+              </TouchableOpacity>
+            ) : (
+              <TouchableOpacity
+                onPress={() => {
+                  console.log('❌ DISABLED Next button clicked - this should show error!');
+                  setClickCount(prev => prev + 1);
+                  const errors = getValidationErrors();
+                  const errorMessage = errors.length === 1 
+                    ? errors[0]
+                    : errors.length === 2
+                    ? errors.join(' and ')
+                    : errors.slice(0, -1).join(', ') + ', and ' + errors[errors.length - 1];
+                  setError(errorMessage);
+                }}
+                style={[
+                  styles.nextButton, 
+                  { 
+                    backgroundColor: '#666666',
+                    opacity: 0.5,
+                    padding: 16,
+                    borderRadius: 8,
+                    alignItems: 'center',
+                    justifyContent: 'center'
+                  }
+                ]}
+              >
+                <Text style={{ color: 'white', fontSize: 16, fontWeight: 'bold' }}>
+                  Next
+                </Text>
+              </TouchableOpacity>
+            )
+          ) : (
+            // Steps 2-4 - use outlined button style like Back button
+            <Button
+              mode="outlined"
+              onPress={() => {
+                if (isStepComplete()) {
+                  console.log('✅ ENABLED Next button clicked!');
+                  setClickCount(prev => prev + 1);
+                  setError('');
+                  setCurrentStep(currentStep + 1);
+                } else {
+                  console.log('❌ DISABLED Next button clicked - this should show error!');
+                  setClickCount(prev => prev + 1);
+                  const errors = getValidationErrors();
+                  const errorMessage = errors.length === 1 
+                    ? errors[0]
+                    : errors.length === 2
+                    ? errors.join(' and ')
+                    : errors.slice(0, -1).join(', ') + ', and ' + errors[errors.length - 1];
+                  setError(errorMessage);
+                }
+              }}
+              style={[
+                styles.nextButton,
+                {
+                  borderColor: isStepComplete() ? '#6366F1' : '#666666',
+                  backgroundColor: isStepComplete() ? 'transparent' : '#666666',
+                  opacity: 1
+                }
+              ]}
+              textColor="white"
+            >
+              Next
+            </Button>
+          )
+        ) : (
+          loading ? (
+            <View style={styles.loadingContainer}>
+              <ActivityIndicator size="large" color="#6366F1" />
+              <Text style={styles.loadingText}>Creating account...</Text>
+            </View>
+          ) : (
+            <Button
+              mode="contained"
+              onPress={handleSignUp}
+              style={styles.signUpButton}
+            >
+              Create Account
+            </Button>
+          )
+        )}
+      </View>
+
+      {/* Back to Login */}
+      <View style={styles.footer}>
+        <Text style={styles.footerText}>
+          Already have an account?{' '}
+          <Text 
+            style={styles.loginLink}
+            onPress={() => navigation.goBack()}
+          >
+            Sign in
+          </Text>
+        </Text>
+      </View>
+    </View>
+  );
+
   return (
     <SafeAreaView style={styles.container}>
-      <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false}>
-        <View style={styles.content}>
-          {/* Header */}
-          <View style={styles.header}>
-            <Text variant="headlineLarge" style={styles.title}>
-              Join ProHub
-            </Text>
-            <Text variant="bodyMedium" style={styles.subtitle}>
-              Step {currentStep} of 5
-            </Text>
-          </View>
-
-          {/* Progress Bar */}
-          <View style={styles.progressWrapper}>
-            <View style={styles.progressContainer}>
-              {[1, 2, 3, 4, 5].map((step) => (
-                <View
-                  key={step}
-                  style={[
-                    styles.progressSegment,
-                    {
-                      backgroundColor: currentStep >= step 
-                        ? getStepColor(step)
-                        : '#333333'
-                    }
-                  ]}
-                />
-              ))}
-            </View>
-            <View style={styles.stepLabelsContainer}>
-              {[
-                'Account',
-                'Personal', 
-                'Academic',
-                'Profile',
-                'Contact'
-              ].map((label, index) => (
-                <Text
-                  key={index}
-                  style={[
-                    styles.stepLabel,
-                    {
-                      color: currentStep > index + 1 
-                        ? getStepColor(index + 1)
-                        : currentStep === index + 1
-                        ? '#FFFFFF'
-                        : '#666666'
-                    }
-                  ]}
-                >
-                  {label}
-                </Text>
-              ))}
-            </View>
-          </View>
-
-          {/* Error Message */}
-          {error ? (
-            <Text style={styles.errorText}>{error}</Text>
-          ) : null}
-
-          {/* Form Steps */}
-          {currentStep === 1 && renderStep1()}
-          {currentStep === 2 && renderStep2()}
-          {currentStep === 3 && renderStep3()}
-          {currentStep === 4 && renderStep4()}
-          {currentStep === 5 && renderStep5()}
-
-          {/* Navigation Buttons */}
-          <View style={styles.buttonContainer}>
-            {currentStep > 1 && (
-              <Button
-                mode="outlined"
-                onPress={() => {
-                  setError(''); // Clear any existing errors when going back
-                  setCurrentStep(currentStep - 1);
-                }}
-                style={styles.backButton}
-              >
-                Back
-              </Button>
-            )}
-            
-            {currentStep < 5 ? (
-              currentStep === 1 ? (
-                // Account section - keep filled button style
-                isStepComplete() ? (
-                  <TouchableOpacity
-                    onPress={() => {
-                      console.log('✅ ENABLED Next button clicked!');
-                      setClickCount(prev => prev + 1);
-                      setError('');
-                      setCurrentStep(currentStep + 1);
-                    }}
-                    style={[
-                      styles.nextButton, 
-                      { 
-                        backgroundColor: '#6366F1',
-                        opacity: 1,
-                        padding: 16,
-                        borderRadius: 8,
-                        alignItems: 'center',
-                        justifyContent: 'center'
-                      }
-                    ]}
-                  >
-                    <Text style={{ color: 'white', fontSize: 16, fontWeight: 'bold' }}>
-                      Next
-                    </Text>
-                  </TouchableOpacity>
-                ) : (
-                  <TouchableOpacity
-                    onPress={() => {
-                      console.log('❌ DISABLED Next button clicked - this should show error!');
-                      setClickCount(prev => prev + 1);
-                      const errors = getValidationErrors();
-                      const errorMessage = errors.length === 1 
-                        ? errors[0]
-                        : errors.length === 2
-                        ? errors.join(' and ')
-                        : errors.slice(0, -1).join(', ') + ', and ' + errors[errors.length - 1];
-                      setError(errorMessage);
-                    }}
-                    style={[
-                      styles.nextButton, 
-                      { 
-                        backgroundColor: '#666666',
-                        opacity: 0.5,
-                        padding: 16,
-                        borderRadius: 8,
-                        alignItems: 'center',
-                        justifyContent: 'center'
-                      }
-                    ]}
-                  >
-                    <Text style={{ color: 'white', fontSize: 16, fontWeight: 'bold' }}>
-                      Next
-                    </Text>
-                  </TouchableOpacity>
-                )
-              ) : (
-                // Steps 2-4 - use outlined button style like Back button
-                <Button
-                  mode="outlined"
-                  onPress={() => {
-                    if (isStepComplete()) {
-                      console.log('✅ ENABLED Next button clicked!');
-                      setClickCount(prev => prev + 1);
-                      setError('');
-                      setCurrentStep(currentStep + 1);
-                    } else {
-                      console.log('❌ DISABLED Next button clicked - this should show error!');
-                      setClickCount(prev => prev + 1);
-                      const errors = getValidationErrors();
-                      const errorMessage = errors.length === 1 
-                        ? errors[0]
-                        : errors.length === 2
-                        ? errors.join(' and ')
-                        : errors.slice(0, -1).join(', ') + ', and ' + errors[errors.length - 1];
-                      setError(errorMessage);
-                    }
-                  }}
-                  style={[
-                    styles.nextButton,
-                    {
-                      borderColor: isStepComplete() ? '#6366F1' : '#666666',
-                      backgroundColor: isStepComplete() ? 'transparent' : '#666666',
-                      opacity: 1
-                    }
-                  ]}
-                  textColor="white"
-                >
-                  Next
-                </Button>
-              )
-            ) : (
-              loading ? (
-                <View style={styles.loadingContainer}>
-                  <ActivityIndicator size="large" color="#6366F1" />
-                  <Text style={styles.loadingText}>Creating account...</Text>
-                </View>
-              ) : (
-                <Button
-                  mode="contained"
-                  onPress={handleSignUp}
-                  style={styles.signUpButton}
-                >
-                  Create Account
-                </Button>
-              )
-            )}
-          </View>
-
-          {/* Back to Login */}
-          <View style={styles.footer}>
-            <Text style={styles.footerText}>
-              Already have an account?{' '}
-              <Text 
-                style={styles.loginLink}
-                onPress={() => navigation.goBack()}
-              >
-                Sign in
-              </Text>
-            </Text>
-          </View>
-        </View>
-      </ScrollView>
+      <KeyboardAvoidingView
+        style={styles.keyboardAvoidingView}
+        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+        keyboardVerticalOffset={Platform.OS === 'ios' ? 0 : 20}
+      >
+        <FlatList
+          data={[1]} // Single item to make FlatList work as a scrollable container
+          keyExtractor={() => 'signup-form'}
+          renderItem={() => renderScrollableContent()}
+          showsVerticalScrollIndicator={false}
+          keyboardShouldPersistTaps="handled"
+          contentContainerStyle={styles.flatListContent}
+        />
+      </KeyboardAvoidingView>
 
       {/* Country Code Modal */}
       <Modal
@@ -1262,6 +1279,7 @@ export default function SignUpScreen({ navigation }: any) {
                   onPress={() => {
                     setCountryCode(item.code);
                     setCountryFlag(item.flag);
+                    setSelectedCountry(item.country);
                     setShowCountryModal(false);
                   }}
                 >
@@ -1437,6 +1455,12 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#000000',
+  },
+  keyboardAvoidingView: {
+    flex: 1,
+  },
+  flatListContent: {
+    flexGrow: 1,
   },
   scrollView: {
     flex: 1,
