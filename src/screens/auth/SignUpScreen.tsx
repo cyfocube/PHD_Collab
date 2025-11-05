@@ -348,7 +348,7 @@ export default function SignUpScreen({ navigation }: any) {
       
       case 3:
         if (formData.academicInfo.university.length === 0) errors.push('University is required');
-        if (formData.academicInfo.department.length === 0) errors.push('Department is required');
+        if (formData.academicInfo.department.length === 0) errors.push('Field is required');
         if (formData.academicInfo.degreeLevel.length === 0) errors.push('Degree Level is required');
         break;
       
@@ -497,7 +497,7 @@ export default function SignUpScreen({ navigation }: any) {
       if (result.success && result.user) {
         Alert.alert(
           'Welcome to ProHub! 🎉',
-          `Account created successfully for ${result.user.personalInfo.firstName} ${result.user.personalInfo.lastName}!\n\nUniversity: ${result.user.academicInfo.university}\nDepartment: ${result.user.academicInfo.department}`,
+          `Account created successfully for ${result.user.personalInfo.firstName} ${result.user.personalInfo.lastName}!\n\nUniversity: ${result.user.academicInfo.university}\nField: ${result.user.academicInfo.department}`,
           [{ 
             text: 'Continue', 
             onPress: () => {
@@ -692,7 +692,7 @@ export default function SignUpScreen({ navigation }: any) {
       />
       
       <TextInput
-        label="Department"
+        label="Field"
         value={formData.academicInfo.department}
         onChangeText={(text) => setFormData(prev => ({ 
           ...prev, 
