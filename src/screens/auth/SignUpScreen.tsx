@@ -6,9 +6,14 @@ import { LinearGradient } from 'expo-linear-gradient';
 import { Ionicons } from '@expo/vector-icons';
 import MaskedView from '@react-native-masked-view/masked-view';
 import * as ImagePicker from 'expo-image-picker';
+import * as FileSystem from 'expo-file-system';
 import { useAuth } from '../../contexts/AuthContext';
 import RegistrationService from '../../services/registrationService';
 import UniversitySearchInput from '../../components/UniversitySearchInput';
+import FieldSearchInput from '../../components/FieldSearchInput';
+import DegreeLevelSearchInput from '../../components/DegreeLevelSearchInput';
+import ResearchAreaSearchInput from '../../components/ResearchAreaSearchInput';
+import LanguageSearchInput from '../../components/LanguageSearchInput';
 
 interface SignUpFormData {
   email: string;
@@ -21,12 +26,14 @@ interface SignUpFormData {
     dateOfBirth: string;
   };
   academicInfo: {
+    experience: string;
     university: string;
     department: string;
     degreeLevel: string;
     yearOfStudy: number;
     expectedGraduation: string;
     advisor: string;
+    company: string;
     researchAreas: string[];
     currentGPA: number;
     publications: number;
@@ -38,7 +45,7 @@ interface SignUpFormData {
     languages: string[];
     interests: string[];
     availability: string;
-    collaborationPreferences: string[];
+    collaborationPreferences: string;
   };
   contactInfo: {
     linkedIn: string;
@@ -46,6 +53,7 @@ interface SignUpFormData {
     orcid: string;
     googleScholar: string;
     researchGate: string;
+    website: string;
   };
   profileImage?: string;
 }
@@ -53,10 +61,9 @@ interface SignUpFormData {
 const getStepColor = (step: number): string => {
   const colors = {
     1: '#EF4444', // Red for Account Info
-    2: '#F97316', // Orange for Personal Info  
-    3: '#EAB308', // Yellow for Academic Info
-    4: '#22C55E', // Green for Profile Info
-    5: '#6366F1', // Purple for Contact Info
+    2: '#EAB308', // Yellow for Academic Info
+    3: '#22C55E', // Green for Profile Info
+    4: '#6366F1', // Purple for Links Info
   };
   return colors[step as keyof typeof colors] || '#6366F1';
 };
@@ -83,6 +90,15 @@ const generateYears = () => {
     years.push({ value: year.toString(), label: year.toString() });
   }
   return years.reverse(); // Show recent years first
+};
+
+const generateGraduationYears = () => {
+  const currentYear = new Date().getFullYear();
+  const years = [];
+  for (let year = currentYear; year <= currentYear + 15; year++) {
+    years.push({ value: year.toString(), label: year.toString() });
+  }
+  return years; // Show current year first
 };
 
 const countryCodes = [
@@ -258,6 +274,10 @@ export default function SignUpScreen({ navigation }: any) {
   const [showDatePicker, setShowDatePicker] = useState(false);
   const [selectedMonth, setSelectedMonth] = useState('');
   const [selectedYear, setSelectedYear] = useState('');
+  const [showGraduationPicker, setShowGraduationPicker] = useState(false);
+  const [selectedGradMonth, setSelectedGradMonth] = useState('');
+  const [selectedGradYear, setSelectedGradYear] = useState('');
+  const [showCollaborationDropdown, setShowCollaborationDropdown] = useState(false);
   
   const [formData, setFormData] = useState<SignUpFormData>({
     email: '',
@@ -270,12 +290,14 @@ export default function SignUpScreen({ navigation }: any) {
       dateOfBirth: '',
     },
     academicInfo: {
+      experience: 'Student',
       university: '',
       department: '',
-      degreeLevel: 'PhD',
+      degreeLevel: '',
       yearOfStudy: 1,
       expectedGraduation: '',
       advisor: '',
+      company: '',
       researchAreas: [],
       currentGPA: 0,
       publications: 0,
@@ -287,7 +309,7 @@ export default function SignUpScreen({ navigation }: any) {
       languages: [],
       interests: [],
       availability: 'Available for collaboration',
-      collaborationPreferences: [],
+      collaborationPreferences: '',
     },
     contactInfo: {
       linkedIn: '',
@@ -295,6 +317,7 @@ export default function SignUpScreen({ navigation }: any) {
       orcid: '',
       googleScholar: '',
       researchGate: '',
+      website: '',
     },
   });
 
@@ -303,7 +326,6 @@ export default function SignUpScreen({ navigation }: any) {
     skill: '',
     language: '',
     interest: '',
-    collaboration: '',
   });
 
   // Simple validation function - start with just checking if fields are not empty
@@ -340,24 +362,22 @@ export default function SignUpScreen({ navigation }: any) {
         break;
       
       case 2:
-        if (formData.personalInfo.firstName.length === 0) errors.push('First Name is required');
-        if (formData.personalInfo.lastName.length === 0) errors.push('Last Name is required');
-        if (formData.personalInfo.phone.length === 0) errors.push('Phone is required');
-        if (formData.personalInfo.dateOfBirth.length === 0) errors.push('Date of Birth is required');
-        break;
-      
-      case 3:
+        if (formData.academicInfo.experience.length === 0) errors.push('Experience is required');
         if (formData.academicInfo.university.length === 0) errors.push('University is required');
         if (formData.academicInfo.department.length === 0) errors.push('Field is required');
         if (formData.academicInfo.degreeLevel.length === 0) errors.push('Degree Level is required');
         break;
       
-      case 4:
+      case 3:
+        if (formData.personalInfo.firstName.length === 0) errors.push('First Name is required');
+        if (formData.personalInfo.lastName.length === 0) errors.push('Last Name is required');
+        if (formData.personalInfo.phone.length === 0) errors.push('Phone is required');
+        if (formData.personalInfo.dateOfBirth.length === 0) errors.push('Date of Birth is required');
         if (formData.profileInfo.bio.length === 0) errors.push('Bio is required');
         break;
       
-      case 5:
-        // No required fields
+      case 4:
+        // No required fields for Links section
         break;
     }
     
@@ -444,6 +464,141 @@ export default function SignUpScreen({ navigation }: any) {
     setShowDatePicker(true);
   };
 
+  const handleGraduationPickerConfirm = () => {
+    if (selectedGradMonth && selectedGradYear) {
+      const dateString = `${selectedGradYear}-${selectedGradMonth}`;
+      setFormData(prev => ({ 
+        ...prev, 
+        academicInfo: { ...prev.academicInfo, expectedGraduation: dateString }
+      }));
+    }
+    setShowGraduationPicker(false);
+  };
+
+  const openGraduationPicker = () => {
+    // Pre-populate with current values if they exist
+    const currentDate = formData.academicInfo.expectedGraduation;
+    if (currentDate && currentDate.includes('-')) {
+      const [year, month] = currentDate.split('-');
+      setSelectedGradYear(year);
+      setSelectedGradMonth(month);
+    }
+    setShowGraduationPicker(true);
+  };
+
+  // Function to generate and save JSON response
+  const generateUserResponseJSON = async (userData: any) => {
+    try {
+      // Create a clean JSON object with all user responses
+      const userResponse = {
+        // Basic Info
+        email: userData.email,
+        password: userData.password, // Added password field
+        
+        // Personal Information
+        personalInfo: {
+          firstName: userData.personalInfo.firstName,
+          lastName: userData.personalInfo.lastName,
+          phone: userData.contactInfo.phoneNumber, // Added phone to personalInfo as in your example
+          dateOfBirth: userData.personalInfo.dateOfBirth,
+          gender: userData.personalInfo.gender,
+          nationality: userData.personalInfo.nationality,
+        },
+        
+        // Academic Information  
+        academicInfo: {
+          university: userData.academicInfo.university,
+          department: userData.academicInfo.department,
+          degreeLevel: userData.academicInfo.degreeLevel,
+          yearOfStudy: userData.academicInfo.yearOfStudy || null, // Missing field - needs to be added to form
+          expectedGraduation: userData.academicInfo.graduationDate, // Renamed to match your example
+          advisor: userData.academicInfo.advisor || null, // Missing field - needs to be added to form
+          researchAreas: userData.academicInfo.researchAreas, // Array
+          currentGPA: userData.academicInfo.currentGPA || null, // Missing field - needs to be added to form
+          publications: userData.academicInfo.publications || null, // Missing field - needs to be added to form
+          Company: userData.academicInfo.Company || null, // Missing field - needs to be added to form
+        },
+        
+        // Profile Information
+        profileInfo: {
+          bio: userData.profileInfo.bio,
+          skills: userData.profileInfo.skills, // Array
+          languages: userData.profileInfo.languages, // Array
+          interests: userData.profileInfo.interests, // Array
+          "Open for Collaboration": userData.profileInfo.collaborationPreferences, // Renamed to match your example
+        },
+        
+        // Contact Information (restructured to match your example)
+        contactInfo: {
+          phoneNumber: userData.contactInfo.phoneNumber,
+          countryCode: userData.contactInfo.countryCode,
+          address: userData.contactInfo.address,
+          city: userData.contactInfo.city,
+          state: userData.contactInfo.state,
+          country: userData.contactInfo.country,
+          zipCode: userData.contactInfo.zipCode,
+          linkedIn: userData.contactInfo.linkedIn || null, // Missing field - needs to be added to form
+          github: userData.contactInfo.github || null, // Missing field - needs to be added to form
+          orcid: userData.contactInfo.orcid || null, // Missing field - needs to be added to form
+          googleScholar: userData.contactInfo.googleScholar || null, // Missing field - needs to be added to form
+          researchGate: userData.contactInfo.researchGate || null, // Missing field - needs to be added to form
+        },
+        
+        // Metadata
+        metadata: {
+          submissionTimestamp: new Date().toISOString(),
+          timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+        }
+      };
+
+      // Clean the email to create a safe filename
+      const cleanEmail = userData.email.replace(/[^a-zA-Z0-9@.-]/g, '_');
+      const filename = `${cleanEmail}.json`;
+      
+      // Convert to JSON string with pretty formatting
+      const jsonString = JSON.stringify(userResponse, null, 2);
+      
+      // Save to device's document directory
+      const documentsDir = FileSystem.documentDirectory;
+      const filePath = `${documentsDir}user_responses/${filename}`;
+      
+      // Create directory if it doesn't exist
+      const dirPath = `${documentsDir}user_responses/`;
+      const dirInfo = await FileSystem.getInfoAsync(dirPath);
+      if (!dirInfo.exists) {
+        await FileSystem.makeDirectoryAsync(dirPath, { intermediates: true });
+      }
+      
+      // Write the JSON file
+      await FileSystem.writeAsStringAsync(filePath, jsonString);
+      
+      console.log('✅ User response JSON saved successfully!');
+      console.log('📄 File path:', filePath);
+      console.log('📊 JSON Content:', jsonString);
+      
+      // Also log to console for debugging
+      console.log('🔍 User Response Data:', userResponse);
+      
+      // Show success message to user
+      Alert.alert(
+        'Response Saved',
+        `User response has been saved as ${filename}`,
+        [{ text: 'OK' }]
+      );
+      
+      return { success: true, filePath, data: userResponse };
+      
+    } catch (error) {
+      console.error('❌ Error saving user response JSON:', error);
+      Alert.alert(
+        'Save Error',
+        'Failed to save user response. Please try again.',
+        [{ text: 'OK' }]
+      );
+      return { success: false, error };
+    }
+  };
+
   const handleSignUp = async () => {
     if (formData.password !== formData.confirmPassword) {
       setError('Passwords do not match');
@@ -495,6 +650,10 @@ export default function SignUpScreen({ navigation }: any) {
       const result = await RegistrationService.registerUser(newUser);
       
       if (result.success && result.user) {
+        // Generate and save JSON response file
+        console.log('💾 Generating user response JSON...');
+        await generateUserResponseJSON(result.user);
+        
         Alert.alert(
           'Welcome to ProHub! 🎉',
           `Account created successfully for ${result.user.personalInfo.firstName} ${result.user.personalInfo.lastName}!\n\nUniversity: ${result.user.academicInfo.university}\nField: ${result.user.academicInfo.department}`,
@@ -567,9 +726,225 @@ export default function SignUpScreen({ navigation }: any) {
     </View>
   );
 
+
+
   const renderStep2 = () => (
     <View>
-      {/* Profile Photo Section */}
+      {/* Experience Radio Buttons */}
+      <View style={styles.radioGroupContainer}>
+        <Text style={styles.radioGroupTitle}>Experience</Text>
+        <View style={styles.radioButtonsContainer}>
+          {['Faculty', 'Student', 'Researcher', 'Professional'].map((option) => (
+            <TouchableOpacity
+              key={option}
+              style={[
+                styles.radioButton,
+                formData.academicInfo.experience === option && styles.radioButtonSelected
+              ]}
+              onPress={() => setFormData(prev => ({
+                ...prev,
+                academicInfo: { ...prev.academicInfo, experience: option }
+              }))}
+            >
+              <View style={[
+                styles.radioCircle,
+                formData.academicInfo.experience === option && styles.radioCircleSelected
+              ]}>
+                {formData.academicInfo.experience === option && (
+                  <View style={styles.radioCircleInner} />
+                )}
+              </View>
+              <Text style={[
+                styles.radioButtonText,
+                formData.academicInfo.experience === option && styles.radioButtonTextSelected
+              ]}>
+                {option}
+              </Text>
+            </TouchableOpacity>
+          ))}
+        </View>
+      </View>
+
+      <UniversitySearchInput
+        label="University"
+        placeholder="Search from 30,000+ universities worldwide..."
+        value={formData.academicInfo.university}
+        onChangeText={(text) => setFormData(prev => ({ 
+          ...prev, 
+          academicInfo: { ...prev.academicInfo, university: text }
+        }))}
+        style={styles.input}
+      />
+      
+      <FieldSearchInput
+        label="Field"
+        value={formData.academicInfo.department}
+        onChangeText={(text) => setFormData(prev => ({ 
+          ...prev, 
+          academicInfo: { ...prev.academicInfo, department: text }
+        }))}
+        style={styles.input}
+      />
+      
+      <DegreeLevelSearchInput
+        label="Degree Level"
+        value={formData.academicInfo.degreeLevel}
+        onChangeText={(text) => setFormData(prev => ({ 
+          ...prev, 
+          academicInfo: { ...prev.academicInfo, degreeLevel: text }
+        }))}
+        style={styles.input}
+      />
+
+      {/* Conditional fields based on Experience selection */}
+      {formData.academicInfo.experience === 'Student' && (
+        <View>
+          <TextInput
+            label="Year of Study"
+            value={formData.academicInfo.yearOfStudy.toString()}
+            onChangeText={(text) => setFormData(prev => ({ 
+              ...prev, 
+              academicInfo: { ...prev.academicInfo, yearOfStudy: parseInt(text) || 0 }
+            }))}
+            mode="outlined"
+            style={styles.input}
+            keyboardType="numeric"
+            theme={{ roundness: 10 }}
+          />
+          
+          <TouchableOpacity onPress={openGraduationPicker}>
+            <View style={styles.dateInputContainer}>
+              <TextInput
+                label="Expected Graduation"
+                value={formData.academicInfo.expectedGraduation ? 
+                  (() => {
+                    const [year, month] = formData.academicInfo.expectedGraduation.split('-');
+                    const monthName = months.find(m => m.value === month)?.label || month;
+                    return `${monthName} ${year}`;
+                  })() : ''
+                }
+                mode="outlined"
+                style={[styles.input, styles.dateInputField]}
+                placeholder="Select month and year"
+                theme={{ roundness: 10 }}
+                editable={false}
+              />
+              <TouchableOpacity onPress={openGraduationPicker} style={styles.gradientIconContainer}>
+                <MaskedView
+                  style={styles.gradientIconWrapper}
+                  maskElement={
+                    <View style={styles.gradientIconMask}>
+                      <Ionicons name="calendar" size={24} color="black" />
+                    </View>
+                  }
+                >
+                  <LinearGradient
+                    colors={['#FF6B6B', '#4ECDC4', '#45B7D1', '#96CEB4']}
+                    start={{ x: 0, y: 0 }}
+                    end={{ x: 1, y: 1 }}
+                    style={styles.gradientIconFill}
+                  />
+                </MaskedView>
+              </TouchableOpacity>
+            </View>
+          </TouchableOpacity>
+          
+          <TextInput
+            label="Advisor"
+            value={formData.academicInfo.advisor}
+            onChangeText={(text) => setFormData(prev => ({ 
+              ...prev, 
+              academicInfo: { ...prev.academicInfo, advisor: text }
+            }))}
+            mode="outlined"
+            style={styles.input}
+            theme={{ roundness: 10 }}
+          />
+          
+          <TextInput
+            label="Current GPA"
+            value={formData.academicInfo.currentGPA > 0 ? formData.academicInfo.currentGPA.toString() : ''}
+            onChangeText={(text) => setFormData(prev => ({ 
+              ...prev, 
+              academicInfo: { ...prev.academicInfo, currentGPA: parseFloat(text) || 0 }
+            }))}
+            mode="outlined"
+            style={styles.input}
+            keyboardType="numeric"
+            placeholder="3.85"
+            theme={{ roundness: 10 }}
+          />
+        </View>
+      )}
+
+      {(formData.academicInfo.experience === 'Researcher' || formData.academicInfo.experience === 'Professional') && (
+        <View>
+          <TextInput
+            label="Company/Organization"
+            value={formData.academicInfo.company}
+            onChangeText={(text) => setFormData(prev => ({ 
+              ...prev, 
+              academicInfo: { ...prev.academicInfo, company: text }
+            }))}
+            mode="outlined"
+            style={styles.input}
+            placeholder="Google, Microsoft, etc."
+            theme={{ roundness: 10 }}
+          />
+        </View>
+      )}
+
+      {formData.academicInfo.experience === 'Faculty' && (
+        <View>
+          <TextInput
+            label="Publications"
+            value={formData.academicInfo.publications > 0 ? `> ${formData.academicInfo.publications}` : ''}
+            onChangeText={(text) => {
+              // Remove the ">" and any spaces, then extract the number
+              const cleanText = text.replace(/^>\s*/, '');
+              const numValue = parseInt(cleanText) || 0;
+              setFormData(prev => ({ 
+                ...prev, 
+                academicInfo: { ...prev.academicInfo, publications: numValue }
+              }));
+            }}
+            mode="outlined"
+            style={styles.input}
+            keyboardType="numeric"
+            placeholder="> 15"
+            theme={{ roundness: 10 }}
+          />
+        </View>
+      )}
+
+      {/* Research Areas */}
+      <View style={styles.arrayInputContainer}>
+        <ResearchAreaSearchInput
+          label="Add Research Area"
+          value={tempInputs.researchArea}
+          onChangeText={(text) => setTempInputs(prev => ({ ...prev, researchArea: text }))}
+          selectedField={formData.academicInfo.department}
+          style={styles.arrayInput}
+          onAddResearchArea={() => addToArray('researchArea', 'academicInfo.researchAreas')}
+        />
+        <View style={styles.chipContainer}>
+          {formData.academicInfo.researchAreas.map((area, index) => (
+            <Chip
+              key={index}
+              onClose={() => removeFromArray('academicInfo.researchAreas', index)}
+              style={styles.chip}
+            >
+              {area}
+            </Chip>
+          ))}
+        </View>
+      </View>
+    </View>
+  );
+
+  const renderStep3 = () => (
+    <View>
+      {/* Profile Photo Section - moved from Personal */}
       <View style={styles.profilePhotoContainer}>
         <TouchableOpacity onPress={pickImage} style={styles.profilePhotoWrapper}>
           {profileImage ? (
@@ -674,160 +1049,7 @@ export default function SignUpScreen({ navigation }: any) {
           </TouchableOpacity>
         </View>
       </TouchableOpacity>
-    </View>
-  );
 
-  const renderStep3 = () => (
-    <View>
-      <UniversitySearchInput
-        label="University"
-        placeholder="Search from 30,000+ universities worldwide..."
-        value={formData.academicInfo.university}
-        onChangeText={(text) => setFormData(prev => ({ 
-          ...prev, 
-          academicInfo: { ...prev.academicInfo, university: text }
-        }))}
-        style={styles.input}
-        countryFilter={selectedCountry}
-      />
-      
-      <TextInput
-        label="Field"
-        value={formData.academicInfo.department}
-        onChangeText={(text) => setFormData(prev => ({ 
-          ...prev, 
-          academicInfo: { ...prev.academicInfo, department: text }
-        }))}
-        mode="outlined"
-        style={styles.input}
-        theme={{ roundness: 10 }}
-      />
-      
-      <TextInput
-        label="Degree Level"
-        value={formData.academicInfo.degreeLevel}
-        onChangeText={(text) => setFormData(prev => ({ 
-          ...prev, 
-          academicInfo: { ...prev.academicInfo, degreeLevel: text }
-        }))}
-        mode="outlined"
-        style={styles.input}
-        theme={{ roundness: 10 }}
-      />
-      
-      <TextInput
-        label="Year of Study"
-        value={formData.academicInfo.yearOfStudy.toString()}
-        onChangeText={(text) => setFormData(prev => ({ 
-          ...prev, 
-          academicInfo: { ...prev.academicInfo, yearOfStudy: parseInt(text) || 0 }
-        }))}
-        mode="outlined"
-        style={styles.input}
-        keyboardType="numeric"
-        theme={{ roundness: 10 }}
-      />
-      
-      <TextInput
-        label="Expected Graduation (YYYY-MM)"
-        value={formData.academicInfo.expectedGraduation}
-        onChangeText={(text) => setFormData(prev => ({ 
-          ...prev, 
-          academicInfo: { ...prev.academicInfo, expectedGraduation: text }
-        }))}
-        mode="outlined"
-        style={styles.input}
-        placeholder="2026-06"
-        theme={{ roundness: 10 }}
-      />
-      
-      <TextInput
-        label="Advisor"
-        value={formData.academicInfo.advisor}
-        onChangeText={(text) => setFormData(prev => ({ 
-          ...prev, 
-          academicInfo: { ...prev.academicInfo, advisor: text }
-        }))}
-        mode="outlined"
-        style={styles.input}
-        theme={{ roundness: 10 }}
-      />
-      
-      <TextInput
-        label="Current GPA"
-        value={formData.academicInfo.currentGPA > 0 ? formData.academicInfo.currentGPA.toString() : ''}
-        onChangeText={(text) => setFormData(prev => ({ 
-          ...prev, 
-          academicInfo: { ...prev.academicInfo, currentGPA: parseFloat(text) || 0 }
-        }))}
-        mode="outlined"
-        style={styles.input}
-        keyboardType="numeric"
-        placeholder="3.85"
-        theme={{ roundness: 10 }}
-      />
-      
-      <TextInput
-        label="Publications"
-        value={formData.academicInfo.publications > 0 ? formData.academicInfo.publications.toString() : ''}
-        onChangeText={(text) => setFormData(prev => ({ 
-          ...prev, 
-          academicInfo: { ...prev.academicInfo, publications: parseInt(text) || 0 }
-        }))}
-        mode="outlined"
-        style={styles.input}
-        keyboardType="numeric"
-        placeholder="5"
-        theme={{ roundness: 10 }}
-      />
-      
-      <TextInput
-        label="Conferences"
-        value={formData.academicInfo.conferences > 0 ? formData.academicInfo.conferences.toString() : ''}
-        onChangeText={(text) => setFormData(prev => ({ 
-          ...prev, 
-          academicInfo: { ...prev.academicInfo, conferences: parseInt(text) || 0 }
-        }))}
-        mode="outlined"
-        style={styles.input}
-        keyboardType="numeric"
-        placeholder="3"
-        theme={{ roundness: 10 }}
-      />
-
-      {/* Research Areas */}
-      <View style={styles.arrayInputContainer}>
-        <TextInput
-          label="Add Research Area"
-          value={tempInputs.researchArea}
-          onChangeText={(text) => setTempInputs(prev => ({ ...prev, researchArea: text }))}
-          mode="outlined"
-          style={styles.arrayInput}
-          theme={{ roundness: 10 }}
-          right={
-            <TextInput.Icon
-              icon="plus"
-              onPress={() => addToArray('researchArea', 'academicInfo.researchAreas')}
-            />
-          }
-        />
-        <View style={styles.chipContainer}>
-          {formData.academicInfo.researchAreas.map((area, index) => (
-            <Chip
-              key={index}
-              onClose={() => removeFromArray('academicInfo.researchAreas', index)}
-              style={styles.chip}
-            >
-              {area}
-            </Chip>
-          ))}
-        </View>
-      </View>
-    </View>
-  );
-
-  const renderStep4 = () => (
-    <View>
       <TextInput
         label="Bio"
         value={formData.profileInfo.bio}
@@ -874,19 +1096,12 @@ export default function SignUpScreen({ navigation }: any) {
 
       {/* Languages */}
       <View style={styles.arrayInputContainer}>
-        <TextInput
+        <LanguageSearchInput
           label="Add Language"
           value={tempInputs.language}
           onChangeText={(text) => setTempInputs(prev => ({ ...prev, language: text }))}
-          mode="outlined"
           style={styles.arrayInput}
-          theme={{ roundness: 10 }}
-          right={
-            <TextInput.Icon
-              icon="plus"
-              onPress={() => addToArray('language', 'profileInfo.languages')}
-            />
-          }
+          onAddLanguage={() => addToArray('language', 'profileInfo.languages')}
         />
         <View style={styles.chipContainer}>
           {formData.profileInfo.languages.map((language, index) => (
@@ -931,38 +1146,75 @@ export default function SignUpScreen({ navigation }: any) {
       </View>
 
       {/* Collaboration Preferences */}
-      <View style={styles.arrayInputContainer}>
+      <View style={styles.collaborationContainer}>
         <TextInput
-          label="Add Collaboration Preference"
-          value={tempInputs.collaboration}
-          onChangeText={(text) => setTempInputs(prev => ({ ...prev, collaboration: text }))}
+          label="Open to Collaboration"
+          value={formData.profileInfo.collaborationPreferences || 'Select...'}
+          onFocus={() => setShowCollaborationDropdown(true)}
           mode="outlined"
-          style={styles.arrayInput}
+          style={styles.input}
           theme={{ roundness: 10 }}
-          placeholder="Co-authoring papers, Joint research projects, etc."
+          placeholder="Select..."
+          showSoftInputOnFocus={false}
           right={
             <TextInput.Icon
-              icon="plus"
-              onPress={() => addToArray('collaboration', 'profileInfo.collaborationPreferences')}
+              icon="chevron-down"
+              onPress={() => setShowCollaborationDropdown(!showCollaborationDropdown)}
             />
           }
         />
-        <View style={styles.chipContainer}>
-          {formData.profileInfo.collaborationPreferences.map((pref, index) => (
-            <Chip
-              key={index}
-              onClose={() => removeFromArray('profileInfo.collaborationPreferences', index)}
-              style={styles.chip}
+        
+        {/* Inline Dropdown */}
+        {showCollaborationDropdown && (
+          <View style={styles.collaborationDropdown}>
+            <View style={styles.collaborationHeader}>
+              <Text style={styles.collaborationTitle}>Open to Collaboration?</Text>
+              <TouchableOpacity 
+                onPress={() => setShowCollaborationDropdown(false)}
+                style={{ padding: 4 }}
+              >
+                <Text style={styles.collaborationCloseButton}>✕</Text>
+              </TouchableOpacity>
+            </View>
+            
+            <TouchableOpacity
+              style={styles.collaborationOption}
+              onPress={() => {
+                setFormData(prev => ({
+                  ...prev,
+                  profileInfo: {
+                    ...prev.profileInfo,
+                    collaborationPreferences: 'Yes'
+                  }
+                }));
+                setShowCollaborationDropdown(false);
+              }}
             >
-              {pref}
-            </Chip>
-          ))}
-        </View>
+              <Text style={styles.collaborationOptionText}>Yes</Text>
+            </TouchableOpacity>
+            
+            <TouchableOpacity
+              style={styles.collaborationOption}
+              onPress={() => {
+                setFormData(prev => ({
+                  ...prev,
+                  profileInfo: {
+                    ...prev.profileInfo,
+                    collaborationPreferences: 'No'
+                  }
+                }));
+                setShowCollaborationDropdown(false);
+              }}
+            >
+              <Text style={styles.collaborationOptionText}>No</Text>
+            </TouchableOpacity>
+          </View>
+        )}
       </View>
     </View>
   );
 
-  const renderStep5 = () => (
+  const renderStep4 = () => (
     <View>
       <TextInput
         label="LinkedIn URL"
@@ -1027,6 +1279,20 @@ export default function SignUpScreen({ navigation }: any) {
         autoCapitalize="none"
         theme={{ roundness: 10 }}
       />
+      
+      <TextInput
+        label="Website URL"
+        value={formData.contactInfo.website}
+        onChangeText={(text) => setFormData(prev => ({ 
+          ...prev, 
+          contactInfo: { ...prev.contactInfo, website: text }
+        }))}
+        mode="outlined"
+        style={styles.input}
+        autoCapitalize="none"
+        theme={{ roundness: 10 }}
+        placeholder="https://yourwebsite.com"
+      />
     </View>
   );
 
@@ -1038,14 +1304,14 @@ export default function SignUpScreen({ navigation }: any) {
           Join ProHub
         </Text>
         <Text variant="bodyMedium" style={styles.subtitle}>
-          Step {currentStep} of 5
+          Step {currentStep} of 4
         </Text>
       </View>
 
       {/* Progress Bar */}
       <View style={styles.progressWrapper}>
         <View style={styles.progressContainer}>
-          {[1, 2, 3, 4, 5].map((step) => (
+          {[1, 2, 3, 4].map((step) => (
             <View
               key={step}
               style={[
@@ -1062,10 +1328,9 @@ export default function SignUpScreen({ navigation }: any) {
         <View style={styles.stepLabelsContainer}>
           {[
             'Account',
-            'Personal', 
             'Academic',
             'Profile',
-            'Contact'
+            'Links'
           ].map((label, index) => (
             <Text
               key={index}
@@ -1096,7 +1361,6 @@ export default function SignUpScreen({ navigation }: any) {
       {currentStep === 2 && renderStep2()}
       {currentStep === 3 && renderStep3()}
       {currentStep === 4 && renderStep4()}
-      {currentStep === 5 && renderStep5()}
 
       {/* Navigation Buttons */}
       <View style={styles.buttonContainer}>
@@ -1113,7 +1377,7 @@ export default function SignUpScreen({ navigation }: any) {
           </Button>
         )}
         
-        {currentStep < 5 ? (
+        {currentStep < 4 ? (
           currentStep === 1 ? (
             // Account section - keep filled button style
             isStepComplete() ? (
@@ -1447,6 +1711,163 @@ export default function SignUpScreen({ navigation }: any) {
           </View>
         </View>
       </Modal>
+
+      {/* Graduation Date Picker Modal */}
+      <Modal
+        animationType="fade"
+        transparent={true}
+        visible={showGraduationPicker}
+        onRequestClose={() => setShowGraduationPicker(false)}
+      >
+        <View style={styles.modernModalOverlay}>
+          <View style={styles.modernDatePickerModal}>
+            {/* Modern Header with Gradient */}
+            <LinearGradient
+              colors={['#6366F1', '#8B5CF6', '#EC4899']}
+              start={{ x: 0, y: 0 }}
+              end={{ x: 1, y: 0 }}
+              style={styles.modernModalHeader}
+            >
+              <View style={styles.modernHeaderContent}>
+                <View style={styles.modernHeaderIconContainer}>
+                  <Ionicons name="school" size={24} color="white" />
+                </View>
+                <View style={styles.modernHeaderTextContainer}>
+                  <Text style={styles.modernModalTitle}>Expected Graduation</Text>
+                  <Text style={styles.modernModalSubtitle}>Select your graduation month and year</Text>
+                </View>
+                <TouchableOpacity 
+                  onPress={() => setShowGraduationPicker(false)}
+                  style={styles.modernCloseButton}
+                >
+                  <Ionicons name="close" size={24} color="white" />
+                </TouchableOpacity>
+              </View>
+            </LinearGradient>
+            
+            {/* Modern Picker Content */}
+            <View style={styles.modernDatePickerContent}>
+              <View style={styles.modernPickerRow}>
+                <View style={styles.modernPickerColumn}>
+                  <View style={styles.modernPickerHeader}>
+                    <Text style={styles.modernPickerLabel}>Month</Text>
+                    <View style={styles.modernPickerIndicator} />
+                  </View>
+                  <ScrollView 
+                    style={styles.modernPickerScrollView} 
+                    showsVerticalScrollIndicator={false}
+                    contentContainerStyle={styles.modernPickerScrollContent}
+                  >
+                    {months.map((month) => (
+                      <TouchableOpacity
+                        key={month.value}
+                        style={[
+                          styles.modernPickerItem,
+                          selectedGradMonth === month.value && styles.modernPickerItemSelected
+                        ]}
+                        onPress={() => setSelectedGradMonth(month.value)}
+                      >
+                        <LinearGradient
+                          colors={selectedGradMonth === month.value ? 
+                            ['#6366F1', '#8B5CF6'] : 
+                            ['transparent', 'transparent']
+                          }
+                          style={styles.modernPickerItemGradient}
+                        >
+                          <Text style={[
+                            styles.modernPickerItemText,
+                            selectedGradMonth === month.value && styles.modernPickerItemTextSelected
+                          ]}>
+                            {month.label}
+                          </Text>
+                        </LinearGradient>
+                      </TouchableOpacity>
+                    ))}
+                  </ScrollView>
+                </View>
+                
+                <View style={styles.modernPickerDivider} />
+                
+                <View style={styles.modernPickerColumn}>
+                  <View style={styles.modernPickerHeader}>
+                    <Text style={styles.modernPickerLabel}>Year</Text>
+                    <View style={styles.modernPickerIndicator} />
+                  </View>
+                  <ScrollView 
+                    style={styles.modernPickerScrollView} 
+                    showsVerticalScrollIndicator={false}
+                    contentContainerStyle={styles.modernPickerScrollContent}
+                  >
+                    {generateGraduationYears().map((year) => (
+                      <TouchableOpacity
+                        key={year.value}
+                        style={[
+                          styles.modernPickerItem,
+                          selectedGradYear === year.value && styles.modernPickerItemSelected
+                        ]}
+                        onPress={() => setSelectedGradYear(year.value)}
+                      >
+                        <LinearGradient
+                          colors={selectedGradYear === year.value ? 
+                            ['#6366F1', '#8B5CF6'] : 
+                            ['transparent', 'transparent']
+                          }
+                          style={styles.modernPickerItemGradient}
+                        >
+                          <Text style={[
+                            styles.modernPickerItemText,
+                            selectedGradYear === year.value && styles.modernPickerItemTextSelected
+                          ]}>
+                            {year.label}
+                          </Text>
+                        </LinearGradient>
+                      </TouchableOpacity>
+                    ))}
+                  </ScrollView>
+                </View>
+              </View>
+            </View>
+            
+            {/* Modern Action Buttons */}
+            <View style={styles.modernButtonContainer}>
+              <TouchableOpacity
+                onPress={() => setShowGraduationPicker(false)}
+                style={styles.modernCancelButton}
+              >
+                <Text style={styles.modernCancelButtonText}>Cancel</Text>
+              </TouchableOpacity>
+              
+              <TouchableOpacity
+                onPress={handleGraduationPickerConfirm}
+                disabled={!selectedGradMonth || !selectedGradYear}
+                style={[
+                  styles.modernConfirmButton,
+                  (!selectedGradMonth || !selectedGradYear) && styles.modernConfirmButtonDisabled
+                ]}
+              >
+                <LinearGradient
+                  colors={(!selectedGradMonth || !selectedGradYear) ? 
+                    ['#666666', '#666666'] : 
+                    ['#6366F1', '#8B5CF6', '#EC4899']
+                  }
+                  start={{ x: 0, y: 0 }}
+                  end={{ x: 1, y: 0 }}
+                  style={styles.modernConfirmButtonGradient}
+                >
+                  <Text style={styles.modernConfirmButtonText}>
+                    {selectedGradMonth && selectedGradYear ? 
+                      `Confirm ${months.find(m => m.value === selectedGradMonth)?.label} ${selectedGradYear}` : 
+                      'Select Month & Year'
+                    }
+                  </Text>
+                </LinearGradient>
+              </TouchableOpacity>
+            </View>
+          </View>
+        </View>
+      </Modal>
+
+
     </SafeAreaView>
   );
 }
@@ -1536,12 +1957,12 @@ const styles = StyleSheet.create({
     backgroundColor: '#1A1A1A',
   },
   arrayInputContainer: {
-    marginBottom: 20,
+    marginBottom: 16,
   },
   arrayInput: {
     backgroundColor: '#1A1A1A',
     height: 43,
-    marginBottom: 10,
+    marginBottom: 16,
   },
   chipContainer: {
     flexDirection: 'row',
@@ -1717,6 +2138,28 @@ const styles = StyleSheet.create({
   countryCodeInlineText: {
     color: '#FFFFFF',
     fontSize: 13,
+    fontWeight: '500',
+  },
+  optionButton: {
+    padding: 16,
+    alignItems: 'center',
+    borderBottomWidth: 1,
+    borderBottomColor: '#333333',
+  },
+  optionText: {
+    color: '#FFFFFF',
+    fontSize: 16,
+    fontWeight: '500',
+  },
+  cancelButton: {
+    borderBottomWidth: 0,
+    backgroundColor: '#333333',
+    marginTop: 8,
+    borderRadius: 8,
+  },
+  cancelText: {
+    color: '#999999',
+    fontSize: 16,
     fontWeight: '500',
   },
   datePickerModalContent: {
@@ -1979,5 +2422,115 @@ const styles = StyleSheet.create({
     color: '#FFFFFF',
     fontSize: 12,
     fontWeight: '700',
+  },
+  radioGroupContainer: {
+    marginBottom: 20,
+  },
+  radioGroupTitle: {
+    color: '#FFFFFF',
+    fontSize: 16,
+    fontWeight: '600',
+    marginBottom: 12,
+  },
+  radioButtonsContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    gap: 8,
+  },
+  radioButton: {
+    flex: 1,
+    flexDirection: 'column',
+    alignItems: 'center',
+    paddingVertical: 10,
+    paddingHorizontal: 12,
+    borderRadius: 12,
+    borderWidth: 1,
+    borderColor: '#333333',
+    backgroundColor: '#1A1A1A',
+  },
+  radioButtonSelected: {
+    borderColor: '#6366F1',
+    backgroundColor: 'rgba(99, 102, 241, 0.1)',
+  },
+  radioCircle: {
+    width: 20,
+    height: 20,
+    borderRadius: 10,
+    borderWidth: 2,
+    borderColor: '#666666',
+    marginBottom: 8,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  radioCircleSelected: {
+    borderColor: '#6366F1',
+  },
+  radioCircleInner: {
+    width: 10,
+    height: 10,
+    borderRadius: 5,
+    backgroundColor: '#6366F1',
+  },
+  radioButtonText: {
+    color: '#CCCCCC',
+    fontSize: 11,
+    fontWeight: '400',
+    textAlign: 'center',
+  },
+  radioButtonTextSelected: {
+    color: '#FFFFFF',
+    fontWeight: '400',
+  },
+  collaborationContainer: {
+    position: 'relative',
+    zIndex: 2000,
+    marginBottom: 16,
+  },
+  collaborationDropdown: {
+    position: 'absolute',
+    top: 45,
+    left: 0,
+    right: 0,
+    backgroundColor: '#1A1A1A',
+    borderRadius: 8,
+    borderWidth: 1,
+    borderColor: '#333333',
+    zIndex: 2000,
+    elevation: 10,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+  },
+  collaborationHeader: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingHorizontal: 12,
+    paddingVertical: 8,
+    borderBottomWidth: 1,
+    borderBottomColor: '#333333',
+    backgroundColor: '#222222',
+  },
+  collaborationTitle: {
+    color: '#FFFFFF',
+    fontSize: 14,
+    fontWeight: '600',
+  },
+  collaborationCloseButton: {
+    color: '#6366F1',
+    fontSize: 16,
+    fontWeight: 'bold',
+  },
+  collaborationOption: {
+    paddingHorizontal: 12,
+    paddingVertical: 12,
+    borderBottomWidth: 1,
+    borderBottomColor: '#2A2A2A',
+  },
+  collaborationOptionText: {
+    color: '#FFFFFF',
+    fontSize: 14,
+    fontWeight: '500',
   },
 });

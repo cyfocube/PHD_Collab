@@ -10,153 +10,36 @@ import {
 import { TextInput, Text } from 'react-native-paper';
 import { Ionicons } from '@expo/vector-icons';
 
-interface University {
-  number: number;
-  country: string;
-  school: string;
+interface FieldCategory {
+  id: number;
+  category: string;
+  fields: string[];
 }
 
-// Mapping from phone country codes to university database country names
-const countryMapping: { [key: string]: string[] } = {
-  'United States': ['United States'],
-  'United Kingdom': ['United Kingdom', 'England', 'Scotland', 'Wales', 'Northern Ireland'],
-  'Canada': ['Canada'],
-  'Australia': ['Australia'],
-  'Germany': ['Germany'],
-  'France': ['France'],
-  'Italy': ['Italy'],
-  'Spain': ['Spain'],
-  'Netherlands': ['Netherlands'],
-  'Switzerland': ['Switzerland'],
-  'Austria': ['Austria'],
-  'Belgium': ['Belgium'],
-  'Denmark': ['Denmark'],
-  'Sweden': ['Sweden'],
-  'Norway': ['Norway'],
-  'Finland': ['Finland'],
-  'Poland': ['Poland'],
-  'Czech Republic': ['Czech Republic'],
-  'Hungary': ['Hungary'],
-  'Portugal': ['Portugal'],
-  'Greece': ['Greece'],
-  'Russia': ['Russia'],
-  'Ukraine': ['Ukraine'],
-  'Ireland': ['Ireland'],
-  'China': ['China'],
-  'Japan': ['Japan'],
-  'South Korea': ['South Korea'],
-  'India': ['India'],
-  'Pakistan': ['Pakistan'],
-  'Bangladesh': ['Bangladesh'],
-  'Sri Lanka': ['Sri Lanka'],
-  'Myanmar': ['Myanmar'],
-  'Thailand': ['Thailand'],
-  'Vietnam': ['Vietnam'],
-  'Malaysia': ['Malaysia'],
-  'Singapore': ['Singapore'],
-  'Indonesia': ['Indonesia'],
-  'Philippines': ['Philippines'],
-  'Hong Kong': ['Hong Kong'],
-  'Taiwan': ['Taiwan'],
-  'Macau': ['Macau'],
-  'Mongolia': ['Mongolia'],
-  'Kazakhstan': ['Kazakhstan'],
-  'Uzbekistan': ['Uzbekistan'],
-  'Kyrgyzstan': ['Kyrgyzstan'],
-  'Tajikistan': ['Tajikistan'],
-  'Turkmenistan': ['Turkmenistan'],
-  'Azerbaijan': ['Azerbaijan'],
-  'Georgia': ['Georgia'],
-  'Armenia': ['Armenia'],
-  'UAE': ['United Arab Emirates', 'UAE'],
-  'Saudi Arabia': ['Saudi Arabia'],
-  'Israel': ['Israel'],
-  'Turkey': ['Turkey'],
-  'Iran': ['Iran'],
-  'Iraq': ['Iraq'],
-  'Jordan': ['Jordan'],
-  'Lebanon': ['Lebanon'],
-  'Syria': ['Syria'],
-  'Kuwait': ['Kuwait'],
-  'Oman': ['Oman'],
-  'Bahrain': ['Bahrain'],
-  'Qatar': ['Qatar'],
-  'Yemen': ['Yemen'],
-  'Nigeria': ['Nigeria'],
-  'South Africa': ['South Africa'],
-  'Egypt': ['Egypt'],
-  'Morocco': ['Morocco'],
-  'Tunisia': ['Tunisia'],
-  'Algeria': ['Algeria'],
-  'Libya': ['Libya'],
-  'Sudan': ['Sudan'],
-  'Ethiopia': ['Ethiopia'],
-  'Kenya': ['Kenya'],
-  'Tanzania': ['Tanzania'],
-  'Uganda': ['Uganda'],
-  'Rwanda': ['Rwanda'],
-  'Ghana': ['Ghana'],
-  'Ivory Coast': ['Ivory Coast', 'Côte d\'Ivoire'],
-  'Senegal': ['Senegal'],
-  'Mali': ['Mali'],
-  'Burkina Faso': ['Burkina Faso'],
-  'Niger': ['Niger'],
-  'Benin': ['Benin'],
-  'Togo': ['Togo'],
-  'Gambia': ['Gambia'],
-  'Guinea': ['Guinea'],
-  'Guinea-Bissau': ['Guinea-Bissau'],
-  'Cape Verde': ['Cape Verde'],
-  'Sierra Leone': ['Sierra Leone'],
-  'Liberia': ['Liberia'],
-  'Zambia': ['Zambia'],
-  'Zimbabwe': ['Zimbabwe'],
-  'Malawi': ['Malawi'],
-  'Mozambique': ['Mozambique'],
-  'Namibia': ['Namibia'],
-  'Botswana': ['Botswana'],
-  'Eswatini': ['Eswatini', 'Swaziland'],
-  'Lesotho': ['Lesotho'],
-  'Brazil': ['Brazil'],
-  'Argentina': ['Argentina'],
-  'Chile': ['Chile'],
-  'Colombia': ['Colombia'],
-  'Peru': ['Peru'],
-  'Venezuela': ['Venezuela'],
-  'Ecuador': ['Ecuador'],
-  'Paraguay': ['Paraguay'],
-  'Uruguay': ['Uruguay'],
-  'Bolivia': ['Bolivia'],
-  'Guyana': ['Guyana'],
-  'Suriname': ['Suriname'],
-  'New Zealand': ['New Zealand'],
-  'Fiji': ['Fiji'],
-  'Samoa': ['Samoa'],
-  'Tonga': ['Tonga'],
-  'Vanuatu': ['Vanuatu'],
-  'Mexico': ['Mexico'],
-};
+interface FlatField {
+  field: string;
+  category: string;
+}
 
-interface UniversitySearchInputProps {
+interface FieldSearchInputProps {
   value: string;
   onChangeText: (text: string) => void;
   label?: string;
   placeholder?: string;
   style?: any;
-  countryFilter?: string; // Country to filter universities by
 }
 
-const UniversitySearchInput: React.FC<UniversitySearchInputProps> = ({
+const FieldSearchInput: React.FC<FieldSearchInputProps> = ({
   value,
   onChangeText,
-  label = "University",
-  placeholder = "Search for your university...",
+  label = "Field",
+  placeholder = "Search",
   style,
-  countryFilter,
 }) => {
   const [searchText, setSearchText] = useState(value);
-  const [universities, setUniversities] = useState<University[]>([]);
-  const [filteredUniversities, setFilteredUniversities] = useState<University[]>([]);
+  const [fieldCategories, setFieldCategories] = useState<FieldCategory[]>([]);
+  const [flatFields, setFlatFields] = useState<FlatField[]>([]);
+  const [filteredFields, setFilteredFields] = useState<FlatField[]>([]);
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [loading, setLoading] = useState(false);
   const [isDataLoaded, setIsDataLoaded] = useState(false);
@@ -164,14 +47,14 @@ const UniversitySearchInput: React.FC<UniversitySearchInputProps> = ({
   const debounceRef = useRef<NodeJS.Timeout | null>(null);
   const isSelectingRef = useRef(false);
 
-  // Load universities data from GitHub
-  const loadUniversities = async () => {
+  // Load academic fields data from GitHub
+  const loadFields = async () => {
     if (isDataLoaded) return;
     
     setLoading(true);
     try {
       const response = await fetch(
-        'https://raw.githubusercontent.com/cyfocube/PHD_Collab/main/database/Schools/global_universities.json',
+        'https://raw.githubusercontent.com/cyfocube/PHD_Collab/main/database/Fields/academic_fields.json',
         {
           headers: {
             'Cache-Control': 'no-cache',
@@ -183,15 +66,29 @@ const UniversitySearchInput: React.FC<UniversitySearchInputProps> = ({
         throw new Error(`HTTP error! status: ${response.status}`);
       }
       
-      const data: University[] = await response.json();
-      console.log(`📚 Loaded ${data.length} universities from database`);
-      setUniversities(data);
+      const data: FieldCategory[] = await response.json();
+      console.log(`📚 Loaded ${data.length} field categories from database`);
+      
+      // Flatten the categories into individual fields
+      const flattenedFields: FlatField[] = [];
+      data.forEach(category => {
+        category.fields.forEach(field => {
+          flattenedFields.push({
+            field: field,
+            category: category.category
+          });
+        });
+      });
+      
+      console.log(`🔄 Flattened into ${flattenedFields.length} individual fields`);
+      setFieldCategories(data);
+      setFlatFields(flattenedFields);
       setIsDataLoaded(true);
     } catch (error) {
-      console.error('Error loading universities:', error);
+      console.error('Error loading academic fields:', error);
       Alert.alert(
         'Database Error',
-        'Failed to load universities database. Please check your internet connection and try again.',
+        'Failed to load academic fields database. Please check your internet connection and try again.',
         [{ text: 'OK' }]
       );
     } finally {
@@ -199,75 +96,63 @@ const UniversitySearchInput: React.FC<UniversitySearchInputProps> = ({
     }
   };
 
-  // Filter universities based on search text
-  const filterUniversities = (text: string) => {
+  // Filter fields based on search text
+  const filterFields = (text: string) => {
     if (!text.trim() || text.length < 2) {
-      setFilteredUniversities([]);
+      setFilteredFields([]);
       return;
     }
 
     const searchLower = text.toLowerCase().trim();
     const searchWords = searchLower.split(' ').filter(word => word.length > 0);
     
-    // First filter by country if countryFilter is provided
-    let universityPool = universities;
-    if (countryFilter) {
-      const mappedCountries = countryMapping[countryFilter] || [countryFilter];
-      universityPool = universities.filter(uni => 
-        mappedCountries.some(country => 
-          uni.country.toLowerCase() === country.toLowerCase()
-        )
-      );
-      console.log(`🌍 Filtering ${universityPool.length} universities from ${countryFilter} (mapped to: ${mappedCountries.join(', ')})`);
-    }
-    
     // Use a Map to efficiently remove duplicates while filtering
-    const uniqueUniversities = new Map<string, University>();
+    const uniqueFields = new Map<string, FlatField>();
     
-    universityPool.forEach(uni => {
-      const schoolLower = uni.school.toLowerCase();
-      const countryLower = uni.country.toLowerCase();
-      const combinedText = `${schoolLower} ${countryLower}`;
+    flatFields.forEach(fieldObj => {
+      const fieldLower = fieldObj.field.toLowerCase();
+      const categoryLower = fieldObj.category.toLowerCase();
+      const combinedText = `${fieldLower} ${categoryLower}`;
       
-      // Check if all search words are present in school name or country
+      // Check if all search words are present in field name or category
       const matches = searchWords.every(word => 
-        schoolLower.includes(word) || countryLower.includes(word) || combinedText.includes(word)
+        fieldLower.includes(word) || categoryLower.includes(word) || combinedText.includes(word)
       );
       
       if (matches) {
-        // Use school name + country as unique key to prevent duplicates
-        const uniqueKey = `${schoolLower}|||${countryLower}`;
+        // Use field name as unique key to prevent duplicates
+        const uniqueKey = fieldLower;
         
         // Only add if not already present (keeps first occurrence)
-        if (!uniqueUniversities.has(uniqueKey)) {
-          uniqueUniversities.set(uniqueKey, uni);
+        if (!uniqueFields.has(uniqueKey)) {
+          uniqueFields.set(uniqueKey, fieldObj);
         }
       }
     });
     
-    const filtered = Array.from(uniqueUniversities.values())
+    const filtered = Array.from(uniqueFields.values())
       .sort((a, b) => {
         // Prioritize matches that start with the search term
-        const aSchoolLower = a.school.toLowerCase();
-        const bSchoolLower = b.school.toLowerCase();
+        const aFieldLower = a.field.toLowerCase();
+        const bFieldLower = b.field.toLowerCase();
         const firstWord = searchWords[0];
         
-        const aStartsWith = aSchoolLower.startsWith(firstWord);
-        const bStartsWith = bSchoolLower.startsWith(firstWord);
+        const aStartsWith = aFieldLower.startsWith(firstWord);
+        const bStartsWith = bFieldLower.startsWith(firstWord);
         
         if (aStartsWith && !bStartsWith) return -1;
         if (!aStartsWith && bStartsWith) return 1;
         
         // Then prioritize by how early the match appears
-        const aIndex = aSchoolLower.indexOf(firstWord);
-        const bIndex = bSchoolLower.indexOf(firstWord);
+        const aIndex = aFieldLower.indexOf(firstWord);
+        const bIndex = bFieldLower.indexOf(firstWord);
         
         return aIndex - bIndex;
       })
       .slice(0, 100);
 
-    setFilteredUniversities(filtered);
-    console.log(`🔍 Found ${filtered.length} unique universities matching "${text}" (${universityPool.length} total in pool)`);
+    setFilteredFields(filtered);
+    console.log(`🔍 Found ${filtered.length} unique fields matching "${text}" (${flatFields.length} total in pool)`);
   };
 
   // Handle text input change with debouncing
@@ -282,37 +167,37 @@ const UniversitySearchInput: React.FC<UniversitySearchInputProps> = ({
     // If text is too short, hide suggestions immediately
     if (text.length < 2) {
       setShowSuggestions(false);
-      setFilteredUniversities([]);
+      setFilteredFields([]);
       return;
     }
     
     // Debounce search to avoid too many filter calls
     debounceRef.current = setTimeout(() => {
-      filterUniversities(text);
+      filterFields(text);
     }, 200); // Reduced debounce time for more responsive search
   };
 
-  // Handle university selection
-  const handleUniversitySelect = (university: University) => {
-    console.log(`🔥 University selection triggered for: ${university.school}`);
+  // Handle field selection
+  const handleFieldSelect = (fieldObj: FlatField) => {
+    console.log(`🔥 Field selection triggered for: ${fieldObj.field}`);
     isSelectingRef.current = true;
-    const universityName = university.school; // Only use school name, no country
-    setSearchText(universityName);
-    onChangeText(universityName);
+    const fieldName = fieldObj.field;
+    setSearchText(fieldName);
+    onChangeText(fieldName);
     setShowSuggestions(false);
-    setFilteredUniversities([]);
+    setFilteredFields([]);
     // Reset the selection flag after a brief delay
     setTimeout(() => {
       isSelectingRef.current = false;
     }, 100);
-    console.log(`✅ Selected university: ${universityName}`);
+    console.log(`✅ Selected field: ${fieldName}`);
   };
 
   // Handle focus
   const handleFocus = async () => {
-    await loadUniversities();
+    await loadFields();
     if (searchText.length >= 2) {
-      filterUniversities(searchText);
+      filterFields(searchText);
     }
   };
 
@@ -330,8 +215,6 @@ const UniversitySearchInput: React.FC<UniversitySearchInputProps> = ({
     }, 500);
   };
 
-
-
   // Effect to sync external value changes
   useEffect(() => {
     if (value !== searchText) {
@@ -339,25 +222,15 @@ const UniversitySearchInput: React.FC<UniversitySearchInputProps> = ({
     }
   }, [value]);
 
-  // Effect to reset search when country filter changes
-  useEffect(() => {
-    if (searchText.length >= 2) {
-      filterUniversities(searchText);
-    } else {
-      setFilteredUniversities([]);
-      setShowSuggestions(false);
-    }
-  }, [countryFilter]);
-
   // Show suggestions when filtered results are available and text input is focused
   useEffect(() => {
     // Only show suggestions if we have results and text is long enough
-    if (filteredUniversities.length > 0 && searchText.length >= 2) {
+    if (filteredFields.length > 0 && searchText.length >= 2) {
       setShowSuggestions(true);
     } else if (searchText.length < 2) {
       setShowSuggestions(false);
     }
-  }, [filteredUniversities, searchText]);
+  }, [filteredFields, searchText]);
 
   return (
     <View style={[styles.container, style]}>
@@ -369,7 +242,7 @@ const UniversitySearchInput: React.FC<UniversitySearchInputProps> = ({
           onFocus={handleFocus}
           onBlur={handleBlur}
           mode="outlined"
-          placeholder="Search"
+          placeholder={placeholder}
           style={[
             styles.textInput,
             { 
@@ -396,11 +269,11 @@ const UniversitySearchInput: React.FC<UniversitySearchInputProps> = ({
                     {searchText.length > 0 && (
                       <TouchableOpacity 
                         onPress={() => {
-                          console.log('🗑️ Clearing university field');
+                          console.log('🗑️ Clearing field');
                           setSearchText('');
                           onChangeText('');
                           setShowSuggestions(false);
-                          setFilteredUniversities([]);
+                          setFilteredFields([]);
                           textInputRef.current?.focus();
                         }}
                         style={{ marginRight: 8 }}  // Reduced spacing between icons
@@ -411,7 +284,7 @@ const UniversitySearchInput: React.FC<UniversitySearchInputProps> = ({
                     <TouchableOpacity 
                       onPress={() => {
                         if (searchText.length >= 2) {
-                          filterUniversities(searchText);
+                          filterFields(searchText);
                           setShowSuggestions(true);
                         }
                       }}
@@ -437,13 +310,13 @@ const UniversitySearchInput: React.FC<UniversitySearchInputProps> = ({
         <View style={styles.suggestionsContainer}>
           <View style={styles.suggestionsHeader}>
             <Text style={styles.suggestionsTitle}>
-              {countryFilter ? `${countryFilter} Universities (${filteredUniversities.length})` : `Universities (${filteredUniversities.length} found)`}
+              Academic Fields ({filteredFields.length} found)
             </Text>
             <TouchableOpacity 
               onPress={() => {
-                console.log('🚫 Manually closing suggestions');
+                console.log('🚫 Manually closing field suggestions');
                 setShowSuggestions(false);
-                setFilteredUniversities([]);
+                setFilteredFields([]);
               }}
               style={{ padding: 4, alignItems: 'center', justifyContent: 'center' }}
             >
@@ -462,26 +335,26 @@ const UniversitySearchInput: React.FC<UniversitySearchInputProps> = ({
             indicatorStyle="white"
             scrollIndicatorInsets={{ right: 1 }}
           >
-            {filteredUniversities.length > 0 ? (
-              filteredUniversities.map((item) => (
+            {filteredFields.length > 0 ? (
+              filteredFields.map((item, index) => (
                 <TouchableOpacity
-                  key={`${item.number}-${item.school}`}
+                  key={`${item.field}-${index}`}
                   style={styles.suggestionItem}
                   onPress={() => {
-                    console.log(`🎯 TouchableOpacity pressed for: ${item.school}`);
-                    handleUniversitySelect(item);
+                    console.log(`🎯 TouchableOpacity pressed for: ${item.field}`);
+                    handleFieldSelect(item);
                   }}
                   activeOpacity={0.7}
                   delayPressIn={100}
                   delayPressOut={100}
                 >
                   <View style={styles.suggestionContent}>
-                    <Text style={styles.universityName} numberOfLines={1}>
-                      {item.school}
+                    <Text style={styles.fieldName} numberOfLines={1}>
+                      {item.field}
                     </Text>
                   </View>
                   <View style={styles.suggestionIcon}>
-                    <Ionicons name="school-outline" size={16} color="#6366F1" />
+                    <Ionicons name="library-outline" size={16} color="#6366F1" />
                   </View>
                 </TouchableOpacity>
               ))
@@ -489,7 +362,7 @@ const UniversitySearchInput: React.FC<UniversitySearchInputProps> = ({
               <View style={styles.emptyContainer}>
                 <Ionicons name="search-outline" size={32} color="#666666" />
                 <Text style={styles.emptyText}>
-                  {loading ? 'Loading universities...' : 'No universities found'}
+                  {loading ? 'Loading academic fields...' : 'No fields found'}
                 </Text>
                 <Text style={styles.emptySubtext}>
                   {loading ? 'Please wait...' : 'Continue typing to refine search'}
@@ -506,7 +379,7 @@ const UniversitySearchInput: React.FC<UniversitySearchInputProps> = ({
 const styles = StyleSheet.create({
   container: {
     position: 'relative',
-    zIndex: 3000,
+    zIndex: 2000,
   },
   textInput: {
     backgroundColor: '#1A1A1A',
@@ -522,8 +395,8 @@ const styles = StyleSheet.create({
     maxHeight: 250,
     borderWidth: 1,
     borderColor: '#333333',
-    zIndex: 3000,
-    elevation: 10,
+    zIndex: 2000,
+    elevation: 8,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.25,
@@ -563,7 +436,7 @@ const styles = StyleSheet.create({
     flex: 1,
     marginRight: 8,
   },
-  universityName: {
+  fieldName: {
     color: '#FFFFFF',
     fontSize: 13,
     fontWeight: '500',
@@ -571,7 +444,6 @@ const styles = StyleSheet.create({
   },
   suggestionIcon: {
     padding: 2,
-    //marginRight: 12,
   },
   emptyContainer: {
     alignItems: 'center',
@@ -594,4 +466,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default UniversitySearchInput;
+export default FieldSearchInput;
