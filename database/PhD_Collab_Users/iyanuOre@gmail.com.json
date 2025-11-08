@@ -1,0 +1,58 @@
+{
+  "email": "iyanuOre@gmail.com",
+  "password": "password",
+  "personalInfo": {
+    "firstName": "Oreolu",
+    "lastName": "Ajaji",
+    "phone": "245046100",
+    "dateOfBirth": "2005-03",
+    "gender": "Male",
+    "nationality": "United States",
+    "state": "Texas",
+    "city": "Royce Cty"
+  },
+  "academicInfo": {
+    "experience": "Student",
+    "university": "University of Lagos",
+    "department": "Microbiology",
+    "degreeLevel": "PhD",
+    "yearOfStudy": 2,
+    "advisor": "Mukti",
+    "researchAreas": [
+      "Marine Biology and Oceanography",
+      "Ecology and Environmental Biology"
+    ],
+    "currentGPA": 3,
+    "publications": null,
+    "company": null
+  },
+  "profileInfo": {
+    "bio": "The First user",
+    "skills": [
+      "Python"
+    ],
+    "languages": [],
+    "interests": [
+      "Swimming"
+    ],
+    "Open for Collaboration": "Yes"
+  },
+  "contactInfo": {
+    "phoneNumber": "245046100",
+    "countryCode": "+1",
+    "address": "",
+    "city": "Royce Cty",
+    "state": "Texas",
+    "country": "United States",
+    "zipCode": "",
+    "linkedIn": "Unilag.edu",
+    "github": "Unilag.edu",
+    "orcid": "Unilag.edu",
+    "googleScholar": "Unilag.edu",
+    "researchGate": "Unilag.edu"
+  },
+  "metadata": {
+    "submissionTimestamp": "2025-11-08T02:48:11.388Z",
+    "timezone": "America/Chicago"
+  }
+}
