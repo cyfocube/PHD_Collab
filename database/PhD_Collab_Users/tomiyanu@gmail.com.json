@@ -1,0 +1,55 @@
+{
+  "email": "tomiyanu@gmail.com",
+  "password": "password",
+  "personalInfo": {
+    "firstName": "anna",
+    "lastName": "nana",
+    "phone": "9461",
+    "dateOfBirth": "2005-03",
+    "gender": "Male",
+    "nationality": "United States",
+    "state": "",
+    "city": "Akan"
+  },
+  "academicInfo": {
+    "experience": "Student",
+    "university": "Obafemi Awolowo University",
+    "department": "Statistics",
+    "degreeLevel": "High School Diploma",
+    "yearOfStudy": 4,
+    "advisor": "Ahah",
+    "researchAreas": [],
+    "currentGPA": 3,
+    "publications": null,
+    "company": null
+  },
+  "profileInfo": {
+    "bio": "Shaka",
+    "skills": [
+      "Aja"
+    ],
+    "languages": [],
+    "interests": [
+      "Hunst"
+    ],
+    "Open for Collaboration": "Yes"
+  },
+  "contactInfo": {
+    "phoneNumber": "9461",
+    "countryCode": "+1",
+    "address": "",
+    "city": "Akan",
+    "state": "",
+    "country": "United States",
+    "zipCode": "",
+    "linkedIn": "ahah",
+    "github": "ha",
+    "orcid": "Anna",
+    "googleScholar": "anna",
+    "researchGate": "anja"
+  },
+  "metadata": {
+    "submissionTimestamp": "2025-11-08T02:27:12.337Z",
+    "timezone": "America/Chicago"
+  }
+}
